@@ -1,17 +1,17 @@
 import React, { useState, useEffect} from 'react';
 
-interface postJoinReq {
-  id: string;
-  verifyCodeId: number;
-  password: string;
-  nickname: string;
-  bDay: number;
-}
+// interface postJoinReq {
+//   id: string;
+//   verifyCodeId: number;
+//   password: string;
+//   nickname: string;
+//   bDay: number;
+// }
 
-interface postJoinRes {
-  accessToken: string;  //로컬스토리지
-  refreshToken: string;  //쿠키
-}
+// interface postJoinRes {
+//   accessToken: string;  //로컬스토리지
+//   refreshToken: string;  //쿠키
+// }
 
 export const Join: React.FC = () => {
   const [password, setPassword] = useState('');
@@ -31,15 +31,15 @@ export const Join: React.FC = () => {
   //   setPasswordMatch(match);
   // };
 
-  const onJoin = async () => {
-    const joinReq: postJoinReq = {
-      id: email,
-      verifyCodeId: code,
-      password: password,
-      nickname: nickname,
-      bDay: birthday
-    }
-  }
+  // const onJoin = async () => {
+  //   const joinReq: postJoinReq = {
+  //     id: email,
+  //     verifyCodeId: code,
+  //     password: password,
+  //     nickname: nickname,
+  //     bDay: birthday
+  //   }
+  // }
 
   useEffect(() => {
     const match = password === confirmedPassword;
