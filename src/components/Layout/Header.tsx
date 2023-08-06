@@ -1,51 +1,54 @@
+import styled from "styled-components";
+
 const Header = () => {
     return (
         <header>
-            <div 
-                style = {{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    width: "100%",
-                    height: "100%",
-                }}
-            >
-                <img
-                    style={{ width: "214px", height: "40px", margin: "30px"}}
-                    alt="Logo_IMG"
-                    src="./img/header/logo.svg"
-                />
-            </div>
+            <Container>
+                <Logo src="./img/header/logo.svg"/>
+                <Input />
+                <SearchIcon src="./img/header/searchIcon.svg"/>
+                <Menu src="./img/header/menu.svg"/>
+            </Container>
         </header>
     )
 }
 
-// const Logo = styled.div`
-//     background-image: url('./img/header/logo.svg');
-//     background-repeat: no-repeat;
-//     position: absolute;
-//     top: 5%;
-//     left: 2%;
-//     width: 214px;
-//     height: 40px;
-// `;
+const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+`;
 
-// const Input = styled.div`
-//     background-image: url('./img/header/input.svg');
-//     position: absolute;
-//     top: 6%;
-//     left: 33%;
-//     width: 520px;
-//     height: 41px;
-// `;
+const Logo = styled.img`
+    margin: 30px;
+    width: 214px;
+    height: 40px;
+    display: flex;
+`;
 
-// const SearchIcon = styled.div`
-//     background-image: url('./img/header/searchIcon.svg');
-//     position: absolute;
-//     top: 6.5%;
-//     left: 73%;
-//     width: 40px;
-//     height: 38px;
-// `;
+const Input = styled.input`
+    display: flex;
+    text-align: center;
+    border: 1px solid #3C87BD;
+    border-radius: 25px;
+    outline: none;
+    width: 520px;
+    height: 41px;
+    margin: 30px 0px 0px 100px;
+`;
+
+
+const SearchIcon = styled.img`
+    width: 40px;
+    height: 38px;
+    margin: 30px;
+`;
+
+const Menu = styled.img`
+    width: 33px;
+    height: 19px;
+    margin: 40px 0px 0px 170px;
+`;
 
 export default Header
