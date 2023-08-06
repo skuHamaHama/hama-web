@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "nanum";
+  src: url("../assets/fonts/NanumBarunGothic.ttf");
+}
+@font-face {
+  font-family: "nanum";
+  src: url("../assets/fonts/NanumBarunGothicBold.ttf");
+}
+@font-face {
+  font-family: "nanum";
+  src: url("../assets/fonts/NanumBarunGothicLight.ttf");
+}
+@font-face {
+  font-family: "nanum";
+  src: url("../assets/fonts/NanumBarunGothicUltraLight.ttf");
+}
+
+:root {
+  font-family: "nanum", Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
