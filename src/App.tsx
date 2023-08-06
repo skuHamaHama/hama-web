@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import * as Screen from "./screens/index";
 // import "./App.css";
-import Layout from './components/Layout/Layout'
+// import Layout from './components/Layout/Layout'
 
 function App() {
   const router = createBrowserRouter([
@@ -17,10 +17,10 @@ function App() {
       path: "/join",
       element: <Screen.Join />,
     },
-    {
-      path: "/layout",
-      element: <Layout/>,
-    },
+    // {
+    //   path: "/layout",
+    //   element: <Layout/>,
+    // },
   ]);
 
   return <RouterProvider router={router} />;

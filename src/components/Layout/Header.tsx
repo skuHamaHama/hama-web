@@ -2,7 +2,12 @@ import styled from "styled-components";
 
 const Header = () => {
     return (
-        <header>
+        <header 
+            style={{
+                top: "0", 
+                left: "0", 
+                width: "100%",
+                position: "fixed"}}>
             <Container>
                 <Logo src="./img/header/logo.svg"/>
                 <Input />
@@ -18,6 +23,7 @@ const Container = styled.div`
     flex-direction: row;
     width: 100%;
     height: 100%;
+    background-color: white;
 `;
 
 const Logo = styled.img`
@@ -48,7 +54,7 @@ const SearchIcon = styled.img`
 const Menu = styled.img`
     width: 33px;
     height: 19px;
-    margin: 40px 0px 0px 170px;
+    margin: 40px 0px 0px 300px;
 `;
 
 export default Header

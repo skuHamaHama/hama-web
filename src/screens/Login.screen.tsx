@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import Layout from "../components/Layout/Layout";
 
 interface postLoginReq {
   id: string;
@@ -40,6 +41,7 @@ export function Login() {
   };
 
   return (
+    <Layout>
     <div
       style={{
         display: "flex",
@@ -190,5 +192,6 @@ export function Login() {
         />
       </div>
     </div>
+    </Layout>
   );
 }
