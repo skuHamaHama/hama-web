@@ -1,4 +1,4 @@
-import styled from "styled-components"
+// import styled from "styled-components"
 import Footer from "./Footer"
 import Header from "./Header"
 
@@ -8,19 +8,21 @@ const Layout = (props: {
 }) => {
     return (
         <div style={{
-            paddingTop: "80px"
+            paddingTop: "120px"
         }}>
             <Header/>
-            <Main>
+            <main style={{
+                minHeight: "calc(100vh - 200px)"
+            }}>
                 {props.children}
-            </Main>
+            </main>
             <Footer/>
         </div>
     )
 }
 
-const Main = styled.main`
-    min-height: clac(100vh-180px);
-`;
+// const Main = styled.main`
+//     min-height: clac(100vh-180px);
+// `;
 
 export default Layout
