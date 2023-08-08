@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import Layout from "../components/Layout/Layout";
+import Layout from "../components/common/Layout";
 
 interface postLoginReq {
   id: string;
