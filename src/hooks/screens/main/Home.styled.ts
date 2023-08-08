@@ -11,17 +11,18 @@ export const Bg = styled.div`
     width: 1366px;
     height: 832px;
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    // justify-content: center; 
+    // align-items: center; 
 `;
 
 export const Container = styled.div`
+    position: relative;
     width: 1161px;
     height: 388px;
     // display: flex;
     // justify-content: center;
     // align-items: center; 
-    margin: auto;
+    margin: 10px auto;
 `;
 
 export const SliderImg = styled.img`
@@ -31,8 +32,11 @@ export const SliderImg = styled.img`
 `;
 
 export const PickerWrapper = styled.div`
-  display: flex;
-  margin: 5px;
+    position: absolute;
+    left: 97%;
+    top: 5%;
+    transform: translate(-97%, -5%);
+    display: flex;
 `;
 
 
@@ -48,6 +52,5 @@ export const Picker = styled.div<{ background: string }>`
 export const Promo = styled.div`
     display: flex;
     justify-content: space-around;
-    margin: 20px;
-
+    // margin: 20px;
 `;
