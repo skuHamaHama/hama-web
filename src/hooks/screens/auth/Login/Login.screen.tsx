@@ -5,7 +5,6 @@ import {
 } from "@ant-design/icons";
 import { useState } from "react";
 import { PostLoginReq } from "@services/auth";
-import styled from "styled-components";
 import * as S from "./Login.styled";
 
 export function Login() {
@@ -108,9 +107,9 @@ export function Login() {
         </div>
       </S.Find>
       <div>
-        <Icon alt="kakao_Icon.png" src="icon/kakao_Icon.png" />
-        <Icon alt="naver_Icon.png" src="icon/naver_Icon.png" />
-        <Icon alt="google_Icon.png" src="icon/google_Icon.png" />
+        <S.Icon alt="kakao_Icon.png" src="icon/kakao_Icon.png" />
+        <S.Icon alt="naver_Icon.png" src="icon/naver_Icon.png" />
+        <S.Icon alt="google_Icon.png" src="icon/google_Icon.png" />
       </div>
     </S.Container>
   );

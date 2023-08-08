@@ -12,6 +12,6 @@ export interface PostLoginRes {
   };
 }
 
-export const postLogin = createAPIService<PostLoginRes, PostLoginReq>()({
+const postLogin = createAPIService<PostLoginRes, PostLoginReq>()({
   config: { method: "POST", url: "/v3/auth/login" },
 });
