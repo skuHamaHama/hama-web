@@ -5,7 +5,6 @@ import {
 } from "@ant-design/icons";
 import { useState } from "react";
 import { PostLoginReq } from "@services/auth";
-import Layout from "../../../../components/common/Layout";
 import * as S from "./Login.styled";
 
 export function Login() {
@@ -31,7 +30,6 @@ export function Login() {
 
   return (
     <S.Container>
-      <Layout>
         <img
           style={{ width: "280px", height: "50px", marginTop: "80px" }}
           alt="Logo_IMG"
@@ -113,7 +111,6 @@ export function Login() {
           <S.Icon alt="naver_Icon.png" src="icon/naver_Icon.png" />
           <S.Icon alt="google_Icon.png" src="icon/google_Icon.png" />
         </div>
-      </Layout>
     </S.Container>
   );
 }

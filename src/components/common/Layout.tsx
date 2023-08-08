@@ -7,9 +7,11 @@ const Layout = (props: {
     children: React.ReactNode
 }) => {
     return (
-        <div style={{
-            paddingTop: "120px"
-        }}>
+        <div 
+        style={{
+            // paddingTop: "120px"
+        }}
+        >
             <Header/>
             <main style={{
                 minHeight: "calc(100vh - 150px)"

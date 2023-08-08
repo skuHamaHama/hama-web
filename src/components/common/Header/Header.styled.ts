@@ -5,7 +5,6 @@ export const Container = styled.div`
     flex-direction: row;
     width: 100%;
     height: 100%;
-    background-color: white;
 `;
 
 export const Logo = styled.img`
