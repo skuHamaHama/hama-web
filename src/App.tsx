@@ -7,6 +7,7 @@ export function App() {
     { path: "/", element: <main.Intro /> },
     { path: "/login", element: <auth.Login /> },
     { path: "/join", element: <auth.Join /> },
+    { path: "/main", element: <main.Home /> }
   ]);
 
   return <RouterProvider router={router} />;

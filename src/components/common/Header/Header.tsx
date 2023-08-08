@@ -7,7 +7,8 @@ const Header = () => {
                 top: "0", 
                 left: "0", 
                 width: "100%",
-                position: "fixed"}}>
+                // position: "fixed"
+                }}>
             <S.Container>
                 <S.Logo src="./img/header/logo.svg"/>
                 <S.Input />
