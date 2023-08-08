@@ -1,55 +1,50 @@
+import * as React from "react";
 import * as S from "./Home.styled";
 import Layout from "../../../components/common/Layout";
-import { useCallback, useEffect, useState } from "react";
-
-// const Slider = (): JSX.Element => {
-// }
 
 export function Home() {
+  const [pickers, setPicker] = React.useState<JSX.Element[]>([]);
+  const [pickIndex, setPickIndex] = React.useState<number>(0);
 
-    const [pickers, setPicker] = useState<JSX.Element[]>([]);
+  const onPickIndex = React.useCallback((idx: number): void => {
+    if (pickIndex === idx) {
+      return;
+    }
+    setPickIndex(idx);
+  }, [pickIndex]);
 
-    const [pickIndex, setPickIndex] = useState<number>(0);
-
-    const onPickIndex = useCallback((idx: number): void => {
-        if (pickIndex === idx) {
-          // 선택되어 있는 인덱스를 클릭시에는 아무것도 실행하지 않는다.
-          return;
-        }
-      
-        setPickIndex(idx);
-      }, [pickIndex]);
-      
-      useEffect(() => {
-        // 이미지의 갯수만큼 pickers JSX.Element[] 배열 state에 생성하여 넣어준다.
-        setPicker(S.Images.map((_: string, idx: number) => {
-          return (
-            <S.Picker
-              onClick={() => onPickIndex(idx)}
-              background={pickIndex === idx ? '#3C87BD' : '#B1E2FF'}
-            >
-            </S.Picker>
-          );
-        }));
-      }, [onPickIndex, pickIndex]);
-
-    return (
-        <S.Bg>
-            <Layout>
-                <S.Container>
-                    <S.SliderImg src={S.Images[pickIndex]} />
-                    {/* pickIndex라는 state 변수를 이용하여 그에 맞는 이미지 렌더링 */}
-                    
-                    <S.PickerWrapper>
-                        {pickers}
-                    </S.PickerWrapper>
-
-                </S.Container>     
-                <S.Promo>
-                    <img src="./img/home/img1.svg"/>
-                    <img src="./img/home/img2.svg"/>
-                </S.Promo>
-            </Layout>
-        </S.Bg>
+  React.useEffect(() => {
+    setPicker(
+      S.Images.map((_: string, idx: number) => (
+        <S.Picker
+          key={idx}
+          onClick={() => onPickIndex(idx)}
+          background={pickIndex === idx ? "#3C87BD" : "#B1E2FF"}
+        />
+      ))
     );
+  }, [onPickIndex, pickIndex]);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setPickIndex((prevIndex) => (prevIndex + 1) % S.Images.length);
+    }, 3000); // 3초마다 이미지 변경
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <S.Bg>
+      <Layout>
+        <S.Container>
+          <S.SliderImg src={S.Images[pickIndex]} alt="slider image" />
+          <S.PickerWrapper>{pickers}</S.PickerWrapper>
+        </S.Container>
+        <S.Promo>
+          <img src="./img/home/img1.svg" alt="promo image" />
+          <img src="./img/home/img2.svg" alt="promo image" />
+        </S.Promo>
+      </Layout>
+    </S.Bg>
+  );
 }
