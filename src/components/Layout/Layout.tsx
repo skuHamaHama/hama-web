@@ -12,7 +12,7 @@ const Layout = (props: {
         }}>
             <Header/>
             <main style={{
-                minHeight: "calc(100vh - 200px)"
+                minHeight: "calc(100vh - 150px)"
             }}>
                 {props.children}
             </main>
@@ -21,8 +21,5 @@ const Layout = (props: {
     )
 }
 
-// const Main = styled.main`
-//     min-height: clac(100vh-180px);
-// `;
 
 export default Layout
