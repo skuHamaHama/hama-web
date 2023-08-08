@@ -1,22 +1,35 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "jsx": "preserve",
-        "esModuleInterop": true,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "preserve",
+    "declaration": true, //.d.ts 생성
+    "allowJs": false,
+    "esModuleInterop": false,
 
-        "strict": true,
-        "noImplicitAny": true,
-        "strictNullChecks": true,
-        "strictFunctionTypes": true,
-        "strictPropertyInitialization": true,
-        "noImplicitThis": true,
-        "alwaysStrict": true, 
-      
-        "noUnusedLocals": true,
-        "noUnusedParameters": true, 
-        "noImplicitReturns": true, 
-        "noFallthroughCasesInSwitch": true,
-      
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "alwaysStrict": true,
+
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": "./src",
+    "paths": {
+      "@apis/*": ["./apis/*"],
+      "@assets/*": ["./assets/*"],
+      "@components/*": ["./components/*"],
+      "@constants": ["./constants"],
+      "@hooks/*": ["./hooks/*"],
+      "@screens/*": ["./screens/*"],
+      "@services/*": ["./services/*"],
+      "@styles/*": ["./styles/*"]
     }
+  }
 }
