@@ -7,12 +7,13 @@ export const Images: string[] = [
 ];
 
 export const Bg = styled.div`
-  background-image: url("./img/home/home.png");
-  width: 100%;
-  height: 100%;
-  display: flex;
-  // justify-content: center;
-  // align-items: center;
+    background-image: url('./img/home/home.png');
+    position:absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    justify-content: center; 
 `;
 
 export const Container = styled.div`
