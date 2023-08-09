@@ -1,19 +1,23 @@
 import * as React from "react";
 import * as S from "./Home.styled";
 import Layout from "../../../components/common/Layout";
+import { useState, useCallback, useEffect } from "react";
 
 export function Home() {
-  const [pickers, setPicker] = React.useState<JSX.Element[]>([]);
-  const [pickIndex, setPickIndex] = React.useState<number>(0);
+  const [pickers, setPicker] = useState<JSX.Element[]>([]);
+  const [pickIndex, setPickIndex] = useState<number>(0);
 
-  const onPickIndex = React.useCallback((idx: number): void => {
-    if (pickIndex === idx) {
-      return;
-    }
-    setPickIndex(idx);
-  }, [pickIndex]);
+  const onPickIndex = useCallback(
+    (idx: number): void => {
+      if (pickIndex === idx) {
+        return;
+      }
+      setPickIndex(idx);
+    },
+    [pickIndex]
+  );
 
-  React.useEffect(() => {
+  useEffect(() => {
     setPicker(
       S.Images.map((_: string, idx: number) => (
         <S.Picker
@@ -25,7 +29,7 @@ export function Home() {
     );
   }, [onPickIndex, pickIndex]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const timer = setInterval(() => {
       setPickIndex((prevIndex) => (prevIndex + 1) % S.Images.length);
     }, 3000); // 3초마다 이미지 변경
