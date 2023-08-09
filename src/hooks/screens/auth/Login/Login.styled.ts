@@ -13,7 +13,7 @@ export const Ticket = styled.div`
   width: 930px;
   background-image: url(./img/Ticket.png);
   background-size: cover;
-  margin-top: 57.79px;
+  margin-top: 70px;
 `;
 
 export const LoginForm = styled.div`
@@ -73,7 +73,7 @@ export const Button = styled.button`
 export const Find = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 43.94px 0 30.47px;
+  margin: 58px 0 30.47px;
   font-weight: bold;
 `;
 
