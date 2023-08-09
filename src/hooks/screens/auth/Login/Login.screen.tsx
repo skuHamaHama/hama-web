@@ -27,7 +27,7 @@ export function Login() {
   return (
     <S.Container>
       <img
-        style={{ width: "280px", height: "50px", marginTop: "110px" }}
+        style={{ width: "280px", height: "50px", marginTop: "90px" }}
         alt="Logo_IMG"
         src="img/Logo.png"
       />

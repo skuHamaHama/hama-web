@@ -9,8 +9,8 @@ export const Ticket = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 390px;
-  width: 930px;
+  height: 335px;
+  width: 800px;
   background-image: url(./img/Ticket.png);
   background-size: cover;
   margin-top: 70px;
@@ -20,16 +20,15 @@ export const LoginForm = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 10px;
-  padding-top: 59px;
+  padding-top: 50px;
 `;
 
 export const InputForm = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 618px;
-  height: 67px;
+  width: 537.44px;
+  height: 57.17px;
   border: 2px solid #3c87bd;
   border-radius: 20px;
   margin-bottom: 5px;
@@ -56,7 +55,7 @@ export const StateForm = styled.div`
 
 export const State = styled.div`
   width: 100%;
-  font-size: medium;
+  font-size: smaller;
   font-weight: bold;
 `;
 
@@ -65,15 +64,15 @@ export const Button = styled.button`
   border-radius: 7px;
   border: none;
   color: white;
-  width: 618px;
-  height: 67px;
-  font-size: 30px;
+  width: 537.44px;
+  height: 57.17px;
+  font-size: x-large;
 `;
 
 export const Find = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 58px 0 30.47px;
+  margin: 50px 0 15px;
   font-weight: bold;
 `;
 
@@ -86,5 +85,5 @@ export const Icon = styled.img`
 export const SocialIcon = styled.img`
   width: 52px;
   height: 54px;
-  margin: 5px;
+  margin: 10px;
 `;

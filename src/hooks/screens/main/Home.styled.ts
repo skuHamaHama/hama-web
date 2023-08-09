@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Images: string[] = [
-    './img/home/page1.svg',
-    './img/home/page2.svg',
-    './img/home/page3.svg'
+  "./img/home/page1.svg",
+  "./img/home/page2.svg",
+  "./img/home/page3.svg",
 ];
 
 export const Bg = styled.div`
@@ -17,29 +17,28 @@ export const Bg = styled.div`
 `;
 
 export const Container = styled.div`
-    position: relative;
-    width: 1161px;
-    height: 388px;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center; 
-    margin: 10px auto;
+  position: relative;
+  width: 1161px;
+  height: 388px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  margin: 10px auto;
 `;
 
 export const SliderImg = styled.img`
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 export const PickerWrapper = styled.div`
-    position: absolute;
-    left: 97%;
-    top: 5%;
-    transform: translate(-97%, -5%);
-    display: flex;
+  position: absolute;
+  left: 97%;
+  top: 5%;
+  transform: translate(-97%, -5%);
+  display: flex;
 `;
-
 
 export const Picker = styled.div<{ background: string }>`
   width: 12px;
@@ -51,7 +50,7 @@ export const Picker = styled.div<{ background: string }>`
 `;
 
 export const Promo = styled.div`
-    display: flex;
-    justify-content: space-around;
-    // margin: 20px;
+  display: flex;
+  justify-content: space-around;
+  // margin: 20px;
 `;
