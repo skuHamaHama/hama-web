@@ -8,11 +8,12 @@ export const Images: string[] = [
 
 export const Bg = styled.div`
     background-image: url('./img/home/home.png');
-    width: 1366px;
-    height: 832px;
+    position:absolute;
     display: flex;
-    // justify-content: center; 
-    // align-items: center; 
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    justify-content: center; 
 `;
 
 export const Container = styled.div`
