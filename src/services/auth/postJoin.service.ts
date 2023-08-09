@@ -1,6 +1,4 @@
-import { createAPIService } from "@apis/services";
-
-interface postJoinReq {
+export interface postJoinReq {
   id: string;
   password: string;
   nickname: string;

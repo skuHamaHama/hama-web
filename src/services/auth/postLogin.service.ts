@@ -1,5 +1,3 @@
-import { createAPIService } from "@apis/services";
-
 export interface PostLoginReq {
   id: string;
   password: string;
@@ -12,6 +10,6 @@ export interface PostLoginRes {
   };
 }
 
-const postLogin = createAPIService<PostLoginRes, PostLoginReq>()({
-  config: { method: "POST", url: "/v3/auth/login" },
-});
+// export const postLogin = createAPIService<PostLoginRes, PostLoginReq>()({
+//   config: { method: "POST", url: "/v3/auth/login" },
+// });
