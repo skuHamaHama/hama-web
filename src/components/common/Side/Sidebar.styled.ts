@@ -5,7 +5,7 @@ z-index: 5;
 padding: 12px;
 background-color: #FFFFFF;
 height: 100%;
-width: 20%;
+width: 18%;
 right: -55%;
 top: 0;
 position: fixed;
