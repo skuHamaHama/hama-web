@@ -1,4 +1,5 @@
 import { Coupon } from "../Coupon/Coupon.screen";
+import { PlayCircleOutlined } from "@ant-design/icons";
 import * as S from "./Center.Styled";
 
 export function Center() {
@@ -21,7 +22,22 @@ export function Center() {
           ></S.Icon>
         </div>
       </S.Category>
-      <Coupon />
+      <S.BestCoupon>
+        <S.Text>인기 쿠폰</S.Text>
+        <Coupon />
+      </S.BestCoupon>
+      <S.NewCoupon>
+        <S.Text>신규 쿠폰</S.Text>
+        <S.CouponContainer></S.CouponContainer>
+      </S.NewCoupon>
+      <S.Review>
+        <S.Text>후기 글</S.Text>
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          전체보기
+        </div>
+        <S.ReviewContainer></S.ReviewContainer>
+        <PlayCircleOutlined />
+      </S.Review>
     </S.Container>
   );
 }

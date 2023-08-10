@@ -1,17 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { AppstoreOutlined, MailOutlined } from '@ant-design/icons';  // SettingOutlined
-import type { MenuProps } from 'antd';
-import { Menu } from 'antd';
-import * as S from './Sidebar.styled';
+import React, { useEffect, useRef, useState } from "react";
+import { AppstoreOutlined, SettingOutlined } from "@ant-design/icons"; // SettingOutlined
+import type { MenuProps } from "antd";
+import { Menu } from "antd";
+import * as S from "./Sidebar.styled";
 
-type MenuItem = Required<MenuProps>['items'][number];
-  
+type MenuItem = Required<MenuProps>["items"][number];
+
 function getItem(
   label: React.ReactNode,
   key: React.Key,
   icon?: React.ReactNode,
   children?: MenuItem[],
-  type?: 'group',
+  type?: "group"
 ): MenuItem {
   return {
     key,
@@ -23,14 +23,23 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem('카테고리', 'sub1', <MailOutlined />, [
-    getItem('음식', '1'),
-    getItem('쇼핑', '2'),
-    getItem('문화생활', 'sub3', null, [getItem('영화', '7'), getItem('게임', '8'), getItem('놀이공원', '9'), getItem('워터파크', '10')],),
+  getItem("카테고리", "sub1", <AppstoreOutlined />, [
+    getItem("음식", "1"),
+    getItem("쇼핑", "sub3", null, [
+      getItem("화장품", "2"),
+      getItem("신발", "3"),
+      getItem("의류", "4"),
+    ]),
+    getItem("문화생활", "sub4", null, [
+      getItem("영화", "5"),
+      getItem("게임", "6"),
+      getItem("놀이공원", "7"),
+      getItem("워터파크", "8"),
+    ]),
   ]),
-  getItem('내 정보', 'sub2', <AppstoreOutlined />, [
-    getItem('정보수정', '5'),
-    getItem('마이페이지', '6'),
+  getItem("내 정보", "sub2", <SettingOutlined />, [
+    getItem("정보수정", "9"),
+    getItem("마이페이지", "10"),
   ]),
   // getItem('Navigation Three', 'sub4', <SettingOutlined />, [
   //   getItem('Option 9', '9'),
@@ -40,14 +49,14 @@ const items: MenuItem[] = [
   // ]),
 ];
 
-const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
+const rootSubmenuKeys = ["sub1", "sub2"];
 
 function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
   const outside = useRef<any>();
 
-  const [openKeys, setOpenKeys] = useState(['sub1']);
+  const [openKeys, setOpenKeys] = useState(["sub1"]);
 
-  const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
+  const onOpenChange: MenuProps["onOpenChange"] = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
       setOpenKeys(keys);
@@ -57,24 +66,24 @@ function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handlerOutsie);
+    document.addEventListener("mousedown", handlerOutsie);
     return () => {
-      document.removeEventListener('mousedown', handlerOutsie);
+      document.removeEventListener("mousedown", handlerOutsie);
     };
   });
- 
+
   const handlerOutsie = (e: any) => {
     if (!outside.current.contains(e.target)) {
       toggleSide();
     }
   };
- 
+
   const toggleSide = () => {
     setIsOpen(false);
   };
- 
+
   return (
-    <S.SideBarWrap id="sidebar" ref={outside} className={isOpen ? 'open' : ''}>
+    <S.SideBarWrap id="sidebar" ref={outside} className={isOpen ? "open" : ""}>
       <Menu
         mode="inline"
         openKeys={openKeys}
@@ -85,5 +94,5 @@ function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
     </S.SideBarWrap>
   );
 }
- 
+
 export default Sidebar;
