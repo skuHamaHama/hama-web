@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import * as auth from "./hooks/screens/auth/index";
-import * as main from "./hooks/screens/main/index";
+import * as main from "./hooks/screens/Main/index";
 import * as coupon from "./hooks/screens/coupon/index";
 
 export function App() {
@@ -9,7 +9,7 @@ export function App() {
     { path: "/login", element: <auth.Login /> },
     { path: "/join", element: <auth.Join /> },
     { path: "/main", element: <main.Home /> },
-    { path: "/usecoupon", element: <coupon.UseCoupon /> }
+    { path: "/usecoupon", element: <coupon.UseCoupon /> },
   ]);
 
   return <RouterProvider router={router} />;
