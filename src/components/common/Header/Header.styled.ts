@@ -32,8 +32,9 @@ export const SearchIcon = styled.img`
     margin: 30px;
 `;
 
-export const Menu = styled.img`
+export const MenuBtn = styled.div`
     width: 33px;
     height: 19px;
     margin: 40px 0px 0px 300px;
 `;
+
