@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import * as S from "./Home.styled";
-import Layout from "../../../../components/common/Layout";
+import Layout from "../../../components/common/Layout";
 import { Center } from "../Center/Center.sreen";
 
 export function Home() {
@@ -23,7 +23,7 @@ export function Home() {
         <S.Picker
           key={idx}
           onClick={() => onPickIndex(idx)}
-          //background={pickIndex === idx ? "#3C87BD" : "#B1E2FF"}
+          background={pickIndex === idx ? "#3C87BD" : "#B1E2FF"}
         />
       ))
     );
@@ -49,9 +49,9 @@ export function Home() {
             <img src="./img/home/img1.svg" alt="promo image" />
             <img src="./img/home/img2.svg" alt="promo image" />
           </S.Promo>
+          <Center />
         </Layout>
       </S.Bg>
-      <Center />
     </div>
   );
 }

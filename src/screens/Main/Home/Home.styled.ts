@@ -41,12 +41,12 @@ export const PickerWrapper = styled.div`
   display: flex;
 `;
 
-export const Picker = styled.div`
+export const Picker = styled.div<{ background: string }>`
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #3c87bd;
-  margin: 0 7px;
+  background-color: ${(props) => props.background};
+  margin: 0 6px;
   cursor: pointer;
 `;
 

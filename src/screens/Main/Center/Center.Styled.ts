@@ -24,9 +24,28 @@ export const Picker = styled.div<{ pick: boolean }>`
   cursor: pointer;
 `;
 
+export const CouponContainer = styled.div`
+  background-color: #eff9ff;
+`;
+
+export const ReviewContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 export const BestCoupon = styled.div`
   margin-bottom: 88px;
 `;
+
+export const NewCoupon = styled.div`
+  display: flex;
+`;
+
+export const Review = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Coupon = styled.div`
   width: 304px;
   height: 127px;
