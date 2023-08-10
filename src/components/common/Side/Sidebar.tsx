@@ -1,38 +1,61 @@
-import React, { useEffect, useRef } from 'react';
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import React, { useEffect, useRef, useState } from 'react';
+import { AppstoreOutlined, MailOutlined } from '@ant-design/icons';  // SettingOutlined
 import type { MenuProps } from 'antd';
-import {Layout, Menu, theme } from 'antd';
+import { Menu } from 'antd';
 import * as S from './Sidebar.styled';
 
-const { Sider } = Layout;
+type MenuItem = Required<MenuProps>['items'][number];
   
-  const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
-    (icon, index) => {
-      const key = String(index + 1);
-  
-      return {
-        key: `sub${key}`,
-        icon: React.createElement(icon),
-        label: `subnav ${key}`,
-  
-        children: new Array(4).fill(null).map((_, j) => {
-          const subKey = index * 4 + j + 1;
-          return {
-            key: subKey,
-            label: `option${subKey}`,
-          };
-        }),
-      };
-    },
-  );
- 
+function getItem(
+  label: React.ReactNode,
+  key: React.Key,
+  icon?: React.ReactNode,
+  children?: MenuItem[],
+  type?: 'group',
+): MenuItem {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  } as MenuItem;
+}
+
+const items: MenuItem[] = [
+  getItem('카테고리', 'sub1', <MailOutlined />, [
+    getItem('음식', '1'),
+    getItem('쇼핑', '2'),
+    getItem('문화생활', 'sub3', null, [getItem('영화', '7'), getItem('게임', '8'), getItem('놀이공원', '9'), getItem('워터파크', '10')],),
+  ]),
+  getItem('내 정보', 'sub2', <AppstoreOutlined />, [
+    getItem('정보수정', '5'),
+    getItem('마이페이지', '6'),
+  ]),
+  // getItem('Navigation Three', 'sub4', <SettingOutlined />, [
+  //   getItem('Option 9', '9'),
+  //   getItem('Option 10', '10'),
+  //   getItem('Option 11', '11'),
+  //   getItem('Option 12', '12'),
+  // ]),
+];
+
+const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
+
 function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
   const outside = useRef<any>();
 
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
- 
+  const [openKeys, setOpenKeys] = useState(['sub1']);
+
+  const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
+    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+    if (rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
+      setOpenKeys(keys);
+    } else {
+      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+    }
+  };
+
   useEffect(() => {
     document.addEventListener('mousedown', handlerOutsie);
     return () => {
@@ -52,15 +75,13 @@ function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
  
   return (
     <S.SideBarWrap id="sidebar" ref={outside} className={isOpen ? 'open' : ''}>
-            <Sider width={200} style={{ background: colorBgContainer }}>
-            <Menu
-                mode="inline"
-                defaultSelectedKeys={['1']}
-                defaultOpenKeys={['sub1']}
-                style={{ height: '100%', borderRight: 0 }}
-                items={items2}
-            />
-            </Sider>
+      <Menu
+        mode="inline"
+        openKeys={openKeys}
+        onOpenChange={onOpenChange}
+        style={{ width: 256 }}
+        items={items}
+      />
     </S.SideBarWrap>
   );
 }

@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import * as auth from "./hooks/screens/auth/index";
-import * as main from "./hooks/screens/Main/index";
-import * as coupon from "./hooks/screens/coupon/index";
+import * as auth from "./screens/auth/index";
+import * as main from "./screens/main/index";
+import * as coupon from "./screens/coupon/index";
 
 export function App() {
   const router = createBrowserRouter([
