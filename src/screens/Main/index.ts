@@ -1,3 +1,3 @@
-export * from "./Home/Home.screen";
-export * from "./Center/Center.sreen";
+export * from "./center";
+export * from "./home";
 export * from "./Intro.screen";

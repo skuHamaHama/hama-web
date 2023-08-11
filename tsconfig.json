@@ -1,35 +1,24 @@
 {
+  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "module": "commonjs",
     "jsx": "preserve",
-    "declaration": true, //.d.ts 생성
     "allowJs": false,
     "esModuleInterop": true,
 
-    "strict": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": false,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
     "alwaysStrict": true,
-
+    "declaration": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-
-    "baseUrl": "./src",
-    "paths": {
-      "@apis/*": ["./apis/*"],
-      "@assets/*": ["./assets/*"],
-      "@components/*": ["./components/*"],
-      "@constants": ["./constants"],
-      "@hooks/*": ["./hooks/*"],
-      "@screens/*": ["./screens/*"],
-      "@services/*": ["./services/*"],
-      "@styles/*": ["./styles/*"]
-    }
+    "noFallthroughCasesInSwitch": true
   }
 }

@@ -2,10 +2,12 @@ import { DownCircleOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { PostLoginReq } from "@services/auth";
 import * as S from "./Login.styled";
+import { useNavigate } from "react-router-dom";
 
-export function Login() {
+export function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const onEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -69,7 +71,7 @@ export function Login() {
         <div
           style={{ cursor: "pointer" }}
           onClick={() => {
-            alert("비밀번호 찾기");
+            navigate("/user/help"); //user 인증
           }}
         >
           비밀번호 찾기

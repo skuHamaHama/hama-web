@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as S from "./Join.styled";
 
-export const Join: React.FC = () => {
+export const JoinScreen: React.FC = () => {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [nickname, setNickname] = useState("");

@@ -15,6 +15,12 @@ export const Category = styled.div`
   margin-bottom: 99px;
 `;
 
+export const PickerGroup = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+`;
+
 export const Picker = styled.div<{ pick: boolean }>`
   width: 12px;
   height: 12px;

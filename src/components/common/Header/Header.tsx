@@ -1,7 +1,6 @@
 import { useState } from "react";
 import * as S from "./Header.styled";
 import Sidebar from "../Side/Sidebar";
-// import Sidebar2 from "../Side/Sidebar2";
 
 const Header = () => {
   //사이드 바
