@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   height: 100%;
   padding: 79px;
 `;
@@ -18,7 +17,7 @@ export const Category = styled.div`
 export const PickerGroup = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-self: flex-end;
 `;
 
 export const Picker = styled.div<{ pick: boolean }>`
@@ -31,20 +30,30 @@ export const Picker = styled.div<{ pick: boolean }>`
 `;
 
 export const CouponContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 88px;
+`;
+
+export const bestCoupon = styled.div`
+  height: 497px;
+  width: 1264px;
+  border-radius: 34px;
+  background-color: #eff9ff;
+`;
+
+export const newCoupon = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 497px;
+  width: 1264px;
+  border-radius: 34px;
   background-color: #eff9ff;
 `;
 
 export const ReviewContainer = styled.div`
   display: flex;
   flex-direction: row;
-`;
-
-export const BestCoupon = styled.div`
-  margin-bottom: 88px;
-`;
-
-export const NewCoupon = styled.div`
-  display: flex;
 `;
 
 export const Review = styled.div`

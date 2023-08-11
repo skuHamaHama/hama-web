@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import * as S from "./Home.styled";
-import { Layout } from "../../../components/common";
+import { Layout } from "../../../components/common/Layout";
 import { Center } from "../center";
 
 export function Home() {

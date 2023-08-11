@@ -9,7 +9,6 @@ export const Images: string[] = [
 export const Bg = styled.div`
   display: flex;
   justify-content: center;
-  position: absolute;
   background-image: url("./img/home/home.png");
   background-size: cover;
   position: absolute;

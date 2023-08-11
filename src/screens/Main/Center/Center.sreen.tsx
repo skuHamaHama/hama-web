@@ -40,7 +40,7 @@ export function Center() {
           ></S.Icon>
         </div>
       </S.Category>
-      <S.BestCoupon>
+      <S.CouponContainer>
         <S.Text>인기 쿠폰</S.Text>
         <S.PickerGroup>
           <S.Picker
@@ -53,11 +53,23 @@ export function Center() {
           ></S.Picker>
         </S.PickerGroup>
         <Coupon />
-      </S.BestCoupon>
-      <S.NewCoupon>
+      </S.CouponContainer>
+      <S.CouponContainer>
         <S.Text>신규 쿠폰</S.Text>
-        <S.CouponContainer></S.CouponContainer>
-      </S.NewCoupon>
+        <S.newCoupon>
+          <S.PickerGroup>
+            <S.Picker
+              pick={pickIndex === 1}
+              onClick={() => onPickIndex(1)}
+            ></S.Picker>
+            <S.Picker
+              pick={pickIndex === 2}
+              onClick={() => onPickIndex(2)}
+            ></S.Picker>
+          </S.PickerGroup>
+          <Coupon />
+        </S.newCoupon>
+      </S.CouponContainer>
       <S.Review>
         <S.Text>후기 글</S.Text>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
