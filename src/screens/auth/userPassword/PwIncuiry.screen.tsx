@@ -1,7 +1,7 @@
 import { useState } from "react";
-import * as S from "./ChangePassword.styled";
+import * as S from "./PwIncuiry.styled";
 
-export function ChangePassword() {
+export function PsIncuryScreen() {
   const [newPW, setNewPW] = useState("");
   const [confPW, setConfPW] = useState("");
 

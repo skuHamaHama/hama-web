@@ -6,8 +6,10 @@ import * as coupon from "./screens/coupon";
 export function App() {
   const router = createBrowserRouter([
     { path: "/", element: <main.Intro /> },
-    { path: "/login", element: <auth.Login /> },
-    { path: "/join", element: <auth.Join /> },
+    { path: "/login", element: <auth.LoginScreen /> },
+    { path: "/join", element: <auth.JoinScreen /> },
+    { path: "/user/help", element: <auth.IdIncuryScreen /> },
+    { path: "/user/help/pwInquiry", element: <auth.PsIncuryScreen /> },
     { path: "/main", element: <main.Home /> },
     { path: "/usecoupon", element: <coupon.UseCoupon /> },
   ]);

@@ -7,6 +7,7 @@
     "esModuleInterop": true,
 
     "strict": true,
+    "forceConsistentCasingInFileNames": false,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
@@ -32,6 +33,5 @@
       "@styles/*": ["./styles/*"]
     }
   },
-  "include": ["src"],
   "exclude": ["node_modules"]
 }
