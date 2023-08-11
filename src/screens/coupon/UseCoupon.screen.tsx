@@ -1,5 +1,5 @@
 import * as S from "./UseCoupon.styled";
-import Layout from "../../components/common/Layout";
+import { Layout } from "../../components/common/Layout";
 import Nav from "../../components/common/Nav/Nav";
 import LeftSide from "../../components/common/Side/LeftSide";
 
