@@ -22,7 +22,7 @@ export function ChangePassword() {
       <S.Ticket>
         <S.Form>
           <S.InputForm>
-            <S.Icon alt="lock_Icon.png" src="icon/lock_Icon.png" />
+            <S.Icon alt="lockCheck_Icon.png" src="icon/lockCheck_Icon.png" />
             <S.Input placeholder="비밀번호" onChange={onNewPW} value={newPW} />
           </S.InputForm>
           <S.InputForm>

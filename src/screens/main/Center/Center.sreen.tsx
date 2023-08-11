@@ -1,7 +1,6 @@
-import { Coupon } from "../Coupon/Coupon.screen";
 import { PlayCircleOutlined } from "@ant-design/icons";
+import { Coupon } from "../coupon";
 import * as S from "./Center.Styled";
-
 export function Center() {
   return (
     <S.Container>

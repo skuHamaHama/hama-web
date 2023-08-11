@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "module": "commonjs",
     "jsx": "preserve",
-    "declaration": true, //.d.ts 생성
     "allowJs": false,
     "esModuleInterop": true,
 
@@ -14,13 +13,14 @@
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
     "alwaysStrict": true,
-
+    "declaration": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
 
     "baseUrl": "./src",
+    "typeRoots": ["./@types", "./node_modules/@types"],
     "paths": {
       "@apis/*": ["./apis/*"],
       "@assets/*": ["./assets/*"],
@@ -31,5 +31,7 @@
       "@services/*": ["./services/*"],
       "@styles/*": ["./styles/*"]
     }
-  }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

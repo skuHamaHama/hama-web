@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import * as S from "./Idincury.styled";
+import * as S from "./IdIncury.styled";
 
 export function ChangePassword() {
   const [ID, setId] = useState("");

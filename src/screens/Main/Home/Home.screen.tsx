@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import * as S from "./Home.styled";
 import Layout from "../../../components/common/Layout";
-import { Center } from "../Center/Center.sreen";
+import { Center } from "../center";
 
 export function Home() {
   const [pickers, setPicker] = useState<JSX.Element[]>([]);
