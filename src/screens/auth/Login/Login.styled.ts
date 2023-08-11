@@ -12,6 +12,7 @@ export const Ticket = styled.div`
   height: 335px;
   width: 800px;
   background-image: url(./img/Ticket.png);
+  background-position: center;
   background-size: cover;
   margin-top: 70px;
 `;
@@ -67,6 +68,7 @@ export const Button = styled.button`
   width: 537.44px;
   height: 57.17px;
   font-size: x-large;
+  cursor: pointer;
 `;
 
 export const Find = styled.div`
