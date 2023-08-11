@@ -1,14 +1,10 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
-
-export const Picker = styled.div<{ pick: boolean }>`
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: ${(props) => (props.pick ? "#3C87BD" : "#B1E2FF")};
-  margin: 0 7px;
-  cursor: pointer;
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const CouponGroup = styled.div`

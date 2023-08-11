@@ -25,7 +25,7 @@ export function Center() {
     <S.Container>
       <S.Category>
         <S.Text>카테고리</S.Text>
-        <div>
+        <S.IconGroup>
           <S.Icon
             alt="food_Icon.png"
             src="./img/main/before/food_Icon.png"
@@ -38,9 +38,9 @@ export function Center() {
             alt="shopping_Icon.png"
             src="./img/main/before/shopping_Icon.png"
           ></S.Icon>
-        </div>
+        </S.IconGroup>
       </S.Category>
-      <S.CouponContainer>
+      <S.TagContainer>
         <S.Text>인기 쿠폰</S.Text>
         <S.PickerGroup>
           <S.Picker
@@ -53,31 +53,35 @@ export function Center() {
           ></S.Picker>
         </S.PickerGroup>
         <Coupon />
-      </S.CouponContainer>
-      <S.CouponContainer>
+      </S.TagContainer>
+      <S.TagContainer>
         <S.Text>신규 쿠폰</S.Text>
-        <S.newCoupon>
-          <S.PickerGroup>
-            <S.Picker
-              pick={pickIndex === 1}
-              onClick={() => onPickIndex(1)}
-            ></S.Picker>
-            <S.Picker
-              pick={pickIndex === 2}
-              onClick={() => onPickIndex(2)}
-            ></S.Picker>
-          </S.PickerGroup>
-          <Coupon />
-        </S.newCoupon>
-      </S.CouponContainer>
-      <S.Review>
+        <S.BlueContainer>
+          <S.newCoupon>
+            <S.PickerGroup>
+              <S.Picker
+                pick={pickIndex === 1}
+                onClick={() => onPickIndex(1)}
+              ></S.Picker>
+              <S.Picker
+                pick={pickIndex === 2}
+                onClick={() => onPickIndex(2)}
+              ></S.Picker>
+            </S.PickerGroup>
+            <Coupon />
+          </S.newCoupon>
+        </S.BlueContainer>
+      </S.TagContainer>
+      <S.TagContainer>
         <S.Text>후기 글</S.Text>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           전체보기
         </div>
-        <S.ReviewContainer></S.ReviewContainer>
+        <S.ReviewContainer>
+          <Review />
+        </S.ReviewContainer>
         <PlayCircleOutlined />
-      </S.Review>
+      </S.TagContainer>
     </S.Container>
   );
 }

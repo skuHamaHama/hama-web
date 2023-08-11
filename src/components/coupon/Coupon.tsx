@@ -29,7 +29,9 @@ export function Coupon() {
       {couponData.map((group, groupIndex) => (
         <S.CouponGroup key={groupIndex}>
           {group.map((coupon: Coupon, idx: number) => (
-            <S.Coupon key={idx}>{coupon.brand}</S.Coupon>
+            <S.Coupon key={idx}>
+              <div style={{ margin: "30px" }}>{coupon.brand}</div>
+            </S.Coupon>
           ))}
         </S.CouponGroup>
       ))}
