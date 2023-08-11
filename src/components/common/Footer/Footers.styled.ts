@@ -43,7 +43,7 @@ export const Wrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 50px;
+  padding: 0px 50px;
   & ul {
     display: flex;
     flex-direction: column;

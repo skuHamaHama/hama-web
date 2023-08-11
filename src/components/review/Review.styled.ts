@@ -6,5 +6,3 @@ export const Container = styled.div`
   border-radius: 10px;
   background-color: #eff9ff;
 `;
-
-export const Describe;

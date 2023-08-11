@@ -77,9 +77,7 @@ export function Center() {
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           전체보기
         </div>
-        <S.ReviewContainer>
-          <Review />
-        </S.ReviewContainer>
+        <S.ReviewContainer></S.ReviewContainer>
         <PlayCircleOutlined />
       </S.TagContainer>
     </S.Container>

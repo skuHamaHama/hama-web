@@ -8,10 +8,10 @@ export const SideBarWrap = styled.div`
   right: -55%;
   top: 0;
   position: fixed;
-  transition: 0.5s ease;
+  transition: 1.5s ease;
   &.open {
     right: 0;
-    transition: 0.5s ease;
+    transition: 1.5s ease;
   }
 `;
 

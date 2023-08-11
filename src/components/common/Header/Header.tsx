@@ -30,7 +30,6 @@ const Header = () => {
             <S.Text>회원가입</S.Text>
           </S.Auth>
           <S.IconSet>
-            <S.Icon role="button" src="./img/header/bell.svg" />
             <S.Icon role="button" src="./img/header/fav.svg" />
             <S.Icon role="button" src="./img/header/profile.svg" />
             <S.Icon
