@@ -4,14 +4,13 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 79px;
 `;
 
 export const Category = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-top: 55px;
+  justify-content: center;
+  margin: 90px 0 0 0;
 `;
 
 export const PickerGroup = styled.div`
@@ -28,13 +27,6 @@ export const Picker = styled.div<{ pick: boolean }>`
   background-color: ${(props) => (props.pick ? "#3C87BD" : "#B1E2FF")};
   margin-left: 4px;
   cursor: pointer;
-`;
-
-export const TagContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 50px;
 `;
 
 export const bestCoupon = styled.div`
@@ -73,7 +65,7 @@ export const Coupon = styled.div`
 export const Text = styled.div`
   font-weight: bold;
   font-size: large;
-  margin: 30px 0 0 0;
+  margin: 10px 0 0 0;
 `;
 
 export const IconGroup = styled.div`

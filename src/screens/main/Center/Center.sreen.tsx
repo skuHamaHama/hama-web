@@ -40,7 +40,7 @@ export function Center() {
           ></S.Icon>
         </S.IconGroup>
       </S.Category>
-      <S.TagContainer>
+      <S.Category>
         <S.Text>인기 쿠폰</S.Text>
         <S.PickerGroup>
           <S.Picker
@@ -53,8 +53,8 @@ export function Center() {
           ></S.Picker>
         </S.PickerGroup>
         <Coupon />
-      </S.TagContainer>
-      <S.TagContainer>
+      </S.Category>
+      <S.Category>
         <S.Text>신규 쿠폰</S.Text>
         <S.BlueContainer>
           <S.newCoupon>
@@ -71,17 +71,15 @@ export function Center() {
             <Coupon />
           </S.newCoupon>
         </S.BlueContainer>
-      </S.TagContainer>
-      <S.TagContainer>
+      </S.Category>
+      <S.Category>
         <S.Text>후기 글</S.Text>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           전체보기
         </div>
-        <S.ReviewContainer>
-          <Review />
-        </S.ReviewContainer>
+        <S.ReviewContainer></S.ReviewContainer>
         <PlayCircleOutlined />
-      </S.TagContainer>
+      </S.Category>
     </S.Container>
   );
 }

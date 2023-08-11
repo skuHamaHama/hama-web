@@ -10,8 +10,8 @@ export const Ticket = styled.div`
   flex-direction: column;
   align-items: center;
   height: 335px;
-  width: 800px;
-  background-image: url(./img/Ticket.png);
+  width: 100px;
+  background-image: url(../img/SubTicket.png);
   background-size: cover;
   margin-top: 70px;
 `;

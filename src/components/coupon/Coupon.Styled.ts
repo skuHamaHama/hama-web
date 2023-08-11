@@ -16,9 +16,9 @@ export const CouponGroup = styled.div`
 export const Coupon = styled.div`
   display: flex;
   align-items: center;
-  width: 304px;
-  height: 127px;
+  width: 230px;
+  height: 100px;
   background-image: url("./img/main/Coupon.png");
   background-size: cover;
-  margin-right: 112px;
+  margin-right: 90px;
 `;

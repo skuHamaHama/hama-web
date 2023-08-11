@@ -11,6 +11,9 @@ const data: Coupon[] = [
   { brand: "나이키" },
   { brand: "이디야" },
   { brand: "베스킨라빈스" },
+  { brand: "아디다스" },
+  { brand: "투썸플레이스" },
+  { brand: "피자헛" },
 ];
 
 export function Coupon() {
