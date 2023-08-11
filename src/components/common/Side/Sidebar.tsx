@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { AppstoreOutlined, SettingOutlined } from "@ant-design/icons"; // SettingOutlined
 import type { MenuProps } from "antd";
 import { Menu } from "antd";
 import * as S from "./Sidebar.styled";
@@ -23,7 +22,7 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem("카테고리", "sub1", <AppstoreOutlined />, [
+  getItem("카테고리", "sub1", null, [
     getItem("음식", "1"),
     getItem("쇼핑", "sub3", null, [
       getItem("화장품", "2"),
@@ -37,7 +36,7 @@ const items: MenuItem[] = [
       getItem("워터파크", "8"),
     ]),
   ]),
-  getItem("내 정보", "sub2", <SettingOutlined />, [
+  getItem("내 정보", "sub2", null, [
     getItem("정보수정", "9"),
     getItem("마이페이지", "10"),
   ]),

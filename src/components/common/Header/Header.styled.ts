@@ -35,8 +35,8 @@ export const SearchBtn = styled.img`
 `;
 
 export const Icon = styled.img`
-  width: 39px;
-  height: 39px;
+  width: 25px;
+  height: 25px;
   margin-right: 20px;
   cursor: point;
 `;

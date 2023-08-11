@@ -7,8 +7,11 @@ export function UseCoupon() {
   return (
     <Layout>
       <Nav />
-      <LeftSide />
-      <S.Container></S.Container>
+      <S.Container>
+        <LeftSide />
+        <S.Coupon src="./img/usecoupon/coupon.svg" />
+        <S.Line />
+      </S.Container>
     </Layout>
   );
 }
