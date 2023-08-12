@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100%;
   width: 70%;
 `;
@@ -10,26 +11,23 @@ export const Container = styled.div`
 export const Category = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  margin: 70px 0 0 0;
+  justify-self: flex-start;
+  width: 100%;
+  margin: 50px 0 0 0;
 `;
 
-export const bestCoupon = styled.div`
-  height: 497px;
-  width: 1264px;
-  border-radius: 34px;
-  background-color: #eff9ff;
-`;
+export const CouponContainer = styled.div``;
 
 export const BlueContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 497px;
-  width: 1000px;
+  height: 550px;
+  width: 1200px;
   border-radius: 34px;
   background-color: #eff9ff;
   margin-top: 43px;
+  padding: 40px 0 40px 0;
 `;
 export const ReviewContainer = styled.div`
   display: flex;
@@ -51,6 +49,7 @@ export const Text = styled.div`
 `;
 
 export const IconGroup = styled.div`
+  width: 100%;
   margin-top: 49.15px;
 `;
 
