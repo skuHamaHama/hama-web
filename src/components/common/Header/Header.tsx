@@ -2,9 +2,9 @@ import { useState } from "react";
 import * as S from "./Header.styled";
 import Sidebar from "../Side/Sidebar";
 
-const Header = () => {
-  //사이드 바
-  const [isOpen, setIsOpen] = useState(false);
+export const Header = () => {
+  //const [accessToken, setAccessToken] = useState("");
+  const [isOpen, setIsOpen] = useState(false); //사이드 바
   const toggleSide = () => {
     setIsOpen(true);
   };
@@ -44,5 +44,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

@@ -8,9 +8,10 @@ export function App() {
     { path: "/", element: <main.Intro /> },
     { path: "/login", element: <auth.LoginScreen /> },
     { path: "/join", element: <auth.JoinScreen /> },
-    { path: "/user/help", element: <auth.IdIncuryScreen /> },
-    { path: "/user/help/pwInquiry", element: <auth.PsIncuryScreen /> },
-    { path: "/main", element: <main.Home /> },
+    { path: "/user/help", element: <auth.IdIncuryScreen /> }, //아이디 찾기
+    { path: "/user/help/pwInquiry", element: <auth.PsIncuryScreen /> }, //비밀번호 찾기
+    { path: "/user/me", element: <auth.PsIncuryScreen /> }, //마이페이지
+    { path: "/main", element: <main.MainScreen /> },
     { path: "/usecoupon", element: <coupon.UseCoupon /> },
   ]);
 

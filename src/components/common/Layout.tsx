@@ -1,6 +1,6 @@
 // import styled from "styled-components"
-import Footer from "./Footer/Footer";
-import Header from "./Header/Header";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
 
 //컴포넌트를 넣을 수 있도록 property로 컴포넌트를 받도록
 export const Layout = (props: { children: React.ReactNode }) => {

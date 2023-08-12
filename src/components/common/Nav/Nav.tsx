@@ -1,6 +1,6 @@
 import * as S from "./Nav.styled";
 
-const Nav = () => {
+export const Nav = () => {
   return (
     <>
       <S.Container>
@@ -18,5 +18,3 @@ const Nav = () => {
     </>
   );
 };
-
-export default Nav;

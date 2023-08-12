@@ -4,29 +4,14 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 70%;
 `;
 
 export const Category = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 90px 0 0 0;
-`;
-
-export const PickerGroup = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin: 15px 50px 20px 0;
-`;
-
-export const Picker = styled.div<{ pick: boolean }>`
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: ${(props) => (props.pick ? "#3C87BD" : "#B1E2FF")};
-  margin-left: 4px;
-  cursor: pointer;
+  justify-content: flex-start;
+  margin: 70px 0 0 0;
 `;
 
 export const bestCoupon = styled.div`
@@ -41,14 +26,11 @@ export const BlueContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 497px;
-  width: 1300px;
+  width: 1000px;
   border-radius: 34px;
   background-color: #eff9ff;
   margin-top: 43px;
 `;
-
-export const newCoupon = styled.div``;
-
 export const ReviewContainer = styled.div`
   display: flex;
   flex-direction: row;

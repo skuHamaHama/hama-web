@@ -1,26 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import { Coupon } from "../../../components/coupon";
 import * as S from "./Center.Styled";
-export function Center() {
-  const [pickIndex, setPickIndex] = useState(1);
-
-  const onPickIndex = useCallback(
-    (idx: number) => {
-      if (pickIndex === idx) {
-        return;
-      }
-      setPickIndex(idx);
-
-      //쿠폰 요청
-    },
-    [pickIndex]
-  );
-
-  useEffect(() => {
-    onPickIndex(pickIndex);
-  }, [onPickIndex, pickIndex]);
-
+export function CenterScreen() {
   return (
     <S.Container>
       <S.Category>
@@ -42,34 +23,12 @@ export function Center() {
       </S.Category>
       <S.Category>
         <S.Text>인기 쿠폰</S.Text>
-        <S.PickerGroup>
-          <S.Picker
-            pick={pickIndex === 1}
-            onClick={() => onPickIndex(1)}
-          ></S.Picker>
-          <S.Picker
-            pick={pickIndex === 2}
-            onClick={() => onPickIndex(2)}
-          ></S.Picker>
-        </S.PickerGroup>
         <Coupon />
       </S.Category>
       <S.Category>
         <S.Text>신규 쿠폰</S.Text>
         <S.BlueContainer>
-          <S.newCoupon>
-            <S.PickerGroup>
-              <S.Picker
-                pick={pickIndex === 1}
-                onClick={() => onPickIndex(1)}
-              ></S.Picker>
-              <S.Picker
-                pick={pickIndex === 2}
-                onClick={() => onPickIndex(2)}
-              ></S.Picker>
-            </S.PickerGroup>
-            <Coupon />
-          </S.newCoupon>
+          <Coupon />
         </S.BlueContainer>
       </S.Category>
       <S.Category>
