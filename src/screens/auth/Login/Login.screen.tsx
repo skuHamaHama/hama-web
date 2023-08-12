@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { usePostLogin } from "@hooks/axios";
-import { PostLoginReq } from "@services/auth";
+import { usePostLogin } from "../../../hooks/axios";
+import { PostLoginReq } from "../../../services/auth";
 
 import { DownCircleOutlined } from "@ant-design/icons";
 import * as S from "./Login.styled";
@@ -27,7 +27,7 @@ export function LoginScreen() {
       <img
         style={{ width: "280px", height: "50px", marginTop: "90px" }}
         alt="Logo_IMG"
-        src={`img/auth/Logo.svg`}
+        src={`${process.env.PUBLIC_URL}/img/header/logo.svg`}
       />
       <S.Ticket>
         <S.LoginForm>
@@ -59,9 +59,7 @@ export function LoginScreen() {
           </S.StateForm>
           <S.Button
             onClick={() => {
-              login(postReq).then(() => {
-                navigate("/user/main");
-              });
+              login(postReq);
             }}
           >
             로그인

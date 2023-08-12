@@ -1,4 +1,4 @@
-import { createAPIService } from "@apis/index";
+import { createAPIService } from "../../apis";
 
 export interface PostLoginReq {
   id: string;

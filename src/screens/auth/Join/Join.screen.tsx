@@ -3,12 +3,14 @@ import {
   PostJoinReq,
   PostEmailVerifyReq,
   PostEmailConfirmReq,
-} from "@services/auth";
-import { usePostJoin } from "@hooks/axios";
-import { usePostEmailAccess, usePostEmailConfirm } from "@hooks/axios/auth";
+} from "../../../services";
+import {
+  usePostJoin,
+  usePostEmailAccess,
+  usePostEmailConfirm,
+} from "../../../hooks";
 
 import * as S from "./Join.styled";
-import { useNavigate } from "react-router-dom";
 
 export const JoinScreen: React.FC = () => {
   const [form, setForm] = useState<PostJoinReq>({
@@ -18,7 +20,6 @@ export const JoinScreen: React.FC = () => {
   });
   const [verify, setVerify] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
-  const navigate = useNavigate();
   const join = usePostJoin();
   const sendEmailVerify = usePostEmailConfirm();
   const accessEmail = usePostEmailAccess();
@@ -42,9 +43,9 @@ export const JoinScreen: React.FC = () => {
   return (
     <S.Container>
       <img
-        style={{ width: "280px", height: "50px", marginTop: "80px" }}
+        style={{ width: "280px", height: "50px", marginTop: "90px" }}
         alt="Logo_IMG"
-        src={`${process.env.PUBLIC_URL}/img/Logo.svg`}
+        src={`${process.env.PUBLIC_URL}/img/header/logo.svg`}
       />
       <S.JoinForm>
         <S.Text>회원정보를 입력해주세요</S.Text>
@@ -129,9 +130,7 @@ export const JoinScreen: React.FC = () => {
         </S.InputForm>
         <S.SubmitButton
           onClick={() => {
-            join(postReq).then(() => {
-              navigate("/login");
-            });
+            join(postReq);
           }}
         >
           하마하마 시작하기
