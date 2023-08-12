@@ -23,7 +23,10 @@ export function IdIncuryScreen() {
       <S.Ticket>
         <S.Form>
           <S.InputForm>
-            <S.Icon alt="person_Icon.png" src="../icon/person_Icon.png" />
+            <S.Icon
+              alt="person_Icon.png"
+              src={`${process.env.PUBLIC_URL}/icon/auth/person_Icon.svg`}
+            />
             <S.Input placeholder="아이디" onChange={onID} value={ID} />
           </S.InputForm>
         </S.Form>
