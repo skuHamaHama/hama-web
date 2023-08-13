@@ -1,10 +1,4 @@
-export interface GetCouponRes {
-  brand: string;
-  couponName: string;
-  startDate: string;
-  endDate: string;
-  couponImg: string;
-}
+import { GetCouponRes } from "../../services";
 
 export const couponData_3: GetCouponRes[] = [
   {
