@@ -18,7 +18,17 @@ export function Coupon({ groupSize }: { groupSize: number }) {
         <S.CouponGroup key={groupIndex}>
           {group.map((coupon: GetCouponRes, idx: number) => (
             <S.Coupon key={idx}>
-              <div>{coupon.brand}</div>
+              <S.CouponInfo>
+                <S.Text style={{ fontFamily: "nanum-bold", fontSize: "large" }}>
+                  {coupon.brand}
+                </S.Text>
+                <S.Text>{coupon.couponName}</S.Text>
+                <S.Text>
+                  <div>{coupon.startDate}~</div>
+                  <div>{coupon.endDate}</div>
+                </S.Text>
+              </S.CouponInfo>
+              <S.CouponImg />
             </S.Coupon>
           ))}
         </S.CouponGroup>
