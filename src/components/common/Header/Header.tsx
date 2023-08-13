@@ -19,10 +19,17 @@ export const Header = () => {
       }}
     >
       <S.Container>
-        <S.Logo src="./img/header/logo.svg" />
+        <S.Logo
+          alt="Logo_IMG"
+          src={`${process.env.PUBLIC_URL}/img/header/logo.svg`}
+        />
         <S.InputWrapper>
           <S.Input />
-          <S.SearchBtn role="button" src="./img/header/searchIcon.svg" />
+          <S.SearchBtn
+            role="button"
+            alt="searchIcon"
+            src={`${process.env.PUBLIC_URL}/img/header/searchIcon.svg`}
+          />
         </S.InputWrapper>
         <S.SubWrapper>
           <S.Auth>
@@ -30,11 +37,17 @@ export const Header = () => {
             <S.Text>회원가입</S.Text>
           </S.Auth>
           <S.IconSet>
-            <S.Icon role="button" src="./img/header/fav.svg" />
-            <S.Icon role="button" src="./img/header/profile.svg" />
             <S.Icon
               role="button"
-              src="./img/header/menu.svg"
+              src={`${process.env.PUBLIC_URL}/img/header/fav.svg`}
+            />
+            <S.Icon
+              role="button"
+              src={`${process.env.PUBLIC_URL}/img/header/profile.svg`}
+            />
+            <S.Icon
+              role="button"
+              src={`${process.env.PUBLIC_URL}/img/header/menu.svg`}
               onClick={toggleSide}
             />
             <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />

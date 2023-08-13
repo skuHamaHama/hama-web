@@ -1,5 +1,5 @@
 import { PlayCircleOutlined } from "@ant-design/icons";
-import { Coupon } from "../../../components/coupon";
+import { MainCoupon } from "../../../components/coupon";
 import * as S from "./Center.Styled";
 export function CenterScreen() {
   const groupSize: number = 3; //분할 개수
@@ -25,14 +25,14 @@ export function CenterScreen() {
       <S.Category>
         <S.Text>인기 쿠폰</S.Text>
         <S.CouponContainer>
-          <Coupon groupSize={groupSize} />
+          <MainCoupon groupSize={groupSize} />
         </S.CouponContainer>
       </S.Category>
       <S.Category>
         <S.Text>신규 쿠폰</S.Text>
         <S.BlueContainer>
           <S.CouponContainer>
-            <Coupon groupSize={groupSize} />
+            <MainCoupon groupSize={groupSize} />
           </S.CouponContainer>
         </S.BlueContainer>
       </S.Category>

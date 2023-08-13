@@ -26,12 +26,23 @@ export const Coupon = styled.div`
 `;
 
 export const CouponInfo = styled.div`
-  margin: 15px 20px 0 0;
+  margin: 15px 20px 0 10px;
 `;
 export const Text = styled.div`
   font-family: nanum-regular;
   font-size: smaller;
-  margin: 0 0 5px 10px;
+  margin: 0 0 5px 0;
+`;
+
+export const BrandText = styled.div`
+  font-family: nanum-bold;
+  font-size: large;
+  margin: 0 0 10px 0;
+`;
+
+export const DateText = styled.p`
+  font-size: small;
+  margin: 0 0 -15px 0;
 `;
 export const CouponImg = styled.img`
   display: flex;
