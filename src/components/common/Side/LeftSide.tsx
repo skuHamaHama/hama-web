@@ -17,7 +17,7 @@ import * as S from "./LeftSide.styled";
 
 // ]
 
-function LeftSide() {
+export function LeftSide() {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   const onToggle = () => setIsOpen(!isOpen);
   const onOptionClicked = (value: string, index: number) => () => {

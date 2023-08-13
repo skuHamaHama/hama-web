@@ -3,60 +3,38 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100%;
-  padding: 79px;
+  width: 70%;
+  min-width: 70%;
 `;
 
 export const Category = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-top: 55px;
+  align-items: center;
+  width: 100%;
+  margin: 50px 0 0 0;
 `;
 
-export const PickerGroup = styled.div`
+export const CouponContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin: 15px 50px 20px 0;
-`;
-
-export const Picker = styled.div<{ pick: boolean }>`
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: ${(props) => (props.pick ? "#3C87BD" : "#B1E2FF")};
-  margin-left: 4px;
-  cursor: pointer;
-`;
-
-export const TagContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 50px;
-`;
-
-export const bestCoupon = styled.div`
-  height: 497px;
-  width: 1264px;
-  border-radius: 34px;
-  background-color: #eff9ff;
+  justify-self: flex-start;
+  margin: 20px 0 0 0;
 `;
 
 export const BlueContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 497px;
-  width: 1300px;
+  height: 470px;
+  width: 1200px;
   border-radius: 34px;
   background-color: #eff9ff;
   margin-top: 43px;
+  margin: 50px 0 0 0;
+  padding: 20px 0 20px 0;
 `;
-
-export const newCoupon = styled.div``;
-
 export const ReviewContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -71,17 +49,20 @@ export const Coupon = styled.div`
 `;
 
 export const Text = styled.div`
+  display: flex;
+  align-self: flex-start;
   font-weight: bold;
   font-size: large;
-  margin: 30px 0 0 0;
+  margin: 10px 0 10px 0;
 `;
 
 export const IconGroup = styled.div`
+  width: 100%;
   margin-top: 49.15px;
 `;
 
 export const Icon = styled.img`
-  width: 78px;
-  height: 78px;
-  margin-right: 40px;
+  width: 70px;
+  height: 70px;
+  margin-right: 45px;
 `;

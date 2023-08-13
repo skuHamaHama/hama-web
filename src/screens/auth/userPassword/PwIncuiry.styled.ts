@@ -9,9 +9,9 @@ export const Ticket = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 335px;
-  width: 800px;
-  background-image: url(./img/Ticket.png);
+  height: 255px;
+  width: 60px;
+  background-image: url(./img/SubTicket.png);
   background-size: cover;
   margin-top: 70px;
 `;
@@ -20,7 +20,7 @@ export const Form = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 50px;
+  padding-top: 80px;
 `;
 
 export const InputForm = styled.div`
@@ -52,6 +52,7 @@ export const Button = styled.button`
   width: 537.44px;
   height: 57.17px;
   font-size: x-large;
+  margin-top: 27px;
 `;
 
 export const Icon = styled.img`

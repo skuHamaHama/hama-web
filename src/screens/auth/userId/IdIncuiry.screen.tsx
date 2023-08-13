@@ -18,17 +18,20 @@ export function IdIncuryScreen() {
       <img
         style={{ width: "280px", height: "50px", marginTop: "90px" }}
         alt="Logo_IMG"
-        src="img/Logo.png"
+        src="../img/Logo.png"
       />
       <S.Ticket>
         <S.Form>
           <S.InputForm>
-            <S.Icon alt="person_Icon.png" src="icon/person_Icon.png" />
+            <S.Icon
+              alt="person_Icon.png"
+              src={`${process.env.PUBLIC_URL}/icon/auth/person_Icon.svg`}
+            />
             <S.Input placeholder="아이디" onChange={onID} value={ID} />
           </S.InputForm>
-          <S.Button onClick={checkIdAndSubmit}>다음</S.Button>
         </S.Form>
       </S.Ticket>
+      <S.Button onClick={checkIdAndSubmit}>다음</S.Button>
     </S.Container>
   );
 }

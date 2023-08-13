@@ -1,26 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import { Coupon } from "../../../components/coupon";
 import * as S from "./Center.Styled";
-export function Center() {
-  const [pickIndex, setPickIndex] = useState(1);
-
-  const onPickIndex = useCallback(
-    (idx: number) => {
-      if (pickIndex === idx) {
-        return;
-      }
-      setPickIndex(idx);
-
-      //쿠폰 요청
-    },
-    [pickIndex]
-  );
-
-  useEffect(() => {
-    onPickIndex(pickIndex);
-  }, [onPickIndex, pickIndex]);
-
+export function CenterScreen() {
+  const groupSize: number = 3; //분할 개수
   return (
     <S.Container>
       <S.Category>
@@ -40,48 +22,28 @@ export function Center() {
           ></S.Icon>
         </S.IconGroup>
       </S.Category>
-      <S.TagContainer>
+      <S.Category>
         <S.Text>인기 쿠폰</S.Text>
-        <S.PickerGroup>
-          <S.Picker
-            pick={pickIndex === 1}
-            onClick={() => onPickIndex(1)}
-          ></S.Picker>
-          <S.Picker
-            pick={pickIndex === 2}
-            onClick={() => onPickIndex(2)}
-          ></S.Picker>
-        </S.PickerGroup>
-        <Coupon />
-      </S.TagContainer>
-      <S.TagContainer>
+        <S.CouponContainer>
+          <Coupon groupSize={groupSize} />
+        </S.CouponContainer>
+      </S.Category>
+      <S.Category>
         <S.Text>신규 쿠폰</S.Text>
         <S.BlueContainer>
-          <S.newCoupon>
-            <S.PickerGroup>
-              <S.Picker
-                pick={pickIndex === 1}
-                onClick={() => onPickIndex(1)}
-              ></S.Picker>
-              <S.Picker
-                pick={pickIndex === 2}
-                onClick={() => onPickIndex(2)}
-              ></S.Picker>
-            </S.PickerGroup>
-            <Coupon />
-          </S.newCoupon>
+          <S.CouponContainer>
+            <Coupon groupSize={groupSize} />
+          </S.CouponContainer>
         </S.BlueContainer>
-      </S.TagContainer>
-      <S.TagContainer>
-        <S.Text>후기 글</S.Text>
+      </S.Category>
+      <S.Category>
+        <S.Text>최신 댓글</S.Text>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           전체보기
         </div>
-        <S.ReviewContainer>
-          <Review />
-        </S.ReviewContainer>
+        <S.ReviewContainer></S.ReviewContainer>
         <PlayCircleOutlined />
-      </S.TagContainer>
+      </S.Category>
     </S.Container>
   );
 }

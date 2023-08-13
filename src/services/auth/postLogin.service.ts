@@ -1,7 +1,11 @@
+import { createAPIService } from "../../apis";
+
 export interface PostLoginReq {
   id: string;
   password: string;
+  state: boolean;
 }
+
 export interface PostLoginRes {
   result: boolean;
   data: {
@@ -10,6 +14,6 @@ export interface PostLoginRes {
   };
 }
 
-// export const postLogin = createAPIService<PostLoginRes, PostLoginReq>()({
-//   config: { method: "POST", url: "/v3/auth/login" },
-// });
+export const postLogin = createAPIService<PostLoginRes, PostLoginReq>()({
+  config: { method: "POST", url: "/v3/auth/login" },
+});

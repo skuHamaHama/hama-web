@@ -1,9 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import * as S from "./Home.styled";
-import { Layout } from "../../../components/common/Layout";
-import { Center } from "../center";
 
-export function Home() {
+export function HomeScreen() {
   const [pickers, setPicker] = useState<JSX.Element[]>([]);
   const [pickIndex, setPickIndex] = useState<number>(0);
 
@@ -40,17 +38,14 @@ export function Home() {
   return (
     <div>
       <S.Bg>
-        <Layout>
-          <S.Container>
-            <S.SliderImg src={S.Images[pickIndex]} alt="slider image" />
-            <S.PickerWrapper>{pickers}</S.PickerWrapper>
-          </S.Container>
-          <S.Promo>
-            <img src="./img/home/img1.svg" alt="promo image" />
-            <img src="./img/home/img2.svg" alt="promo image" />
-          </S.Promo>
-          <Center />
-        </Layout>
+        <S.Container>
+          <S.SliderImg src={S.Images[pickIndex]} alt="slider image" />
+          <S.PickerWrapper>{pickers}</S.PickerWrapper>
+        </S.Container>
+        <S.Promo>
+          <S.PromoImg1 src="./img/home/img1.svg" alt="promo image" />
+          <S.PromoImg2 src="./img/home/img2.svg" alt="promo image" />
+        </S.Promo>
       </S.Bg>
     </div>
   );

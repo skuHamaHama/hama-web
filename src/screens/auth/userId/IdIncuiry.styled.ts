@@ -9,9 +9,9 @@ export const Ticket = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 335px;
-  width: 800px;
-  background-image: url(./img/Ticket.png);
+  height: 135px;
+  width: 100px;
+  background-image: url("../../../public/img/auth/ticket.png");
   background-size: cover;
   margin-top: 70px;
 `;
