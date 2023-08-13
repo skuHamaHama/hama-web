@@ -46,8 +46,8 @@ export function Home() {
             <S.PickerWrapper>{pickers}</S.PickerWrapper>
           </S.Container>
           <S.Promo>
-            <S.PromoImg1 src="./img/home/img1.svg" alt="promo image" />
-            <S.PromoImg2 src="./img/home/img2.svg" alt="promo image" />
+            <img src="./img/home/img1.svg" alt="promo image" />
+            <img src="./img/home/img2.svg" alt="promo image" />
           </S.Promo>
           <Center />
         </Layout>

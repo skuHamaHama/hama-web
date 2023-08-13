@@ -10,7 +10,6 @@ export const Bg = styled.div`
   display: flex;
   justify-content: center;
   background-image: url("./img/home/home.png");
-  background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
   width: 100%;
@@ -19,12 +18,12 @@ export const Bg = styled.div`
 
 export const Container = styled.div`
   position: relative;
-  width: 950px;
-  height: 312px;
+  width: 1161px;
+  height: 388px;
   // display: flex;
   // justify-content: center;
   // align-items: center;
-  margin: 50px auto 10px auto;
+  margin: 10px auto;
 `;
 
 export const SliderImg = styled.img`
@@ -52,17 +51,6 @@ export const Picker = styled.div<{ background: string }>`
 
 export const Promo = styled.div`
   display: flex;
-  justify-content: center;
-  margin-top: 40px;
-  // margin-left: 50px;
-`;
-
-export const PromoImg1 = styled.img`
-  display: flex;
-  margin-right: 50px;
-`;
-
-export const PromoImg2 = styled.img`
-  display: flex;
-  margin-left: 50px;
+  justify-content: space-around;
+  // margin: 20px;
 `;
