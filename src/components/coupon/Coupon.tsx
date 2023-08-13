@@ -1,5 +1,5 @@
-import * as S from "./Coupon.Styled";
 import { couponData, GetCouponRes } from "./";
+import * as S from "./Coupon.Styled";
 
 export function Coupon({ groupSize }: { groupSize: number }) {
   const mapDataInGroups = (data: GetCouponRes[], groupSize: number) => {
@@ -24,8 +24,10 @@ export function Coupon({ groupSize }: { groupSize: number }) {
                 </S.Text>
                 <S.Text>{coupon.couponName}</S.Text>
                 <S.Text>
-                  <div>{coupon.startDate}~</div>
-                  <div>{coupon.endDate}</div>
+                  <p style={{ fontSize: "small", margin: "0 0 -15px 0" }}>
+                    {coupon.startDate}~
+                  </p>
+                  <p style={{ fontSize: "small" }}>{coupon.endDate}</p>
                 </S.Text>
               </S.CouponInfo>
               <S.CouponImg />

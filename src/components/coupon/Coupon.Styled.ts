@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-self: flex-start;
 `;
 
 export const CouponGroup = styled.div`
@@ -26,12 +26,12 @@ export const Coupon = styled.div`
 `;
 
 export const CouponInfo = styled.div`
-  margin-right: 20px;
+  margin: 15px 20px 0 0;
 `;
 export const Text = styled.div`
   font-family: nanum-regular;
-  font-size: small;
-  margin-bottom: 10px;
+  font-size: smaller;
+  margin: 0 0 5px 10px;
 `;
 export const CouponImg = styled.img`
   display: flex;

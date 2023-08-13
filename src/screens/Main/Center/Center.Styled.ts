@@ -6,28 +6,34 @@ export const Container = styled.div`
   align-items: center;
   height: 100%;
   width: 70%;
+  min-width: 70%;
 `;
 
 export const Category = styled.div`
   display: flex;
   flex-direction: column;
-  justify-self: flex-start;
+  align-items: center;
   width: 100%;
   margin: 50px 0 0 0;
 `;
 
-export const CouponContainer = styled.div``;
+export const CouponContainer = styled.div`
+  display: flex;
+  justify-self: flex-start;
+  margin: 20px 0 0 0;
+`;
 
 export const BlueContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 550px;
+  height: 470px;
   width: 1200px;
   border-radius: 34px;
   background-color: #eff9ff;
   margin-top: 43px;
-  padding: 40px 0 40px 0;
+  margin: 50px 0 0 0;
+  padding: 20px 0 20px 0;
 `;
 export const ReviewContainer = styled.div`
   display: flex;
@@ -43,9 +49,11 @@ export const Coupon = styled.div`
 `;
 
 export const Text = styled.div`
+  display: flex;
+  align-self: flex-start;
   font-weight: bold;
   font-size: large;
-  margin: 10px 0 0 0;
+  margin: 10px 0 10px 0;
 `;
 
 export const IconGroup = styled.div`
@@ -54,7 +62,7 @@ export const IconGroup = styled.div`
 `;
 
 export const Icon = styled.img`
-  width: 78px;
-  height: 78px;
-  margin-right: 40px;
+  width: 70px;
+  height: 70px;
+  margin-right: 45px;
 `;
