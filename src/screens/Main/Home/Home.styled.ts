@@ -13,8 +13,8 @@ export const Bg = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  width: 100%;
   height: 100%;
+  width: 100%;
 `;
 
 export const Container = styled.div`

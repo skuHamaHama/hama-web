@@ -7,7 +7,7 @@ export const Footer = () => {
     <S.Container>
       <S.Start />
       <S.Wrapper>
-        <S.Logo src="./img/footer/logo.svg" />
+        <S.Logo src={`${process.env.PUBLIC_URL}/img/footer/logo.svg`} />
         <p>
           <strong>페이지</strong>
         </p>
@@ -57,7 +57,7 @@ export const Footer = () => {
           <p>
             <strong>공식 SNS</strong>
           </p>
-          <S.Insta src="./img/footer/instagram.svg" />
+          <S.Insta src={`${process.env.PUBLIC_URL}/img/footer/instagram.svg`} />
         </S.Sns>
         <ul>
           <li>@min_nnn.nnn</li>

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   width: 233px;
@@ -33,7 +33,7 @@ export const DropDownContainer = styled.ul`
   margin: 0px;
 `;
 
-export const ListItem = styled.li`
+export const ListItem = styled.li<{ clicked: boolean }>`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -43,6 +43,14 @@ export const ListItem = styled.li`
   padding: 5px;
   z-index: 1;
   margin-top: 0.2rem;
+  cursor: pointer;
+
+  /* 마우스 클릭 시 글자색 변경 */
+  ${({ clicked }) =>
+    clicked &&
+    css`
+      color: #3c87bd; /* 원하는 색상으로 변경 */
+    `}
 `;
 
 export const Line = styled.div`

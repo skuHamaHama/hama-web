@@ -20,7 +20,8 @@ export const Coupon = styled.div`
   align-items: center;
   width: 330px;
   height: 140px;
-  background-image: url("./img/coupon/coupon.svg");
+  // background-image: url("./img/coupon/coupon.svg");
+  background-image: url(${process.env.PUBLIC_URL}/img/coupon/coupon.svg);
   background-size: cover;
   margin: 0 30px 0 30px;
 `;

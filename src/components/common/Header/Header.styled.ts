@@ -74,6 +74,7 @@ export const IconSet = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 10px;
+  cursor: pointer;
 `;
 
 export const Text = styled.div`

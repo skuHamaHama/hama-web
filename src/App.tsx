@@ -13,7 +13,7 @@ export function App() {
     { path: "/user/help", element: <auth.IdIncuryScreen /> }, //아이디 찾기
     { path: "/user/help/pwInquiry", element: <auth.PsIncuryScreen /> }, //비밀번호 찾기
     { path: "/user/me", element: <user.MyPageScreen /> }, //마이페이지
-    { path: "/usecoupon", element: <coupon.UseCoupon /> },
+    { path: "/usecoupon", element: <coupon.UseCoupon /> }, //쿠폰 사용하려고 할때 나오는 화면
   ]);
 
   return <RouterProvider router={router} />;
