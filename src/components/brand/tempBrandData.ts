@@ -18,8 +18,8 @@ export const brandData: GetBrandDataRes[] = [
   {
     category: "옷",
     brandId: 3,
-    brandName: "스타벅스",
-    brandImgUrl: "/img/brand/starbucks.png",
+    brandName: "아디다스",
+    brandImgUrl: "/img/brand/adidas.png",
     favor: false,
   },
   {
@@ -39,8 +39,8 @@ export const brandData: GetBrandDataRes[] = [
   {
     category: "옷",
     brandId: 3,
-    brandName: "스타벅스",
-    brandImgUrl: "/img/brand/starbucks.png",
+    brandName: "아디다스",
+    brandImgUrl: "/img/brand/adidas.png",
     favor: false,
   },
 ];

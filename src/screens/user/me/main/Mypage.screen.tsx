@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { SubCoupon, Screen } from "../../../../components";
+import { SubCoupon, Screen, Brand } from "../../../../components";
 import * as S from "./MyPage.styled";
 
 export function MyPageScreen() {
   const navigate = useNavigate();
-  const GroupSize = 4; //분할 개수
+  const active = true;
 
   return (
     <Screen header={true} nav={true} side={true} footer={true}>
@@ -22,7 +22,7 @@ export function MyPageScreen() {
             </S.ViewText>
           </S.TextGroup>
           <S.Line />
-          <SubCoupon groupSize={GroupSize} />
+          <SubCoupon active={active} />
         </S.MyCoupon>
         <S.MyCoupon>
           <S.TextGroup>
@@ -36,7 +36,7 @@ export function MyPageScreen() {
             </S.ViewText>
           </S.TextGroup>
           <S.Line />
-          <SubCoupon groupSize={GroupSize} />
+          <SubCoupon active={active} />
         </S.MyCoupon>
         <S.MyCoupon>
           <S.TextGroup>
@@ -50,7 +50,7 @@ export function MyPageScreen() {
             </S.ViewText>
           </S.TextGroup>
           <S.Line />
-          <SubCoupon groupSize={GroupSize} />
+          <SubCoupon active={active} />
         </S.MyCoupon>
         <S.MyCoupon>
           <S.TextGroup>
@@ -64,7 +64,7 @@ export function MyPageScreen() {
             </S.ViewText>
           </S.TextGroup>
           <S.Line />
-          <SubCoupon groupSize={GroupSize} />
+          <SubCoupon active={active} />
         </S.MyCoupon>
         <S.MyCoupon>
           <S.TextGroup>
@@ -78,7 +78,21 @@ export function MyPageScreen() {
             </S.ViewText>
           </S.TextGroup>
           <S.Line />
-          <SubCoupon groupSize={GroupSize} />
+          <SubCoupon active={active} />
+        </S.MyCoupon>
+        <S.MyCoupon>
+          <S.TextGroup>
+            <S.Text></S.Text>
+            <S.ViewText
+              onClick={() => {
+                navigate("./favor");
+              }}
+            >
+              전체 보기
+            </S.ViewText>
+          </S.TextGroup>
+          <S.Line />
+          <Brand groupSize={5} />
         </S.MyCoupon>
       </S.Container>
     </Screen>

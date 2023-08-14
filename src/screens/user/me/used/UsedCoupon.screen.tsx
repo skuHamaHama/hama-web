@@ -2,7 +2,7 @@ import { SubCoupon, Screen } from "../../../../components";
 import * as S from "../../me/main";
 
 export function UsedCouponScreen() {
-  const GroupSize = 4; //분할 개수
+  const active = false; //버튼 비활성화
   return (
     <Screen header={true} nav={true} side={true} footer={true}>
       <S.MyCoupon>
@@ -12,7 +12,7 @@ export function UsedCouponScreen() {
           <S.ViewText>전체 보기</S.ViewText>
         </S.TextGroup>
         <S.Line />
-        <SubCoupon groupSize={GroupSize} />
+        <SubCoupon active={active} />
       </S.MyCoupon>
     </Screen>
   );

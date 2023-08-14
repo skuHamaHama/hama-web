@@ -2,7 +2,8 @@ import { couponData_4 } from "./";
 import { GetCouponDataRes } from "../../services";
 import * as S from "./SubCoupon.Styled";
 
-export function SubCoupon({ groupSize }: { groupSize: number }) {
+export function SubCoupon({ active }: { active: boolean }) {
+  const groupSize = 4;
   const mapDataInGroups = (data: GetCouponDataRes[], groupSize: number) => {
     const groups = [];
     for (let i = 0; i < data.length; i += groupSize) {
@@ -36,6 +37,10 @@ export function SubCoupon({ groupSize }: { groupSize: number }) {
           ))}
         </S.CouponGroup>
       ))}
+      <S.Button
+        src={`${process.env.PUBLIC_URL}/img/coupon/next_Button.png`}
+        active={active}
+      />
     </S.Container>
   );
 }

@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-self: flex-start;
+  align-items: center;
   margin-bottom: 50px;
 `;
 
@@ -44,4 +44,10 @@ export const BrandImg = styled.img`
   justify-self: flex-end;
   height: 65px;
   width: 65px;
+`;
+
+export const Button = styled.img<{ active: boolean }>`
+  display: ${(props) => (props.active ? "block" : "none")};
+  width: 40px;
+  height: 40px;
 `;
