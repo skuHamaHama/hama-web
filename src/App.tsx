@@ -17,10 +17,8 @@ export function App() {
     { path: "/main", element: <main.MainScreen /> }, //메인 페이지
     { path: "/user/me", element: <user.MyPageScreen /> }, //마이 페이지
     { path: "/user/me/recent", element: <user.RecentCouponScreen /> },
-    { path: "/user/me/wish", element: <user.WishCouponScreen /> },
-    { path: "/user/me/used", element: <user.UsedCouponScreen /> },
-    { path: "/user/me/favor", element: <user.FavorBrandScreen /> },
-
+    { path: "/user/me", element: <user.MyPageScreen /> }, //마이페이지
+    { path: "/usecoupon", element: <coupon.UseCoupon /> },
     { path: "/usecoupon", element: <coupon.UseCoupon /> }, //쿠폰 사용하려고 할때 나오는 화면
   ]);
 
