@@ -12,7 +12,6 @@ export const CouponGroup = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 20px 0 40px 0;
 `;
 
 export const Coupon = styled.div`

@@ -57,7 +57,7 @@ export function MyPageScreen() {
             <S.Text>등록한 쿠폰</S.Text>
             <S.ViewText
               onClick={() => {
-                navigate("./recent");
+                navigate("./");
               }}
             >
               전체 보기
@@ -68,21 +68,7 @@ export function MyPageScreen() {
         </S.MyCoupon>
         <S.MyCoupon>
           <S.TextGroup>
-            <S.Text></S.Text>
-            <S.ViewText
-              onClick={() => {
-                navigate("./recent");
-              }}
-            >
-              전체 보기
-            </S.ViewText>
-          </S.TextGroup>
-          <S.Line />
-          <SubCoupon active={active} />
-        </S.MyCoupon>
-        <S.MyCoupon>
-          <S.TextGroup>
-            <S.Text></S.Text>
+            <S.Text>즐겨찾기</S.Text>
             <S.ViewText
               onClick={() => {
                 navigate("./favor");

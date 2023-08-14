@@ -84,4 +84,5 @@ export const couponData_4: GetCouponDataRes[] = [
     couponImg:
       "https://t1.daumcdn.net/thumb/R720x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/5ns/image/N7ezeQHfjA5Ekdl3TIQjwWYEs2c.png",
   },
+
 ];

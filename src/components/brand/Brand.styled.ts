@@ -12,12 +12,12 @@ export const BrandGroup = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 `;
 
 export const Brand = styled.div<{ brandImgUrl: string }>`
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   margin: 0 30px 0 30px;
   cursor: pointer;
   background-image: ${({ brandImgUrl }) =>
