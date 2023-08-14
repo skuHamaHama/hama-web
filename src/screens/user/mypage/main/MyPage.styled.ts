@@ -28,6 +28,9 @@ export const TextGroup = styled.div`
 `;
 
 export const MyCoupon = styled.div``;
+export const MyBrand = styled.div`
+  display: flex;
+`;
 
 export const Line = styled.div`
   width: 1200px;
