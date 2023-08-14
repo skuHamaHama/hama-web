@@ -19,11 +19,14 @@ import * as S from "./LeftSide.styled";
 
 export function LeftSide() {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const [clickedIndex, setClickedIndex] = React.useState<number | null>(null);
+
   const onToggle = () => setIsOpen(!isOpen);
   const onOptionClicked = (value: string, index: number) => () => {
     console.log(value);
     console.log(index);
-    setIsOpen(false);
+    // setIsOpen(false);
+    setClickedIndex(index);
   };
 
   return (
@@ -35,13 +38,22 @@ export function LeftSide() {
         {isOpen && (
           <>
             <S.Line />
-            <S.ListItem onClick={onOptionClicked("닉네임 변경", 1)}>
+            <S.ListItem
+              onClick={onOptionClicked("닉네임 변경", 1)}
+              clicked={clickedIndex === 1}
+            >
               닉네임 변경
             </S.ListItem>
-            <S.ListItem onClick={onOptionClicked("비밀번호 변경", 2)}>
+            <S.ListItem
+              onClick={onOptionClicked("비밀번호 변경", 2)}
+              clicked={clickedIndex === 2}
+            >
               비밀번호 변경
             </S.ListItem>
-            <S.ListItem onClick={onOptionClicked("회원탈퇴", 3)}>
+            <S.ListItem
+              onClick={onOptionClicked("회원탈퇴", 3)}
+              clicked={clickedIndex === 3}
+            >
               회원탈퇴
             </S.ListItem>
           </>
