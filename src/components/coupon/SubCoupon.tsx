@@ -1,8 +1,9 @@
-import { couponData_4, GetCouponRes } from "./";
+import { couponData_4 } from "./";
+import { GetCouponDataRes } from "../../services";
 import * as S from "./SubCoupon.Styled";
 
 export function SubCoupon({ groupSize }: { groupSize: number }) {
-  const mapDataInGroups = (data: GetCouponRes[], groupSize: number) => {
+  const mapDataInGroups = (data: GetCouponDataRes[], groupSize: number) => {
     const groups = [];
     for (let i = 0; i < data.length; i += groupSize) {
       groups.push(data.slice(i, i + groupSize));
@@ -30,7 +31,7 @@ export function SubCoupon({ groupSize }: { groupSize: number }) {
                   <p style={{ fontSize: "3px" }}>{coupon.endDate}</p>
                 </S.Text>
               </S.CouponInfo>
-              <S.CouponImg />
+              <S.BrandImg />
             </S.Coupon>
           ))}
         </S.CouponGroup>

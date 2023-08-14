@@ -44,7 +44,7 @@ export const DateText = styled.p`
   font-size: small;
   margin: 0 0 -15px 0;
 `;
-export const CouponImg = styled.img`
+export const BrandImg = styled.img`
   display: flex;
   justify-self: flex-end;
   height: 80px;

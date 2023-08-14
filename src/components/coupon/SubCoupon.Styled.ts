@@ -39,7 +39,7 @@ export const Text = styled.div`
   font-size: 10px;
   margin: 0 30px 0 10px;
 `;
-export const CouponImg = styled.img`
+export const BrandImg = styled.img`
   display: flex;
   justify-self: flex-end;
   height: 65px;
