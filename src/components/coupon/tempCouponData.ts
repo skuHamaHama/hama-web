@@ -1,6 +1,6 @@
-import { GetCouponRes } from "../../services";
+import { GetCouponDataRes } from "../../services";
 
-export const couponData_3: GetCouponRes[] = [
+export const couponData_3: GetCouponDataRes[] = [
   {
     brand: "스타벅스",
     couponName: "자바칩 프라푸치노",
@@ -51,7 +51,7 @@ export const couponData_3: GetCouponRes[] = [
   },
 ];
 
-export const couponData_4: GetCouponRes[] = [
+export const couponData_4: GetCouponDataRes[] = [
   {
     brand: "스타벅스",
     couponName: "자바칩 프라푸치노",

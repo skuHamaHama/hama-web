@@ -17,7 +17,7 @@ export function SubCoupon({ groupSize }: { groupSize: number }) {
     <S.Container>
       {data.map((group, groupIndex) => (
         <S.CouponGroup key={groupIndex}>
-          {group.map((coupon: GetCouponRes, idx: number) => (
+          {group.map((coupon: GetCouponDataRes, idx: number) => (
             <S.Coupon key={idx}>
               <S.CouponInfo>
                 <S.Text style={{ fontFamily: "nanum-bold", fontSize: "13px" }}>
