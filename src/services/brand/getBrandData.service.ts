@@ -1,6 +1,6 @@
 import { createAPIService } from "../../apis";
 
-export interface GetBrandRes {
+export interface GetBrandDataRes {
   category: string;
   brandId: number;
   brandName: string;
@@ -8,6 +8,6 @@ export interface GetBrandRes {
   favor: boolean;
 }
 
-export const getBrand = createAPIService<GetBrandRes>()({
-  config: { method: "GET", url: "/v3/auth/join" },
+export const getBrandData = createAPIService<GetBrandDataRes>()({
+  config: { method: "GET", url: "/v3/brand" },
 });
