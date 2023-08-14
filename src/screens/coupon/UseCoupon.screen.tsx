@@ -12,7 +12,7 @@ export function UseCoupon() {
         <S.LContainer>
           <S.CouponWrapper>
             <S.TexstWrapper>
-              <S.Name>스타벅스 할인권</S.Name>
+              <S.Name>스타벅스 50% 할인</S.Name>
               <S.Name>2022.08.14 - 2023.08.14</S.Name>
             </S.TexstWrapper>
             <S.Logo />
