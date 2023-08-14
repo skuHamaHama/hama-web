@@ -1,6 +1,6 @@
 import { PlayCircleOutlined } from "@ant-design/icons";
 import { MainCoupon } from "../../../components/coupon";
-import * as S from "./Center.Styled";
+import * as S from "./Center.styled";
 export function CenterScreen() {
   const groupSize: number = 3; //분할 개수
   return (
