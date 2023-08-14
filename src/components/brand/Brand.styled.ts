@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Brand = styled.img`
+export const Brand = styled.div`
   cursor: pointer;
   background-image: url(${process.env.PUBLIC_URL}/img/coupon/coupon.svg);
 `;

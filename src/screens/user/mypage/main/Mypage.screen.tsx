@@ -66,6 +66,20 @@ export function MyPageScreen() {
           <S.Line />
           <SubCoupon groupSize={GroupSize} />
         </S.MyCoupon>
+        <S.MyCoupon>
+          <S.TextGroup>
+            <S.Text></S.Text>
+            <S.ViewText
+              onClick={() => {
+                navigate("./recent");
+              }}
+            >
+              전체 보기
+            </S.ViewText>
+          </S.TextGroup>
+          <S.Line />
+          <SubCoupon groupSize={GroupSize} />
+        </S.MyCoupon>
       </S.Container>
     </Screen>
   );

@@ -27,7 +27,7 @@ export const TextGroup = styled.div`
   margin: 0 40px 0 60px;
 `;
 
-export const MyCoupon = styled.div``;
+export const MyBrand = styled.div``;
 
 export const Line = styled.div`
   width: 1200px;

@@ -1,5 +1,5 @@
 import { Brand, Screen } from "../../../../components";
-import * as S from "../main";
+import * as S from "./FavorBrand.styled";
 
 export function FavorBrandScreen() {
   const GroupSize = 5; //분할 개수

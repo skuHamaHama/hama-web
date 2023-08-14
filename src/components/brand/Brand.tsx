@@ -1,5 +1,5 @@
-import { brandData } from ".";
-import { GetBrandDataRes } from "../../services/brand";
+import { brandData } from "./tempBrandData";
+import { GetBrandDataRes } from "../../services";
 import * as S from "./Brand.styled";
 
 export function Brand({ groupSize }: { groupSize: number }) {
