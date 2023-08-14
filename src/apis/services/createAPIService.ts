@@ -5,12 +5,6 @@ import {
 
 import { axiosInstance } from "../axiosInstance";
 
-// interface AxiosRequestConfig<D = any> extends _AxiosRequestConfig<D> {
-//   method: Method;
-//   url: string;
-//   urlParams?: Record<string, string>;
-// }
-
 const replaceURLParameters = (config: any) => {
   const urlParams = config.urlParams as Record<string, string> | undefined;
   let url = config.url;

@@ -17,8 +17,8 @@ export function Screen({ children, header, nav, side, footer }: ScreenProps) {
       <div
         style={{
           display: "flex",
+          flexDirection: "row",
           justifyContent: "center",
-          alignItems: "center",
         }}
       >
         {side && typeof side === "boolean" ? <LeftSide /> : side}

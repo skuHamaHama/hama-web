@@ -1,8 +1,9 @@
-import { couponData, GetCouponRes } from "./";
-import * as S from "./Coupon.Styled";
+import { couponData_4 } from "./";
+import { GetCouponDataRes } from "../../services";
+import * as S from "./SubCoupon.Styled";
 
-export function Coupon({ groupSize }: { groupSize: number }) {
-  const mapDataInGroups = (data: GetCouponRes[], groupSize: number) => {
+export function SubCoupon({ groupSize }: { groupSize: number }) {
+  const mapDataInGroups = (data: GetCouponDataRes[], groupSize: number) => {
     const groups = [];
     for (let i = 0; i < data.length; i += groupSize) {
       groups.push(data.slice(i, i + groupSize));
@@ -10,7 +11,7 @@ export function Coupon({ groupSize }: { groupSize: number }) {
     return groups;
   };
 
-  const data = mapDataInGroups(couponData, groupSize);
+  const data = mapDataInGroups(couponData_4, groupSize);
 
   return (
     <S.Container>
@@ -19,18 +20,18 @@ export function Coupon({ groupSize }: { groupSize: number }) {
           {group.map((coupon: GetCouponRes, idx: number) => (
             <S.Coupon key={idx}>
               <S.CouponInfo>
-                <S.Text style={{ fontFamily: "nanum-bold", fontSize: "large" }}>
+                <S.Text style={{ fontFamily: "nanum-bold", fontSize: "13px" }}>
                   {coupon.brand}
                 </S.Text>
                 <S.Text>{coupon.couponName}</S.Text>
                 <S.Text>
-                  <p style={{ fontSize: "small", margin: "0 0 -15px 0" }}>
+                  <p style={{ fontSize: "3px", margin: "0 0 -10px 0" }}>
                     {coupon.startDate}~
                   </p>
-                  <p style={{ fontSize: "small" }}>{coupon.endDate}</p>
+                  <p style={{ fontSize: "3px" }}>{coupon.endDate}</p>
                 </S.Text>
               </S.CouponInfo>
-              <S.CouponImg />
+              <S.BrandImg />
             </S.Coupon>
           ))}
         </S.CouponGroup>
