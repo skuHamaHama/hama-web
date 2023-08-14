@@ -19,15 +19,11 @@ export const Header = () => {
       }}
     >
       <S.Container>
-        <S.Logo
-          alt="Logo_IMG"
-          src={`${process.env.PUBLIC_URL}/img/header/logo.svg`}
-        />
+        <S.Logo src={`${process.env.PUBLIC_URL}/img/header/logo.svg`} />
         <S.InputWrapper>
           <S.Input />
           <S.SearchBtn
             role="button"
-            alt="searchIcon"
             src={`${process.env.PUBLIC_URL}/img/header/searchIcon.svg`}
           />
         </S.InputWrapper>

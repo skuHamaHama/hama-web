@@ -30,7 +30,7 @@ export function HomeScreen() {
   useEffect(() => {
     const timer = setInterval(() => {
       setPickIndex((prevIndex) => (prevIndex + 1) % S.Images.length);
-    }, 3000); // 3초마다 이미지 변경
+    }, 3000);
 
     return () => clearInterval(timer);
   }, []);

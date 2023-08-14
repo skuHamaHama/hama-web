@@ -21,7 +21,7 @@ export function App() {
     { path: "/user/me/used", element: <user.UsedCouponScreen /> },
     { path: "/user/me/favor", element: <user.FavorBrandScreen /> },
 
-    { path: "/usecoupon", element: <coupon.UseCoupon /> },
+    { path: "/usecoupon", element: <coupon.UseCoupon /> }, //쿠폰 사용하려고 할때 나오는 화면
   ]);
 
   return <RouterProvider router={router} />;
