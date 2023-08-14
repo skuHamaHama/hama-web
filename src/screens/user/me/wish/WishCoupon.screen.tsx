@@ -1,5 +1,5 @@
 import { SubCoupon, Screen } from "../../../../components";
-import * as S from "../main";
+import * as S from "../../me/main";
 
 export function WishCouponScreen() {
   const GroupSize = 4; //분할 개수
