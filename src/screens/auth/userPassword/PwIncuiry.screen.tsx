@@ -4,7 +4,6 @@ import * as S from "./PwIncuiry.styled";
 export function PsIncuryScreen() {
   const [newPW, setNewPW] = useState("");
   const [confPW, setConfPW] = useState("");
-
   const onNewPW = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewPW(event.target.value);
   };
@@ -42,7 +41,7 @@ export function PsIncuryScreen() {
           </S.InputForm>
         </S.Form>
       </S.Ticket>
-      <S.Button>다음</S.Button>
+      <S.Button onClick={}>다음</S.Button>
     </S.Container>
   );
 }

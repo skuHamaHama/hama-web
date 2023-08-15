@@ -28,6 +28,7 @@ export function createAPIService<ResData = any, ReqData = any>() {
           urlParams: config.urlParams,
           method: config.method,
         });
+        alert(urlWithParams);
 
         const axiosConfig: _AxiosRequestConfig = {
           method: config.method,

@@ -7,9 +7,9 @@ export function usePostLogin() {
     try {
       const res = await postLogin(data);
 
-      const accessToken = res.data.data.accessToken;
+      const accessToken = res.data.accessToken;
       localStorage.setItem("accessToken", accessToken);
-      const refreshToken = res.data.data.refreshToken;
+      const refreshToken = res.data.refreshToken;
       document.cookie = `refreshToken=${refreshToken}; path=/; secure; HttpOnly`;
 
       navigate("/user/main");

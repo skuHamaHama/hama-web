@@ -1,12 +1,20 @@
 import { createAPIService } from "../../apis";
 
 export interface GetCommentData {
-  commentId: number;
   brandName: string;
   couponName: string;
   comment: string;
 }
 
-export const getCommentData = createAPIService<GetCommentData>()({
-  config: { method: "GET", url: "/v3/comment" },
-});
+export const getCommentData = (param: string) => {
+  createAPIService<GetCommentData>()({
+    config: { method: "GET", url: "/comments/:urlParam" },
+    urlParams: { urlParam: param },
+  });
+};
+
+export const getSearchCommentData = (email: string) => {
+  createAPIService<GetCommentData>()({
+    config: { method: "GET", url: `/comments?email=${email}` },
+  });
+};

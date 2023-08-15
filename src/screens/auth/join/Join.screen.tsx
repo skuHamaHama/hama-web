@@ -2,30 +2,34 @@ import { useState } from "react";
 import {
   PostJoinReq,
   PostEmailVerifyReq,
-  PostEmailConfirmReq,
+  PostNicknameConfirmReq,
+  PostNicknameConfirmRes,
 } from "../../../services";
 import {
   usePostJoin,
-  usePostEmailAccess,
   usePostEmailConfirm,
+  usePostNicknameAccess,
 } from "../../../hooks";
 
 import * as S from "./Join.styled";
 
 export const JoinScreen: React.FC = () => {
   const [form, setForm] = useState<PostJoinReq>({
-    id: "",
+    email: "",
     password: "",
     nickname: "",
   });
   const [verify, setVerify] = useState("");
+  const [confirmedVerify, setConfirmedVerify] = useState(false);
+  const [confirmedNickname, setConfirmedNickname] =
+    useState<PostNicknameConfirmRes>({ status: false });
   const [confirmedPassword, setConfirmedPassword] = useState("");
   const join = usePostJoin();
   const sendEmailVerify = usePostEmailConfirm();
-  const accessEmail = usePostEmailAccess();
+  const accessNickname = usePostNicknameAccess();
 
   const onId = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, id: event.target.value });
+    setForm({ ...form, email: event.target.value });
   };
   const onPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, password: event.target.value });
@@ -35,7 +39,7 @@ export const JoinScreen: React.FC = () => {
   };
 
   const postReq: PostJoinReq = {
-    id: form.id,
+    email: form.email,
     password: form.password,
     nickname: form.nickname,
   };
@@ -59,11 +63,11 @@ export const JoinScreen: React.FC = () => {
             <S.Input
               placeholder="아이디(이메일)"
               onChange={onId}
-              value={form.id}
+              value={form.email}
             />
             <S.Button
               onClick={() => {
-                const postReq: PostEmailVerifyReq = { id: form.id };
+                const postReq: PostEmailVerifyReq = { email: form.email };
                 sendEmailVerify(postReq);
               }}
             >
@@ -82,14 +86,7 @@ export const JoinScreen: React.FC = () => {
               onChange={(e) => setVerify(e.target.value)}
               value={verify}
             />
-            <S.Button
-              onClick={() => {
-                const postReq: PostEmailConfirmReq = { verify: verify };
-                accessEmail(postReq);
-              }}
-            >
-              인증확인
-            </S.Button>
+            <S.Button>인증확인</S.Button>
           </S.InputStyle>
         </S.InputForm>
         <S.InputForm>
@@ -128,9 +125,20 @@ export const JoinScreen: React.FC = () => {
             onChange={onNickname}
           />
         </S.InputForm>
+        <S.Button
+          onClick={() => {
+            const postReq: PostNicknameConfirmReq = { nickname: form.nickname };
+            const confirmedNickname = accessNickname(postReq);
+            setConfirmedNickname(confirmedNickname);
+          }}
+        >
+          중복확인
+        </S.Button>
         <S.SubmitButton
           onClick={() => {
-            join(postReq);
+            if (confirmedVerify && confirmedNickname) {
+              join(postReq);
+            }
           }}
         >
           하마하마 시작하기

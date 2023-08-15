@@ -12,6 +12,8 @@ export function App() {
 
     { path: "/login", element: <auth.LoginScreen /> },
     { path: "/join", element: <auth.JoinScreen /> },
+    { path: "/user", element: <auth.IdIncuryScreen /> }, //아이디 찾기
+
     { path: "/user/help", element: <auth.IdIncuryScreen /> }, //아이디 찾기
     { path: "/user/help/pwInquiry", element: <auth.PsIncuryScreen /> }, //비밀번호 찾기
     { path: "/user/help/profile", element: <auth.ProfileScreen /> }, //프로필 수정

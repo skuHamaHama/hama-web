@@ -1,7 +1,7 @@
 import { createAPIService } from "../../apis";
 
 export interface PostJoinReq {
-  id: string;
+  email: string;
   password: string;
   nickname: string;
 }
@@ -11,5 +11,5 @@ export interface PostJoinRes {
 }
 
 export const postJoin = createAPIService<PostJoinRes, PostJoinReq>()({
-  config: { method: "POST", url: "/v3/auth/join" },
+  config: { method: "POST", url: "/register" },
 });

@@ -8,6 +8,16 @@ export interface GetCouponDataRes {
   couponImg: string;
 }
 
-export const GetCouponData = createAPIService<GetCouponDataRes>()({
-  config: { method: "GET", url: "/coupon/like" },
-});
+export const GetCouponData = (param: string) => {
+  createAPIService<GetCouponDataRes>()({
+    config: { method: "GET", url: "/coupon/:urlParam" },
+    urlParams: { urlParam: param },
+  });
+};
+export const getSearchCouponData = (searchKeyword: string) =>
+  createAPIService<GetCouponDataRes>()({
+    config: {
+      method: "GET",
+      url: `/coupon/search/list?searchKeyword=${searchKeyword}`,
+    },
+  });
