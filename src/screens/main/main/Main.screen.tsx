@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { Screen } from "../../../components";
-import { CenterScreen } from "../../main";
+import { HomeScreen, CenterScreen } from "../../main";
 export function MainScreen() {
   return (
     <Screen header={true} nav={false} side={false} footer={true}>
       <Container>
-        {/* <HomeScreen /> */}
+        <HomeScreen />
         <CenterScreen />
       </Container>
     </Screen>

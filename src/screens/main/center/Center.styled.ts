@@ -48,12 +48,26 @@ export const Coupon = styled.div`
   margin-right: 112px;
 `;
 
+export const TextGroup = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 0 -5px 0;
+`;
+
 export const Text = styled.div`
   display: flex;
   align-self: flex-start;
   font-weight: bold;
   font-size: large;
   margin: 10px 0 10px 0;
+`;
+
+export const ViewText = styled.p`
+  font-size: 12px;
+  padding-top: 15px;
+  cursor: pointer;
 `;
 
 export const IconGroup = styled.div`

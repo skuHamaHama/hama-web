@@ -1,5 +1,5 @@
 import { PlayCircleOutlined } from "@ant-design/icons";
-import { MainCoupon } from "../../../components/coupon";
+import { MainCoupon, MainComment } from "../../../components";
 import * as S from "./Center.styled";
 export function CenterScreen() {
   const groupSize: number = 3; //분할 개수
@@ -37,11 +37,11 @@ export function CenterScreen() {
         </S.BlueContainer>
       </S.Category>
       <S.Category>
-        <S.Text>최신 댓글</S.Text>
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
-          전체보기
-        </div>
-        <S.ReviewContainer></S.ReviewContainer>
+        <S.TextGroup>
+          <S.Text>최신 댓글</S.Text>
+          <S.ViewText>전체보기</S.ViewText>
+        </S.TextGroup>
+        <MainComment />
         <PlayCircleOutlined />
       </S.Category>
     </S.Container>
