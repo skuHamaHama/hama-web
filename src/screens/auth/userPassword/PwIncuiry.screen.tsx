@@ -4,11 +4,24 @@ import * as S from "./PwIncuiry.styled";
 export function PsIncuryScreen() {
   const [newPW, setNewPW] = useState("");
   const [confPW, setConfPW] = useState("");
+  const [isPasswordValid, setIsPasswordValid] = useState(true);
   const onNewPW = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewPW(event.target.value);
+    validatePassword(event.target.value, confPW);
   };
   const onConfPW = (event: React.ChangeEvent<HTMLInputElement>) => {
     setConfPW(event.target.value);
+    validatePassword(newPW, event.target.value);
+  };
+
+  const validatePassword = (newPassword: string, confirmPassword: string) => {
+    const passwordRegex =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    //최소 8자리, 영문자, 숫자, 특수기호(@$!%*#?&)를 모두 포함해야함
+
+    const isValid =
+      passwordRegex.test(newPassword) && newPassword === confirmPassword;
+    setIsPasswordValid(isValid);
   };
 
   return (
