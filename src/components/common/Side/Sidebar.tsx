@@ -23,29 +23,22 @@ function getItem(
 
 const items: MenuItem[] = [
   getItem("카테고리", "sub1", null, [
-    getItem("음식", "1"),
-    getItem("쇼핑", "sub3", null, [
-      getItem("화장품", "2"),
-      getItem("신발", "3"),
-      getItem("의류", "4"),
+    getItem("음식", "sub3", null, [getItem("식당", "1"), getItem("카페", "2")]),
+    getItem("문화생활", "sub5", null, [
+      getItem("영화", "3"),
+      getItem("놀이공원", "4"),
+      getItem("게임", "5"),
     ]),
-    getItem("문화생활", "sub4", null, [
-      getItem("영화", "5"),
-      getItem("게임", "6"),
-      getItem("놀이공원", "7"),
-      getItem("워터파크", "8"),
+    getItem("쇼핑", "sub4", null, [
+      getItem("옷", "6"),
+      getItem("신발", "7"),
+      getItem("화장품", "8"),
     ]),
   ]),
   getItem("내 정보", "sub2", null, [
     getItem("정보수정", "9"),
     getItem("마이페이지", "10"),
   ]),
-  // getItem('Navigation Three', 'sub4', <SettingOutlined />, [
-  //   getItem('Option 9', '9'),
-  //   getItem('Option 10', '10'),
-  //   getItem('Option 11', '11'),
-  //   getItem('Option 12', '12'),
-  // ]),
 ];
 
 const rootSubmenuKeys = ["sub1", "sub2"];
