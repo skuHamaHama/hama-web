@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Line = styled.div`
   margin-top: 15px;
@@ -68,7 +68,6 @@ export const Menu = styled.div<MenuProps>`
     border-top-width: 0;
     border-bottom-color: #b1e2ff;
   }
-
 `;
 
 export const Ul = styled.ul`

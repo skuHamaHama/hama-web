@@ -28,9 +28,9 @@ export const Input = styled.input`
 `;
 
 export const SearchBtn = styled.img`
-  width: 40px;
-  height: 38px;
-  margin: 0 0 0 30px;
+  width: 31px;
+  height: 29px;
+  margin: 0 0 0 20px;
   cursor: pointer;
 `;
 

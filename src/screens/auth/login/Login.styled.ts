@@ -11,7 +11,7 @@ export const Ticket = styled.div`
   align-items: center;
   height: 335px;
   width: 800px;
-  background-image: url(./img/Ticket.png);
+  background-image: url(${process.env.PUBLIC_URL}/img/Ticket.png);
   background-position: center;
   background-size: cover;
   margin-top: 70px;
