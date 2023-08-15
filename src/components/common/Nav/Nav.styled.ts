@@ -1,29 +1,19 @@
 import styled, { css } from "styled-components";
 
 export const Line = styled.div`
+  margin-top: 15px;
   border: 1px solid #3c87bd;
 `;
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
+  margin-top: 30px;
   margin-left: 270px;
 
   & p {
     font-size: 16px;
     padding: 0 60px 0 0;
   }
-`;
-
-export const Food = styled.div`
-  cursor: pointer;
-`;
-
-export const Culture = styled.div`
-  cursor: pointer;
-`;
-
-export const Shopping = styled.div`
-  cursor: pointer;
 `;
 
 export const Wrapper = styled.div`
@@ -42,21 +32,24 @@ export const Wrapper = styled.div`
 export const DropdownContainer = styled.div`
   position: relative;
   text-align: center;
+  margin-right: 60px;
 `;
 
 export const DropdownButton = styled.div`
   cursor: pointer;
 `;
 
-export const Menu = styled.div`
-  background: gray;
+interface MenuProps {
+  isDropped: boolean;
+}
+
+export const Menu = styled.div<MenuProps>`
+  background: #b1e2ff;
   position: absolute;
   top: 52px;
   left: 50%;
-  width: 100px;
   text-align: center;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
+  border-radius: 10px;
   opacity: 0;
   visibility: hidden;
   transform: translate(-50%, -20px);
@@ -73,7 +66,7 @@ export const Menu = styled.div`
     transform: translate(-50%, -50%);
     border: 12px solid transparent;
     border-top-width: 0;
-    border-bottom-color: gray;
+    border-bottom-color: #b1e2ff;
   }
 
   ${({ isDropped }) =>
@@ -88,26 +81,30 @@ export const Menu = styled.div`
 
 export const Ul = styled.ul`
   & > li {
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-right: 20px;
+    margin-bottom: 5px;
   }
 
   & > li:first-of-type {
-    margin-top: 10px;
+    margin-left: 20px;
   }
 
   list-style-type: none;
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
+  width: 100%;
 `;
 
 export const Li = styled.li``;
 
-export const LinkWrapper = styled.a`
-  font-size: 16px;
+export const LinkWrapper = styled.a<{ isSelected: boolean }>`
+  font-size: 14px;
+  white-space: nowrap;
   text-decoration: none;
-  color: white;
+  color: ${({ isSelected }) => (isSelected ? "#3C87BD" : "black")};
 `;

@@ -1,30 +1,32 @@
 import { useState } from "react";
 import * as S from "./Header.styled";
 import Sidebar from "../Side/Sidebar";
+import { Search } from "../Search";
 
 export const Header = () => {
-  //const [accessToken, setAccessToken] = useState("");
-  const [isOpen, setIsOpen] = useState(false); //사이드 바
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
   const toggleSide = () => {
     setIsOpen(true);
   };
 
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
+
   return (
-    <header
-      style={{
-        top: "0",
-        left: "0",
-        width: "100%",
-        // position: "fixed"
-      }}
-    >
+    <header>
       <S.Container>
         <S.Logo src={`${process.env.PUBLIC_URL}/img/header/logo.svg`} />
         <S.InputWrapper>
+          {/* 검색 입력란 */}
           <S.Input />
+          {/* 검색 아이콘 */}
           <S.SearchBtn
             role="button"
             src={`${process.env.PUBLIC_URL}/img/header/searchIcon.svg`}
+            onClick={toggleSearch}
           />
         </S.InputWrapper>
         <S.SubWrapper>
@@ -50,6 +52,12 @@ export const Header = () => {
           </S.IconSet>
         </S.SubWrapper>
       </S.Container>
+      {/* 검색 목록 스크롤 컴포넌트 */}
+      {isSearchOpen && (
+        <div style={{ marginTop: "0px", marginLeft: "470px" }}>
+          <Search />
+        </div>
+      )}
     </header>
   );
 };
