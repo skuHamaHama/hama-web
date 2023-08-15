@@ -27,7 +27,7 @@ export const TextGroup = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0 40px 0 60px;
+  margin: 0 40px -5px 60px;
 `;
 
 export const MyCoupon = styled.div``;

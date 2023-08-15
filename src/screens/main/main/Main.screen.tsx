@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { Screen } from "../../../components";
-import { CenterScreen, HomeScreen } from "../../main";
+import { CenterScreen } from "../../main";
 export function MainScreen() {
   return (
     <Screen header={true} nav={false} side={false} footer={true}>
       <Container>
-        <HomeScreen />
+        {/* <HomeScreen /> */}
         <CenterScreen />
       </Container>
     </Screen>
@@ -14,5 +14,6 @@ export function MainScreen() {
 
 const Container = styled.div`
   display: flex;
-  justify-content: column;
+  flex-direction: column;
+  align-items: center;
 `;

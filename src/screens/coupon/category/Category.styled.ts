@@ -6,7 +6,7 @@ export const Container = styled.div`
   height: 100vh;
   width: 100%;
   background-image: url(${process.env.PUBLIC_URL}/img/category/categoryBackground.svg);
-  background-position: 0% 50%;
+  background-position: 0% 40%;
   background-repeat: no-repeat;
 `;
 

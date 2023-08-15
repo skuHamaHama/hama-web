@@ -76,14 +76,6 @@ export const Menu = styled.div`
     border-bottom-color: gray;
   }
 
-  ${({ isDropped }) =>
-    isDropped &&
-    css`
-      opacity: 1;
-      visibility: visible;
-      transform: translate(-50%, 0);
-      left: 50%;
-    `};
 `;
 
 export const Ul = styled.ul`
