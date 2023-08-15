@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as S from "./UseCoupon.styled";
 import { Layout } from "../../components/common/Layout";
 import { Nav } from "../../components/common/Nav";
+// import { Search } from "../../components/common/Search";
 import LeftSide from "../../components/common/Side/LeftSide";
 
 export function UseCoupon() {
