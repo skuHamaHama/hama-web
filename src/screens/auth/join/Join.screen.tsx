@@ -33,18 +33,20 @@ export const JoinScreen: React.FC = () => {
   const onId = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, email: event.target.value });
   };
-  const newPassword = event.target.value;
-  setForm({ ...form, password: newPassword });
-  setPasswordsMatch(newPassword === confirmedPassword);
-  setPasswordIsValid(validatePassword(newPassword));
-};
+  const onPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newPassword = event.target.value;
+    setForm({ ...form, password: newPassword });
+    setPasswordsMatch(newPassword === confirmedPassword);
+    setPasswordIsValid(validatePassword(newPassword));
+  };
 
-const onConfirmedPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-  const confirmPassword = event.target.value;
-  setConfirmedPassword(confirmPassword);
-  setPasswordsMatch(form.password === confirmPassword);
-  setIsVerificationCompleted(false); // 비밀번호 입력이 변경되면 인증 완료 여부 초기화
-};
+  const onConfirmedPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const confirmPassword = event.target.value;
+    setConfirmedPassword(confirmPassword);
+    setPasswordsMatch(form.password === confirmPassword);
+    setIsVerificationCompleted(false); // 비밀번호 입력이 변경되면 인증 완료 여부 초기화
+  };
+
   const onNickname = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, nickname: event.target.value });
   };
@@ -54,6 +56,7 @@ const onConfirmedPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     password: form.password,
     nickname: form.nickname,
   };
+
   const isEmailValid = (id: string) => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return emailRegex.test(id);
@@ -93,6 +96,7 @@ const onConfirmedPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
       setIsVerificationCompleted(true); // 인증이 완료되었음을 표시
     }
   };
+
   return (
     <S.Container>
       <img

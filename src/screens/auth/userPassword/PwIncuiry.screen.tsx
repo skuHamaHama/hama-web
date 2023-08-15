@@ -31,19 +31,20 @@ export function PsIncuryScreen() {
         alt="Logo_IMG"
         src={`${process.env.PUBLIC_URL}/img/header/logo.svg`}
       />
+      <S.Text style={{ fontWeight: 700 }}>새로운 비밀번호로 변경</S.Text>
       <S.Ticket>
         <S.Form>
           <S.InputForm>
             <S.Icon
               alt="lockCheck_Icon"
-              src={`${process.env.PUBLIC_URL}/icon/auth/lockCheck_Icon.svg`}
+              src={`${process.env.PUBLIC_URL}/icon/auth/lock_Icon.svg`}
             />
             <S.Input placeholder="비밀번호" onChange={onNewPW} value={newPW} />
           </S.InputForm>
           <S.InputForm>
             <S.Icon
               alt="lock_Icon"
-              src={`${process.env.PUBLIC_URL}/icon/auth/lock_Icon.svg`}
+              src={`${process.env.PUBLIC_URL}/icon/auth/lockCheck_Icon.svg`}
             />
             <S.Input
               type="password"
@@ -52,9 +53,10 @@ export function PsIncuryScreen() {
               value={confPW}
             />
           </S.InputForm>
+          {!isPasswordValid && <S.Text>비밀번호가 유효하지 않습니다.</S.Text>}
         </S.Form>
       </S.Ticket>
-      <S.Button onClick={}>다음</S.Button>
+      <S.Button>다음</S.Button>
     </S.Container>
   );
 }
