@@ -19,7 +19,13 @@ export const JoinScreen: React.FC = () => {
     nickname: "",
   });
   const [verify, setVerify] = useState("");
+  const [isEmailRequestCompleted, setIsEmailRequestCompleted] = useState(false); // 이메일 인증 요청 완료 여부 상태 추가
   const [confirmedPassword, setConfirmedPassword] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState(true); //비밀번호 일치
+  const [passwordIsValid, setPasswordIsValid] = useState(true); //유효성검사
+  const [isCodeValid, setIsCodeValid] = useState(false); //인증번호 일치 여부
+  const [isVerificationCompleted, setIsVerificationCompleted] = useState(false); // 인증 완료 여부 상태 추가
+
   const join = usePostJoin();
   const sendEmailVerify = usePostEmailConfirm();
   const accessEmail = usePostEmailAccess();
@@ -28,8 +34,19 @@ export const JoinScreen: React.FC = () => {
     setForm({ ...form, id: event.target.value });
   };
   const onPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, password: event.target.value });
+    const newPassword = event.target.value;
+    setForm({ ...form, password: newPassword });
+    setPasswordsMatch(newPassword === confirmedPassword);
+    setPasswordIsValid(validatePassword(newPassword));
   };
+
+  const onConfirmedPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const confirmPassword = event.target.value;
+    setConfirmedPassword(confirmPassword);
+    setPasswordsMatch(form.password === confirmPassword);
+    setIsVerificationCompleted(false); // 비밀번호 입력이 변경되면 인증 완료 여부 초기화
+  };
+
   const onNickname = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, nickname: event.target.value });
   };
@@ -38,6 +55,46 @@ export const JoinScreen: React.FC = () => {
     id: form.id,
     password: form.password,
     nickname: form.nickname,
+  };
+
+  const isEmailValid = (id: string) => {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailRegex.test(id);
+  };
+
+  const validatePassword = (password: string) => {
+    const passwordRegex =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    return passwordRegex.test(password);
+  };
+
+  //임시 인증번호
+  const testCode = "user123";
+
+  const onVerifyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setVerify(event.target.value);
+    setIsCodeValid(event.target.value === testCode);
+  };
+
+  const handleEmailVerifyClick = () => {
+    if (isEmailValid(form.id)) {
+      const postReq: PostEmailVerifyReq = { id: form.id };
+      sendEmailVerify(postReq);
+      setIsEmailRequestCompleted(true); // 이메일 인증 요청 완료 상태 업데이트
+    }
+    if (!isEmailValid(form.id)) {
+      alert("이메일 형식으로 입력해주세요.");
+    }
+  };
+
+  const handleVerifyClick = () => {
+    if (!isCodeValid) {
+      alert("인증번호가 일치하지 않습니다.");
+    } else {
+      const postReq: PostEmailConfirmReq = { verify: verify };
+      accessEmail(postReq);
+      setIsVerificationCompleted(true); // 인증이 완료되었음을 표시
+    }
   };
 
   return (
@@ -62,15 +119,15 @@ export const JoinScreen: React.FC = () => {
               value={form.id}
             />
             <S.Button
-              onClick={() => {
-                const postReq: PostEmailVerifyReq = { id: form.id };
-                sendEmailVerify(postReq);
-              }}
+              onClick={handleEmailVerifyClick}
+              disabled={isEmailRequestCompleted} // 이메일 형식이 아니거나 이미 인증 요청을 완료한 경우 버튼 비활성화
+              style={{ opacity: isEmailRequestCompleted ? 0.5 : 1 }}
             >
               인증요청
             </S.Button>
           </S.InputStyle>
         </S.InputForm>
+        {/* {!isEmailValid(form.id) && <p>이메일 형식으로 입력해주세요.</p>} */}
         <S.InputForm>
           <S.Icon
             alt="code_Icon"
@@ -79,14 +136,13 @@ export const JoinScreen: React.FC = () => {
           <S.InputStyle>
             <S.Input
               placeholder="인증번호 입력"
-              onChange={(e) => setVerify(e.target.value)}
+              onChange={onVerifyChange}
               value={verify}
             />
             <S.Button
-              onClick={() => {
-                const postReq: PostEmailConfirmReq = { verify: verify };
-                accessEmail(postReq);
-              }}
+              onClick={handleVerifyClick}
+              // disabled={!isCodeValid}
+              style={{ opacity: isVerificationCompleted ? 0.5 : 1 }}
             >
               인증확인
             </S.Button>
@@ -111,11 +167,15 @@ export const JoinScreen: React.FC = () => {
           <S.Input
             placeholder="비밀번호 확인"
             value={confirmedPassword}
-            onChange={(e) => setConfirmedPassword(e.target.value)}
+            onChange={onConfirmedPassword}
           />
         </S.InputForm>
-        {form.password !== confirmedPassword && (
-          <p>비밀번호가 일치하지 않습니다.</p>
+        {!passwordsMatch && <p>비밀번호가 일치하지 않습니다.</p>}
+        {!passwordIsValid && (
+          <p>
+            비밀번호는 영문자, 숫자, 특수문자를 포함하여 8자리 이상이어야
+            합니다.
+          </p>
         )}
         <S.InputForm>
           <S.Icon

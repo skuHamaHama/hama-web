@@ -9,11 +9,11 @@ export const Ticket = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 135px;
-  width: 100px;
-  background-image: url("../../../public/img/auth/ticket.png");
+  height: 200px;
+  width: 661px;
+  background-image: url(${process.env.PUBLIC_URL}/img/auth/SubTicket.svg);
   background-size: cover;
-  margin-top: 70px;
+  margin-top: 60px;
 `;
 
 export const Form = styled.div`
@@ -31,7 +31,9 @@ export const InputForm = styled.div`
   height: 57.17px;
   border: 2px solid #3c87bd;
   border-radius: 20px;
-  margin-bottom: 5px;
+  margin-top: 15px;
+  margin-left: 5px;
+  // margin-bottom: 5px;
 `;
 
 export const Input = styled.input`
@@ -52,10 +54,18 @@ export const Button = styled.button`
   width: 537.44px;
   height: 57.17px;
   font-size: x-large;
+  margin-top: 30px;
 `;
 
 export const Icon = styled.img`
   width: 36px;
   height: 36px;
   margin: 15px;
+`;
+
+export const Text = styled.div`
+  display: flex;
+  margin-top: 40px;
+  font-size: 15px;
+  font-weight: 700;
 `;

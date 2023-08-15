@@ -9,28 +9,28 @@ export const Ticket = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 255px;
-  width: 60px;
-  background-image: url(./img/SubTicket.png);
+  height: 303px;
+  width: 720px;
+  background-image: url(${process.env.PUBLIC_URL}/img/auth/Ticket.svg);
   background-size: cover;
-  margin-top: 70px;
+  margin-top: 40px;
 `;
 
 export const Form = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 80px;
+  padding-top: 60px;
 `;
 
 export const InputForm = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 537.44px;
-  height: 57.17px;
+  width: 600px;
+  height: 80px;
   border: 2px solid #3c87bd;
-  border-radius: 20px;
+  border-radius: 15px;
   margin-bottom: 5px;
 `;
 
@@ -59,4 +59,9 @@ export const Icon = styled.img`
   width: 36px;
   height: 36px;
   margin: 15px;
+`;
+
+export const Text = styled.div`
+  display: flex;
+  margin-top: 20px;
 `;

@@ -32,7 +32,10 @@ export function LoginScreen() {
       <S.Ticket>
         <S.LoginForm>
           <S.InputForm>
-            <S.Icon alt="person_Icon.png" src={`icon/auth/person_Icon.svg`} />
+            <S.Icon
+              alt="person_Icon.png"
+              src={`${process.env.PUBLIC_URL}/icon/auth/person_Icon.svg`}
+            />
             <S.Input
               placeholder="아이디"
               onChange={(e) => setForm({ ...form, id: e.target.value })}
@@ -40,7 +43,10 @@ export function LoginScreen() {
             />
           </S.InputForm>
           <S.InputForm>
-            <S.Icon alt="Password.png" src={`icon/auth/lock_Icon.svg`} />
+            <S.Icon
+              alt="Password.png"
+              src={`${process.env.PUBLIC_URL}/icon/auth/lock_Icon.svg`}
+            />
             <S.Input
               type="password"
               placeholder="비밀번호"
@@ -87,11 +93,17 @@ export function LoginScreen() {
         </div>
       </S.Find>
       <div>
-        <S.SocialIcon alt="kakao_Icon.png" src="./icon/social/kakao_Icon.png" />
-        <S.SocialIcon alt="naver_Icon.png" src="./icon/social/naver_Icon.png" />
+        <S.SocialIcon
+          alt="kakao_Icon.png"
+          src={`${process.env.PUBLIC_URL}/icon/social/kakao_Icon.png`}
+        />
+        <S.SocialIcon
+          alt="naver_Icon.png"
+          src={`${process.env.PUBLIC_URL}/icon/social/naver_Icon.png`}
+        />
         <S.SocialIcon
           alt="google_Icon.png"
-          src="./icon/social/google_Icon.png"
+          src={`${process.env.PUBLIC_URL}/icon/social/google_Icon.png`}
         />
       </div>
     </S.Container>
