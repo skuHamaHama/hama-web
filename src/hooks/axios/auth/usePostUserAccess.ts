@@ -44,9 +44,7 @@ export function usePostEmailConfirm() {
 export function usePostRegisterNickname() {
   const registerNickname = async (data: PostRegisterNicknameReq) => {
     try {
-      const response = await postRegisterNickname(data);
-      if (response.status) alert("사용 가능한 닉네입 입니다.");
-      else alert("존재하는 닉네임입니다.");
+      await postRegisterNickname(data);
     } catch (error) {
       alert(error + ": 중복 확인 오류");
     }

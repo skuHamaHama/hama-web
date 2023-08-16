@@ -1,4 +1,4 @@
-import { Express } from "express"; // Express 애플리케이션의 타입을 가져옴
+import { Express } from "express";
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = function (app: Express) {

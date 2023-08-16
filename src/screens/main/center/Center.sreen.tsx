@@ -36,7 +36,7 @@ export function CenterScreen() {
         </S.BlueContainer>
       </S.Category>
       <S.Category>
-        <S.TextGroup page={"main"}>
+        <S.TextGroup>
           <S.Text>최신 댓글</S.Text>
           <S.ViewText>전체보기</S.ViewText>
         </S.TextGroup>

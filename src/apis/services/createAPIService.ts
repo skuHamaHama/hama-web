@@ -28,7 +28,7 @@ export function createAPIService<ResData = any, ReqData = any>() {
           urlParams: config.urlParams,
           method: config.method,
         });
-        alert(urlWithParams);
+        alert("오류 부분");
 
         const axiosConfig: _AxiosRequestConfig = {
           method: config.method,
@@ -39,6 +39,7 @@ export function createAPIService<ResData = any, ReqData = any>() {
         const response = await axiosInstance.request<ResData>(axiosConfig);
         return response;
       } catch (error) {
+        console.log(error);
         throw new Error("API 요청 중 오류가 발생하였습니다.");
       }
     };

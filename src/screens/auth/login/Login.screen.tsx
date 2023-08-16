@@ -8,7 +8,7 @@ import * as S from "./Login.styled";
 
 export function LoginScreen() {
   const [form, setForm] = useState<PostLoginReq>({
-    id: "",
+    email: "",
     password: "",
     state: false,
   });
@@ -17,7 +17,7 @@ export function LoginScreen() {
   const navigate = useNavigate();
 
   const postReq: PostLoginReq = {
-    id: form.id,
+    email: form.email,
     password: form.password,
     state: form.state,
   };
@@ -38,8 +38,8 @@ export function LoginScreen() {
             />
             <S.Input
               placeholder="아이디"
-              onChange={(e) => setForm({ ...form, id: e.target.value })}
-              value={form.id}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              value={form.email}
             />
           </S.InputForm>
           <S.InputForm>
@@ -65,6 +65,7 @@ export function LoginScreen() {
           </S.StateForm>
           <S.Button
             onClick={() => {
+              console.log(postReq);
               login(postReq);
             }}
           >
