@@ -17,7 +17,7 @@ export function MainCoupon({ orderBy }: { orderBy: string }) {
   };
   const data = mapDataInGroups(couponData_3, groupSize);
 
-  //getCouponData
+  // getCouponData;
   useEffect(() => {
     getOrderByCouponData(orderBy);
   }, []);
