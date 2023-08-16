@@ -50,9 +50,11 @@ export const Menu = styled.div<MenuProps>`
   left: 50%;
   text-align: center;
   border-radius: 10px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translate(-50%, -20px);
+  opacity: ${({ isDropped }) => (isDropped ? "1" : "0")}; // 변경된 부분
+  visibility: ${({ isDropped }) =>
+    isDropped ? "visible" : "hidden"}; // 변경된 부분
+  transform: ${({ isDropped }) =>
+    isDropped ? "translate(-50%, 0)" : "translate(-50%, -20px)"}; // 변경된 부분
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
   z-index: 9;
 
