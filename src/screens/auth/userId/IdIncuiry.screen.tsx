@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import * as S from "./IdIncuiry.styled";
+import { usePostRessetPassword } from "../../../hooks";
+import { PostResetPasswordReq } from "../../../services";
 
 export function IdIncuryScreen() {
-  const [ID, setId] = useState("");
-  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const ressetPassword = usePostRessetPassword();
 
-  const onID = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setId(event.target.value);
+  const onEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
   };
 
   const isEmailValid = (email: string) => {
@@ -15,8 +16,9 @@ export function IdIncuryScreen() {
     return emailRegex.test(email);
   };
 
-  const checkIdAndSubmit = () => {
-    navigate("./pwInquiry");
+  //Request Data
+  const postReq: PostResetPasswordReq = {
+    email: email,
   };
 
   return (
@@ -34,12 +36,17 @@ export function IdIncuryScreen() {
               alt="person_Icon.png"
               src={`${process.env.PUBLIC_URL}/icon/auth/person_Icon.svg`}
             />
-            <S.Input placeholder="아이디" onChange={onID} value={ID} />
+            <S.Input placeholder="아이디" onChange={onEmail} value={email} />
           </S.InputForm>
         </S.Form>
       </S.Ticket>
-      {!isEmailValid(ID) && <p>이메일 형식으로 입력해주세요.</p>}
-      <S.Button onClick={checkIdAndSubmit} disabled={!isEmailValid(ID)}>
+      {!isEmailValid(email) && <p>이메일 형식으로 입력해주세요.</p>}
+      <S.Button
+        onClick={() => {
+          ressetPassword(postReq);
+        }}
+        disabled={!isEmailValid(email)}
+      >
         다음
       </S.Button>
     </S.Container>

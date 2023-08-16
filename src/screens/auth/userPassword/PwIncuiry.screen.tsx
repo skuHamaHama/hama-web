@@ -1,9 +1,13 @@
 import { useState } from "react";
+import { usePostSavePassword } from "../../../hooks";
+import { PostSavePasswordReq } from "../../../services";
+
 import * as S from "./PwIncuiry.styled";
 export function PsIncuryScreen() {
   const [newPW, setNewPW] = useState("");
   const [confPW, setConfPW] = useState("");
   const [isPasswordValid, setIsPasswordValid] = useState(true);
+  const savePassword = usePostSavePassword();
 
   const onNewPW = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewPW(event.target.value);
@@ -22,6 +26,10 @@ export function PsIncuryScreen() {
     const isValid =
       passwordRegex.test(newPassword) && newPassword === confirmPassword;
     setIsPasswordValid(isValid);
+  };
+
+  const postReq: PostSavePasswordReq = {
+    password: confPW,
   };
 
   return (
@@ -56,7 +64,13 @@ export function PsIncuryScreen() {
           {!isPasswordValid && <S.Text>비밀번호가 유효하지 않습니다.</S.Text>}
         </S.Form>
       </S.Ticket>
-      <S.Button>다음</S.Button>
+      <S.Button
+        onClick={() => {
+          savePassword(postReq);
+        }}
+      >
+        다음
+      </S.Button>
     </S.Container>
   );
 }

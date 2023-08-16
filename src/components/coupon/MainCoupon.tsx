@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { couponData_3 } from ".";
-import { GetCouponDataRes } from "../../services/coupon";
+import { useGetOrderByCouponData } from "../../hooks";
+import { GetCouponDataRes } from "../../services";
 import * as S from "./MainCoupon.Styled";
 
-export function MainCoupon({ groupSize }: { groupSize: number }) {
+export function MainCoupon({ orderBy }: { orderBy: string }) {
+  const groupSize = 4; //분할 개수
+
+  const getOrderByCouponData = useGetOrderByCouponData();
   const mapDataInGroups = (data: GetCouponDataRes[], groupSize: number) => {
     const groups = [];
     for (let i = 0; i < data.length; i += groupSize) {
@@ -10,8 +15,12 @@ export function MainCoupon({ groupSize }: { groupSize: number }) {
     }
     return groups;
   };
-
   const data = mapDataInGroups(couponData_3, groupSize);
+
+  //getCouponData
+  useEffect(() => {
+    getOrderByCouponData(orderBy);
+  }, []);
 
   return (
     <S.Container>

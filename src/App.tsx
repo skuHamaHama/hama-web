@@ -6,6 +6,9 @@ import * as coupon from "./screens/coupon";
 import * as brand from "./screens/brand";
 import { WriteReview } from "./screens/review";
 
+import { useAuth } from "./services";
+import AuthProvider from "./services";
+
 export function App() {
   const router = createBrowserRouter([
     { path: "/", element: <main.Intro /> },
