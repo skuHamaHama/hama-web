@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { postProfile, PostProfileReq } from "../../../services";
+import { postProfile, PostProfileReq } from "../../services";
 
 export function usePostProfile() {
   const navigate = useNavigate();

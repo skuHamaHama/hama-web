@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from "react";
-import { AuthToken } from "./hooks/axios/auth";
+import { AuthToken } from "./hooks/user";
 
 export const AuthContext = createContext({});
 export const useAuth = () => useContext(AuthContext);

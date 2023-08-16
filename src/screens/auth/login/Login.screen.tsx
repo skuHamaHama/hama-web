@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { usePostLogin } from "../../../hooks/axios";
-import { PostLoginReq } from "../../../services/auth";
+import { usePostLogin } from "../../../hooks";
+import { PostLoginReq } from "../../../services";
 
 import { DownCircleOutlined } from "@ant-design/icons";
 import * as S from "./Login.styled";
@@ -10,7 +10,6 @@ export function LoginScreen() {
   const [form, setForm] = useState<PostLoginReq>({
     email: "",
     password: "",
-    state: false,
   });
   const [state, setState] = useState(false);
   const login = usePostLogin();
@@ -19,7 +18,6 @@ export function LoginScreen() {
   const postReq: PostLoginReq = {
     email: form.email,
     password: form.password,
-    state: form.state,
   };
 
   return (

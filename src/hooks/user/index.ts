@@ -1,3 +1,3 @@
 export * from "./usePostLogin";
-// export * from "./usePostUserAccess";
+export * from "./usePostUser";
 export * from "./usePostProfile";
