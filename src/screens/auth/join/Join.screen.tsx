@@ -188,13 +188,13 @@ export const JoinScreen: React.FC = () => {
           />
         </S.InputForm>
         <S.Button
-          onClick={() => {
-            const postReq: PostRegisterNicknameReq = {
-              nickname: form.nickname,
-            };
-            const response = registerNickname(postReq);
-            setConfirmNickname(response);
-          }}
+        // onClick={() => {
+        //   const postReq: PostRegisterNicknameReq = {
+        //     nickname: form.nickname,
+        //   };
+        //   const response = registerNickname(postReq);
+        //   setConfirmNickname(response);
+        // }}
         >
           중복확인
         </S.Button>

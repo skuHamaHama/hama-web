@@ -1,4 +1,4 @@
 export * from "./postLogin.service";
 export * from "./postUserAccess.service";
 export * from "./postProfile.service";
-export * from "./AuthContext";
+export * from "./getUserData.service";

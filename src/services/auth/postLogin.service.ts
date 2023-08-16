@@ -1,7 +1,7 @@
 import { createAPIService } from "../../apis";
 
 export interface PostLoginReq {
-  id: string;
+  email: string;
   password: string;
   state: boolean;
 }
