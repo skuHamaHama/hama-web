@@ -2,7 +2,6 @@ import { PlayCircleOutlined } from "@ant-design/icons";
 import { MainCoupon, MainComment } from "../../../components";
 import * as S from "./Center.styled";
 export function CenterScreen() {
-  const groupSize: number = 3; //분할 개수
   return (
     <S.Container>
       <S.Category>
@@ -37,7 +36,7 @@ export function CenterScreen() {
         </S.BlueContainer>
       </S.Category>
       <S.Category>
-        <S.TextGroup>
+        <S.TextGroup page={"main"}>
           <S.Text>최신 댓글</S.Text>
           <S.ViewText>전체보기</S.ViewText>
         </S.TextGroup>

@@ -1,8 +1,8 @@
 import { GetCommentData } from "../../services";
-import { Comment } from "./Comment";
+import { Comment } from "./";
 import * as S from "./MainComment.styled";
 
-export function MainComment() {
+export function MainComment({ page }: { page: string }) {
   const groupSize = 3;
   const mapDataInGroups = (data: GetCommentData[], groupSize: number) => {
     const groups = [];
