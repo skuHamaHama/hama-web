@@ -37,6 +37,10 @@ export const Header = () => {
           <S.IconSet>
             <S.Icon
               role="button"
+              src={`${process.env.PUBLIC_URL}/img/header/bell.svg`}
+            />
+            <S.Icon
+              role="button"
               src={`${process.env.PUBLIC_URL}/img/header/fav.svg`}
             />
             <S.Icon

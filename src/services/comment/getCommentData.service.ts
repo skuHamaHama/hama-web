@@ -18,3 +18,9 @@ export const getSearchCommentData = (email: string) => {
     config: { method: "GET", url: `/comments?email=${email}` },
   });
 };
+
+export const getCouponIdCommentData = (couponId: string) => {
+  createAPIService<GetCommentData>()({
+    config: { method: "GET", url: `/comments/${couponId}` },
+  });
+};

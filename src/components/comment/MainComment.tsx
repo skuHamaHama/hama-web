@@ -12,17 +12,17 @@ export function MainComment({ page }: { page: string }) {
     return groups;
   };
 
-  // const data = mapDataInGroups(couponData_3, groupSize);
+  const data = mapDataInGroups(couponData_3, groupSize);
 
   return (
     <S.Container>
-      {/* {data.map((group, groupIndex) => (
+      {data.map((group, groupIndex) => (
         <S.CouponGroup key={groupIndex}>
           {group.map((comment: GetCommentData, idx: number) => (
             <S.Comment key={idx} />
           ))}
         </S.CouponGroup>
-      ))} */}
+      ))}
     </S.Container>
   );
 }
