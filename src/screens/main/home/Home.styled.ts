@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 export const Images: string[] = [
-  "./img/home/page1.svg",
-  "./img/home/page2.svg",
-  "./img/home/page3.svg",
+  `${process.env.PUBLIC_URL}/img/home/page1.svg`,
+  `${process.env.PUBLIC_URL}/img/home/page2.svg`,
+  `${process.env.PUBLIC_URL}/img/home/page3.svg`,
 ];
 
 export const Bg = styled.div`
   display: flex;
   justify-content: center;
-  background-image: url("./img/home/home.png");
+  background-image: url(${process.env.PUBLIC_URL}/img/home/home.png);
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
@@ -60,9 +60,13 @@ export const Promo = styled.div`
 export const PromoImg1 = styled.img`
   display: flex;
   margin-right: 50px;
+  width: 365px;
+  height: 96px;
 `;
 
 export const PromoImg2 = styled.img`
   display: flex;
   margin-left: 50px;
+  width: 365px;
+  height: 96px;
 `;
