@@ -1,13 +1,15 @@
-import { GetCouponData } from "../../../services";
+import { getOrderByCouponData } from "../../../services";
 
-export function useGetBrandData() {
-  const brandData = async (dataType: string) => {
+//메인 페이지 속 쿠폰 정렬
+//인기순 -> likeCount, 최신순 -> createDate
+export function useGetOrderByCouponData() {
+  const orderByCouponDat = async (orderBy: string) => {
     try {
-      await GetCouponData(dataType);
-      alert("쿠폰 데이터 요청이 완료되었습니다.");
+      await getOrderByCouponData(orderBy);
+      alert("test : 쿠폰 데이터 요청이 완료되었습니다.");
     } catch (error) {
-      alert("데이터 요청 오류");
+      alert(error + ": 데이터 요청 오류");
     }
   };
-  return brandData;
+  return orderByCouponDat;
 }

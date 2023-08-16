@@ -2,17 +2,17 @@ import { useState } from "react";
 import {
   PostJoinReq,
   PostEmailVerifyReq,
-  PostEmailConfirmReq,
+  PostRegisterNicknameReq,
 } from "../../../services";
 import {
   usePostJoin,
-  usePostEmailAccess,
   usePostEmailConfirm,
+  usePostRegisterNickname,
 } from "../../../hooks";
 import * as S from "./Join.styled";
 export const JoinScreen: React.FC = () => {
   const [form, setForm] = useState<PostJoinReq>({
-    id: "",
+    email: "",
     password: "",
     nickname: "",
   });
@@ -23,13 +23,13 @@ export const JoinScreen: React.FC = () => {
   const [passwordIsValid, setPasswordIsValid] = useState(true); //유효성검사
   const [isCodeValid, setIsCodeValid] = useState(false); //인증번호 일치 여부
   const [isVerificationCompleted, setIsVerificationCompleted] = useState(false); // 인증 완료 여부 상태 추가
-
+  const [confirmNickname, setConfirmNickname] = useState(true); //닉네임 중복 여부
   const join = usePostJoin();
-  const sendEmailVerify = usePostEmailConfirm();
-  const accessEmail = usePostEmailAccess();
+  const emailConfirm = usePostEmailConfirm();
+  const registerNickname = usePostRegisterNickname();
 
   const onId = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, id: event.target.value });
+    setForm({ ...form, email: event.target.value });
   };
   const onPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newPassword = event.target.value;
@@ -47,11 +47,6 @@ export const JoinScreen: React.FC = () => {
 
   const onNickname = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, nickname: event.target.value });
-  };
-  const postReq: PostJoinReq = {
-    id: form.id,
-    password: form.password,
-    nickname: form.nickname,
   };
 
   const isEmailValid = (id: string) => {
@@ -74,12 +69,12 @@ export const JoinScreen: React.FC = () => {
   };
 
   const handleEmailVerifyClick = () => {
-    if (isEmailValid(form.id)) {
-      const postReq: PostEmailVerifyReq = { id: form.id };
-      sendEmailVerify(postReq);
+    if (isEmailValid(form.email)) {
+      const postReq: PostEmailVerifyReq = { email: form.email };
+      emailConfirm(postReq);
       setIsEmailRequestCompleted(true); // 이메일 인증 요청 완료 상태 업데이트
     }
-    if (!isEmailValid(form.id)) {
+    if (!isEmailValid(form.email)) {
       alert("이메일 형식으로 입력해주세요.");
     }
   };
@@ -88,10 +83,18 @@ export const JoinScreen: React.FC = () => {
     if (!isCodeValid) {
       alert("인증번호가 일치하지 않습니다.");
     } else {
-      const postReq: PostEmailConfirmReq = { verify: verify };
-      accessEmail(postReq);
-      setIsVerificationCompleted(true); // 인증이 완료되었음을 표시
+      // 인증이 완료되었음을 표시
     }
+  };
+
+  //Join Request
+  const postJoinReq: PostJoinReq = {
+    email: form.email,
+    password: form.password,
+    nickname: form.nickname,
+  };
+  const postRegisterNickname: PostRegisterNicknameReq = {
+    nickname: form.nickname,
   };
 
   return (
@@ -112,7 +115,7 @@ export const JoinScreen: React.FC = () => {
             <S.Input
               placeholder="아이디(이메일)"
               onChange={onId}
-              value={form.id}
+              value={form.email}
             />
             <S.Button
               onClick={handleEmailVerifyClick}
@@ -184,9 +187,22 @@ export const JoinScreen: React.FC = () => {
             onChange={onNickname}
           />
         </S.InputForm>
+        <S.Button
+          onClick={() => {
+            const postReq: PostRegisterNicknameReq = {
+              nickname: form.nickname,
+            };
+            const response = registerNickname(postReq);
+            setConfirmNickname(response);
+          }}
+        >
+          중복확인
+        </S.Button>
         <S.SubmitButton
           onClick={() => {
-            join(postReq);
+            if (isEmailRequestCompleted && passwordsMatch && confirmNickname) {
+              join(postJoinReq);
+            }
           }}
         >
           하마하마 시작하기

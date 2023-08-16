@@ -25,14 +25,14 @@ export function CenterScreen() {
       <S.Category>
         <S.Text>인기 쿠폰</S.Text>
         <S.CouponContainer>
-          <MainCoupon groupSize={groupSize} />
+          <MainCoupon orderBy={"likeCount"} />
         </S.CouponContainer>
       </S.Category>
       <S.Category>
         <S.Text>신규 쿠폰</S.Text>
         <S.BlueContainer>
           <S.CouponContainer>
-            <MainCoupon groupSize={groupSize} />
+            <MainCoupon orderBy={"createDate"} />
           </S.CouponContainer>
         </S.BlueContainer>
       </S.Category>
