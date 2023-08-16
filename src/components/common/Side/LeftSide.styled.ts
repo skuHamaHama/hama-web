@@ -8,6 +8,7 @@ export const Container = styled.div`
   background-color: #eff9ff;
   margin-top: 40px;
   margin-bottom: 200px;
+  // font-family: "notosans-light";
 `;
 
 export const Info = styled.div`

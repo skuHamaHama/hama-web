@@ -43,8 +43,14 @@ export function HomeScreen() {
           <S.PickerWrapper>{pickers}</S.PickerWrapper>
         </S.Container>
         <S.Promo>
-          <S.PromoImg1 src="./img/home/img1.svg" alt="promo image" />
-          <S.PromoImg2 src="./img/home/img2.svg" alt="promo image" />
+          <S.PromoImg1
+            src={`${process.env.PUBLIC_URL}/img/home/img1.svg`}
+            alt="promo image"
+          />
+          <S.PromoImg2
+            src={`${process.env.PUBLIC_URL}/img/home/img2.svg`}
+            alt="promo image"
+          />
         </S.Promo>
       </S.Bg>
     </div>

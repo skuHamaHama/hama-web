@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display:flex;
+  display: flex;
   justify-content: center;
   height: 100vh;
   width: 100%;
-  background-image: url(${process.env.PUBLIC_URL}/img/category/categoryBackground.svg);
+  background-image: url(${process.env
+    .PUBLIC_URL}/img/category/categoryBackground.svg);
   background-position: 0% 40%;
   background-repeat: no-repeat;
 `;
@@ -20,7 +21,7 @@ export const Text = styled.p`
   align-self: flex-start;
   font-family: nanum-bold;
   font-size: large;
-  margin: 70px 0 0 50px
+  margin: 70px 0 0 50px;
 `;
 export const ViewText = styled.p`
   font-family: nanum-light;
