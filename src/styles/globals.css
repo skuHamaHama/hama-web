@@ -1,4 +1,4 @@
-/* @font-face {
+@font-face {
   font-family: "nanum-regular";
   src: url("../assets/fonts/NanumBarunGothic.ttf");
   font-weight: 300;
@@ -17,7 +17,7 @@
   font-family: "nanum-ultralight";
   src: url("../assets/fonts/NanumBarunGothicUltraLight.ttf");
   font-weight: 200;
-} */
+}
 
 @font-face {
   font-family: "notosans-medium";
