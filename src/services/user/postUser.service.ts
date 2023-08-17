@@ -26,14 +26,6 @@ export interface PostEmailVerifyRes {
   status: boolean;
 }
 
-//중복 확인
-export interface PostRegisterNicknameReq {
-  nickname: string;
-}
-export interface PostRegisterNicknameRes {
-  status: boolean; //true -> 가입 가능
-}
-
 //비밀번호 찾기 Request
 export interface PostResetPasswordReq {
   email: string;

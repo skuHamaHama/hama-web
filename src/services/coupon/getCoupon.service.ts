@@ -1,6 +1,12 @@
+//쿠폰 단일 조회
+export interface GetCouponDetailDataRes {
+  couponId: number;
+  couponName: string;
+  brandName: string;
+}
 //쿠폰 조회
 export interface GetCouponDataRes {
-  brand: string;
+  brandName: string;
   couponName: string;
   startDate: string;
   endDate: string;

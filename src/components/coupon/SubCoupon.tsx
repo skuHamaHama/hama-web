@@ -1,9 +1,11 @@
-import { couponData_4 } from "./";
+import { useState } from "react";
+import { couponData_4 } from "./"; //임시 데이터
 import { GetCouponDataRes } from "../../services";
 import * as S from "./SubCoupon.Styled";
 
 export function SubCoupon({ active }: { active: boolean }) {
-  const groupSize = 4;
+  const groupSize = 4; //분할 개수
+  const [currentPage, setCurrentPage] = useState(false); //페이지 번호
   const mapDataInGroups = (data: GetCouponDataRes[], groupSize: number) => {
     const groups = [];
     for (let i = 0; i < data.length; i += groupSize) {
@@ -21,8 +23,8 @@ export function SubCoupon({ active }: { active: boolean }) {
           {group.map((coupon: GetCouponDataRes, idx: number) => (
             <S.Coupon key={idx}>
               <S.CouponInfo>
-                <S.Text style={{ fontFamily: "nanum-bold", fontSize: "13px" }}>
-                  {coupon.brand}
+                <S.Text style={{ fontFamily: "bold", fontSize: "13px" }}>
+                  {coupon.brandName}
                 </S.Text>
                 <S.Text>{coupon.couponName}</S.Text>
                 <S.Text>
@@ -38,8 +40,12 @@ export function SubCoupon({ active }: { active: boolean }) {
         </S.CouponGroup>
       ))}
       <S.Button
+        //currentPage는 boolean(고정), true일 경우 이전 버튼으로 바뀌어야 함
         src={`${process.env.PUBLIC_URL}/img/coupon/next_Button.png`}
-        active={active}
+        active={active} //버튼 존재 여부(고정)
+        onClick={() => {
+          setCurrentPage(!currentPage);
+        }} //버튼 클릭 시 페이지 번호 바뀜
       />
     </S.Container>
   );
