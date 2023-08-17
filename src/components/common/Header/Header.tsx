@@ -15,12 +15,9 @@ export const Header = () => {
   const toggleBell = () => {
     setIsBellOpen(!isBellOpen); // 버튼을 클릭할 때마다 상태를 토글
 
-    if (isBellOpen) {
-      // isBellOpen이 true일 때만 alert 창 표시
+    if (!isBellOpen) {
+      // isBellOpen이 false일 때만 alert 창 표시
       alert("알림이 도착했습니다.");
-
-      // 알림이 뜬 후에 벨 아이콘 숨기기
-      setIsBellOpen(false);
     }
   };
 
