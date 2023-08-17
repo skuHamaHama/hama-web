@@ -1,17 +1,17 @@
+import Session from "react-session-api";
 import { useState, useEffect } from "react";
-import { useGetCouponList } from "../../hooks";
+import { useGetCoupon } from "../../hooks";
 import { GetCouponDataRes } from "../../services";
-import { couponData_4 } from "./"; //임시 데이터
 import * as S from "./SubCoupon.Styled";
 
 export function Coupon({ active }: { active: boolean }) {
   const groupSize = 4; //분할 개수
+  const list = Session.get("coupon"); //세션 리스트
+
   const [currentPage, setCurrentPage] = useState(false); //페이지 번호
-  const [couponData, setCouponData] = useState<GetCouponDataRes[] | undefined>(
-    []
-  );
+  const [couponData, setCouponData] = useState<GetCouponDataRes[]>([]);
   const [groups, setGroups] = useState<GetCouponDataRes[][]>([]);
-  const getCouponList = useGetCouponList();
+  const getCouponList = useGetCoupon();
 
   const mapDataInGroups = (
     groupSize: number,
@@ -23,22 +23,27 @@ export function Coupon({ active }: { active: boolean }) {
     }
     return groups;
   };
-  const brandId = 34;
 
-  // getCouponData -> flat: 내부 배열을 풀어줌
   useEffect(() => {
-    getCouponList(brandId).then((res) => {
-      setCouponData(res);
-      if (couponData) {
-        const groups = mapDataInGroups(groupSize, couponData.flat());
-        setGroups(groups);
-      } else {
-        const groups = mapDataInGroups(groupSize, couponData_4.flat());
-        setGroups(groups);
-        alert("쿠폰 정보가 없습니다.");
-      }
-    });
+    //리스트가 존재하는지, 배열 형식인지 확인
+    if (list && Array.isArray(list)) {
+      list.forEach(async (item) => {
+        //객체 amount 속성 활용
+        if (typeof item.amount === "number") {
+          const coupon = await getCouponList(Number(item.amount));
+          setCouponData([...couponData, coupon]);
+        }
+      });
+    }
   }, []);
+
+  useEffect(() => {
+    if (couponData.length > 0) {
+      const groups = mapDataInGroups(groupSize, couponData.flat());
+      setGroups(groups);
+    }
+  }, [couponData]);
+
   return (
     <S.Container>
       {groups.map((group, groupIndex) => (

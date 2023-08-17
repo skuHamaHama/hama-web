@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { SubCoupon, Screen, Brand } from "../../../../components";
+import { Coupon, MyPageCoupon, Screen, Brand } from "../../../../components";
 import * as S from "./MyPage.styled";
 
 export function MyPageScreen() {
@@ -36,7 +36,7 @@ export function MyPageScreen() {
             </S.ViewText>
           </S.TextGroup>
           <S.Line />
-          <SubCoupon active={active} />
+          <MyPageCoupon active={active} order={"usedCoupons"} />
         </S.MyCoupon>
         <S.MyCoupon>
           <S.TextGroup>
@@ -50,7 +50,7 @@ export function MyPageScreen() {
             </S.ViewText>
           </S.TextGroup>
           <S.Line />
-          <SubCoupon active={active} />
+          <MyPageCoupon active={active} order={"likeCoupon"} />
         </S.MyCoupon>
         <S.MyCoupon>
           <S.TextGroup>
@@ -64,7 +64,7 @@ export function MyPageScreen() {
             </S.ViewText>
           </S.TextGroup>
           <S.Line />
-          <SubCoupon active={active} />
+          <MyPageCoupon active={active} order={"createCoupon"} />
         </S.MyCoupon>
         <S.MyCoupon>
           <S.TextGroup>
@@ -78,7 +78,7 @@ export function MyPageScreen() {
             </S.ViewText>
           </S.TextGroup>
           <S.Line />
-          <Brand groupSize={5} />
+          <Brand category={"likeBrand"} />
         </S.MyCoupon>
       </S.Container>
     </Screen>
