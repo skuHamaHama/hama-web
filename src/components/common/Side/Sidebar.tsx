@@ -21,23 +21,35 @@ function getItem(
   } as MenuItem;
 }
 
+// 카테고리와 번호 매핑
+const categoryNumbers: Record<string, number> = {
+  식당: 1,
+  카페: 2,
+  여행: 3,
+  취미: 4,
+  옷: 5,
+  신발: 6,
+  화장품: 7,
+  정보수정: 8,
+  마이페이지: 9,
+};
+
 const items: MenuItem[] = [
   getItem("카테고리", "sub1", null, [
     getItem("음식", "sub3", null, [getItem("식당", "1"), getItem("카페", "2")]),
     getItem("문화생활", "sub5", null, [
-      getItem("영화", "3"),
-      getItem("놀이공원", "4"),
-      getItem("게임", "5"),
+      getItem("여행", "3"),
+      getItem("취미", "4"),
     ]),
     getItem("쇼핑", "sub4", null, [
-      getItem("옷", "6"),
-      getItem("신발", "7"),
-      getItem("화장품", "8"),
+      getItem("옷", "5"),
+      getItem("신발", "6"),
+      getItem("화장품", "7"),
     ]),
   ]),
   getItem("내 정보", "sub2", null, [
-    getItem("정보수정", "9"),
-    getItem("마이페이지", "10"),
+    getItem("정보수정", "8"),
+    getItem("마이페이지", "9"),
   ]),
 ];
 
@@ -74,6 +86,28 @@ function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
     setIsOpen(false);
   };
 
+  const getCategoryNameByNumber = (
+    categoryNumber: number
+  ): string | undefined => {
+    for (const [categoryName, number] of Object.entries(categoryNumbers)) {
+      if (number === categoryNumber) {
+        return categoryName;
+      }
+    }
+    return undefined;
+  };
+
+  const handleMenuItemClick = (key: React.Key) => {
+    const categoryNumber = parseInt(key as string, 10); // 키 값을 정수로 변환
+    const categoryName = getCategoryNameByNumber(categoryNumber);
+    if (categoryName) {
+      console.log("Clicked item category:", categoryName);
+      // 다른 원하는 작업 수행
+    } else {
+      console.log("일치하는 카테고리명을 찾을 수 없습니다.");
+    }
+  };
+
   return (
     <S.SideBarWrap id="sidebar" ref={outside} className={isOpen ? "open" : ""}>
       <Menu
@@ -81,6 +115,7 @@ function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
         openKeys={openKeys}
         onOpenChange={onOpenChange}
         style={{ width: 256 }}
+        onClick={({ key }) => handleMenuItemClick(key)}
         items={items}
       />
     </S.SideBarWrap>
