@@ -15,7 +15,7 @@ export function useGetBrand() {
       );
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };
@@ -34,7 +34,7 @@ export function useGetBrandList() {
       );
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };
@@ -53,7 +53,7 @@ export function useGetCategoryBrandList() {
       );
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };
@@ -72,7 +72,7 @@ export function useGetSearchBrandList() {
       );
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };

@@ -5,7 +5,9 @@ import { GetCouponDataRes } from "../../services";
 const accessToken = "accessToken";
 //쿠폰 상세 페이지 - 단일 쿠폰 조회
 export function useGetCoupon() {
-  const getCoupon = async (couponId: number) => {
+  const getCoupon = async (
+    couponId: number
+  ): Promise<GetCouponDataRes | undefined> => {
     try {
       const res: GetCouponDataRes = await axiosInstance.get(
         `/coupon/${couponId}`,
@@ -16,7 +18,7 @@ export function useGetCoupon() {
       alert("DetailPage coupon Data");
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };
@@ -36,7 +38,7 @@ export function useGetCouponList() {
       alert("Brand coupon Data");
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };
@@ -56,7 +58,7 @@ export function useGetSearchCoupon() {
       alert("Keyword coupon Data");
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };
@@ -77,7 +79,7 @@ export function useGetOrderByCoupon() {
       alert("MainPage coupon Data");
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };

@@ -15,7 +15,7 @@ export function usePostCreateCoupon() {
       alert("쿠폰 등록이 완료되었습니다.");
       navigate(`/main`);
     } catch (error) {
-      alert(error);
+      console.log(error);
     }
   };
   return postCreateCoupon;
@@ -32,7 +32,7 @@ export function usePutUpdateCoupon() {
       alert("쿠폰 수정이 완료되었습니다.");
       navigate(`/usecoupon/${couponId}`);
     } catch (error) {
-      alert(error);
+      console.log(error);
     }
   };
   return putUpdateCoupon;
@@ -49,7 +49,7 @@ export function useDeleteCoupon() {
       alert("쿠폰이 삭제되었습니다.");
       navigate("/main");
     } catch (error) {
-      alert(error);
+      console.log(error);
     }
   };
   return deleteCoupon;
@@ -64,7 +64,7 @@ export function usePostLikeCoupon() {
       });
       alert("쿠폰 즐겨찾기가 등록되었습니다.");
     } catch (error) {
-      alert(error);
+      console.log(error);
     }
   };
   return postLikeCoupon;

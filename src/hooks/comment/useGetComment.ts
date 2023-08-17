@@ -12,7 +12,7 @@ export function useGetComment() {
       });
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };
@@ -28,7 +28,7 @@ export function useGetCommentList() {
       });
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };
@@ -47,7 +47,7 @@ export function useGetSearchCommentList() {
       );
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };
@@ -66,7 +66,7 @@ export function useGetUserCommentList() {
       );
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };
