@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
-import { useGetCouponList } from "../../hooks";
+import { useGetMyPageCoupon } from "../../hooks";
 import { GetCouponDataRes } from "../../services";
 import { couponData_4 } from "./"; //임시 데이터
 import * as S from "./SubCoupon.Styled";
 
-export function SubCoupon({
+export function MyPageCoupon({
   active,
-  brandId,
+  order,
 }: {
   active: boolean;
-  brandId: number;
+  order: string;
 }) {
   const groupSize = 4; //분할 개수
   const [currentPage, setCurrentPage] = useState(false); //페이지 번호
   const [groups, setGroups] = useState<GetCouponDataRes[][]>([]);
-  const getCouponList = useGetCouponList();
+  const getCouponList = useGetMyPageCoupon();
 
   const mapDataInGroups = (
     groupSize: number,
@@ -29,7 +29,7 @@ export function SubCoupon({
 
   // getCouponData -> flat: 내부 배열을 풀어줌
   useEffect(() => {
-    getCouponList(brandId).then((res) => {
+    getCouponList(order).then((res) => {
       if (res) {
         const groups = mapDataInGroups(groupSize, res.flat());
         setGroups(groups);

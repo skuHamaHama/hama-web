@@ -5,7 +5,7 @@ import { GetCouponDataRes } from "../../services";
 const accessToken = "accessToken";
 //쿠폰 상세 페이지 - 단일 쿠폰 조회
 export function useGetCoupon() {
-  const getCoupon = async (couponId: string) => {
+  const getCoupon = async (couponId: number) => {
     try {
       const res: GetCouponDataRes = await axiosInstance.get(
         `/coupon/${couponId}`,
