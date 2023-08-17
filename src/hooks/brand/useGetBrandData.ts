@@ -5,7 +5,7 @@ const accessToken = "accessToken";
 
 //브랜드 상세 조회
 export function useGetBrand() {
-  const getCommentList = async (brandId: number) => {
+  const getBrand = async (brandId: number) => {
     try {
       const res: GetBrandDataRes = await axiosInstance.get(
         `/brand?brandId=${brandId}`,
@@ -19,7 +19,7 @@ export function useGetBrand() {
       return;
     }
   };
-  return getCommentList;
+  return getBrand;
 }
 
 //모든 브랜드 조회

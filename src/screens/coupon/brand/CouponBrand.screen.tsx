@@ -2,17 +2,17 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Screen, SubCoupon } from "../../../components";
 import { GetBrandDataRes } from "../../../services";
-import { useGetCommentList } from "../../../hooks";
+import { useGetBrand } from "../../../hooks";
 import * as S from "../category";
 
 export function CouponBrandScreen() {
   const [brandData, setBrandData] = useState<GetBrandDataRes>();
   const { brandId } = useParams();
-  const getCommentList = useGetCommentList();
+  const getBrand = useGetBrand();
 
   // getCouponData -> flat: 내부 배열을 풀어줌
   useEffect(() => {
-    getCommentList(Number(brandId)).then((res) => {
+    getBrand(Number(brandId)).then((res) => {
       setBrandData(res);
     });
   }, []);

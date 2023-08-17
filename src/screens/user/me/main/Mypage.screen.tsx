@@ -22,7 +22,7 @@ export function MyPageScreen() {
             </S.ViewText>
           </S.TextGroup>
           <S.Line />
-          <SubCoupon active={active} />
+          <Coupon active={active} />
         </S.MyCoupon>
         <S.MyCoupon>
           <S.TextGroup>

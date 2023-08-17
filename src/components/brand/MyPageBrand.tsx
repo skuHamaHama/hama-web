@@ -20,17 +20,22 @@ export function MyPageBrand({ order }: { order: string }) {
   };
 
   useEffect(() => {
-    getCategoryBrandList(order).then((res) => {
-      setBrandData(res);
-      if (brandData) {
-        const groups = mapDataInGroups(groupSize, brandData.flat());
-        setGroups(groups);
-      } else {
-        const groups = mapDataInGroups(groupSize, tempBrandData.flat());
-        setGroups(groups);
-        alert("쿠폰 정보가 없습니다.");
-      }
-    });
+    if (order === "random") {
+      const groups = mapDataInGroups(groupSize, tempBrandData.flat());
+      setGroups(groups);
+    } else {
+      getCategoryBrandList(order).then((res) => {
+        setBrandData(res);
+        if (brandData) {
+          const groups = mapDataInGroups(groupSize, brandData.flat());
+          setGroups(groups);
+        } else {
+          const groups = mapDataInGroups(groupSize, tempBrandData.flat());
+          setGroups(groups);
+          alert("쿠폰 정보가 없습니다.");
+        }
+      });
+    }
   }, []);
 
   return (

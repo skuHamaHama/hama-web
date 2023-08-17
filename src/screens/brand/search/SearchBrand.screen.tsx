@@ -1,10 +1,8 @@
-import { Brand, Screen } from "../../../components";
+import { MyPageBrand, Screen } from "../../../components";
 import * as S from "../../user/me/main";
 import * as C from "./SearchBrand.styled";
 
 export function SearchBrandScreen() {
-  const GroupSize = 5; //분할 개수
-  // const searchBrand =
   return (
     <Screen header={true} nav={true} side={true} footer={true}>
       <S.MyCoupon>
@@ -22,7 +20,7 @@ export function SearchBrandScreen() {
           </C.SearchContainer>
         </S.TextGroup>
         <S.Line />
-        <Brand groupSize={GroupSize} />
+        <MyPageBrand order={"random"} />
       </S.MyCoupon>
     </Screen>
   );
