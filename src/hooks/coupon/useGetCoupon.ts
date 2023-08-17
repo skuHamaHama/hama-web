@@ -17,6 +17,7 @@ export function useGetCoupon() {
       return res;
     } catch (error) {
       alert(error);
+      return;
     }
   };
   return getCoupon;
@@ -24,7 +25,7 @@ export function useGetCoupon() {
 
 //브랜드 해당 쿠폰 리스트
 export function useGetCouponList() {
-  const getCouponList = async (brandId: string) => {
+  const getCouponList = async (brandId: number) => {
     try {
       const res: GetCouponDataRes[] = await axiosInstance.get(
         `/coupon/${brandId}/list`,
@@ -36,6 +37,7 @@ export function useGetCouponList() {
       return res;
     } catch (error) {
       alert(error);
+      return;
     }
   };
   return getCouponList;
@@ -55,6 +57,7 @@ export function useGetSearchCoupon() {
       return res;
     } catch (error) {
       alert(error);
+      return;
     }
   };
   return getSearchCoupon;
@@ -75,6 +78,7 @@ export function useGetOrderByCoupon() {
       return res;
     } catch (error) {
       alert(error);
+      return;
     }
   };
   return orderByCoupon;

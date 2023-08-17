@@ -35,6 +35,7 @@ export function usePostComment() {
       return res;
     } catch (error) {
       alert(error);
+      return;
     }
   };
   return postComment;

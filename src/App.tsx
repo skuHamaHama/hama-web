@@ -26,7 +26,12 @@ export function App() {
     { path: "/user/me/favor", element: <user.FavorBrandScreen /> },
 
     { path: "/coupon/registration", element: <coupon.CouponRegistration /> }, //쿠폰 등록
-    { path: "/coupon/category/", element: <coupon.CategoryScreen /> },
+    {
+      path: "/coupon/category:categoryId",
+      element: <coupon.CouponCategoryScreen />,
+    }, //카테고리 브랜드 페이지
+    { path: "/coupon/brand:brandId", element: <coupon.CouponBrandScreen /> }, //카테고리 쿠폰 페이지
+    // { path: "/coupon/category/", element: <coupon.CategoryScreen /> },
     { path: "/brand/search", element: <brand.SearchBrandScreen /> }, //브랜드 찾기
     { path: "/brand/search/keyword", element: <brand.SearchResultScreen /> },
 

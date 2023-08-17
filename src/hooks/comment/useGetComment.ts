@@ -3,7 +3,7 @@ import { GetCommentDataRes } from "../../services";
 
 //Temp Auth
 const accessToken = "accessToken";
-//쿠폰 상세 페이지 - 단일 쿠폰 조회
+//메인 페이지 댓글 목록
 export function useGetComment() {
   const getComment = async () => {
     try {
@@ -13,6 +13,7 @@ export function useGetComment() {
       return res;
     } catch (error) {
       alert(error);
+      return;
     }
   };
   return getComment;
@@ -28,6 +29,7 @@ export function useGetCommentList() {
       return res;
     } catch (error) {
       alert(error);
+      return;
     }
   };
   return getCommentList;
@@ -46,6 +48,7 @@ export function useGetSearchCommentList() {
       return res;
     } catch (error) {
       alert(error);
+      return;
     }
   };
   return getSearchCommentList;
@@ -53,7 +56,7 @@ export function useGetSearchCommentList() {
 
 //유저가 작성한 댓글 목록
 export function useGetUserCommentList() {
-  const getUserCommentList = async (orderBy: string) => {
+  const getUserCommentList = async () => {
     try {
       const res: GetCommentDataRes[] = await axiosInstance.get(
         `comments/couponlist`,
@@ -64,6 +67,7 @@ export function useGetUserCommentList() {
       return res;
     } catch (error) {
       alert(error);
+      return;
     }
   };
   return getUserCommentList;

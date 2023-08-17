@@ -16,6 +16,7 @@ export function useGetCommentList() {
       return res;
     } catch (error) {
       alert(error);
+      return;
     }
   };
   return getCommentList;
@@ -34,6 +35,7 @@ export function useGetBrandList() {
       return res;
     } catch (error) {
       alert(error);
+      return;
     }
   };
   return getBrandList;
@@ -52,6 +54,7 @@ export function useGetCategoryBrandList() {
       return res;
     } catch (error) {
       alert(error);
+      return;
     }
   };
   return getCategoryBrandList;
@@ -70,6 +73,7 @@ export function useGetSearchBrandList() {
       return res;
     } catch (error) {
       alert(error);
+      return;
     }
   };
   return getSearchBrandList;
