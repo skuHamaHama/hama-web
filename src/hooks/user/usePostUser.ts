@@ -4,7 +4,6 @@ import {
   //Request
   PostJoinReq,
   PostEmailVerifyReq,
-  PostRegisterNicknameReq,
   PostResetPasswordReq,
   PostSavePasswordReq,
   //Response
@@ -50,20 +49,13 @@ export function usePostEmailConfirm() {
 }
 
 //닉네임 중복 확인
-export function usePostRegisterNickname() {
-  const registerNickname = async (
-    nickname: string,
-    status: PostRegisterNicknameReq
-  ) => {
+export function useGetRegisterNickname() {
+  const registerNickname = async (nickname: string) => {
     try {
       //res => 중복여부(true)
-      const res = await axiosInstance.post(
-        `/user/register/${nickname}`,
-        status,
-        {
-          headers: { "Content-type": "application/json" },
-        }
-      );
+      const res = await axiosInstance.post(`/user/register/${nickname}`, {
+        headers: { "Content-type": "application/json" },
+      });
       if (res.status) alert("사용 가능한 닉네임입니다.");
       else alert("이미 사용중인 닉네임입니다.");
     } catch (error) {

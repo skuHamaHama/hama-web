@@ -1,13 +1,9 @@
 import { useState } from "react";
-import {
-  PostJoinReq,
-  PostEmailVerifyReq,
-  PostRegisterNicknameReq,
-} from "../../../services";
+import { PostJoinReq, PostEmailVerifyReq } from "../../../services";
 import {
   usePostJoin,
   usePostEmailConfirm,
-  usePostRegisterNickname,
+  useGetRegisterNickname,
 } from "../../../hooks";
 import * as S from "./Join.styled";
 export const JoinScreen: React.FC = () => {
@@ -23,10 +19,10 @@ export const JoinScreen: React.FC = () => {
   const [passwordIsValid, setPasswordIsValid] = useState(true); //유효성검사
   const [isCodeValid, setIsCodeValid] = useState(false); //인증번호 일치 여부
   const [isVerificationCompleted, setIsVerificationCompleted] = useState(false); // 인증 완료 여부 상태 추가
-  const [confirmNickname, setConfirmNickname] = useState(true); //닉네임 중복 여부
+  const [confirmNickname, setConfirmNickname] = useState<boolean>(false); //닉네임 중복 여부
   const join = usePostJoin();
   const emailConfirm = usePostEmailConfirm();
-  const registerNickname = usePostRegisterNickname();
+  const registerNickname = useGetRegisterNickname();
 
   const onId = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, email: event.target.value });
@@ -91,9 +87,6 @@ export const JoinScreen: React.FC = () => {
   const postJoinReq: PostJoinReq = {
     email: form.email,
     password: form.password,
-    nickname: form.nickname,
-  };
-  const postRegisterNickname: PostRegisterNicknameReq = {
     nickname: form.nickname,
   };
 
@@ -188,13 +181,11 @@ export const JoinScreen: React.FC = () => {
           />
         </S.InputForm>
         <S.Button
-        // onClick={() => {
-        //   const postReq: PostRegisterNicknameReq = {
-        //     nickname: form.nickname,
-        //   };
-        //   const response = registerNickname(postReq);
-        //   setConfirmNickname(response);
-        // }}
+          onClick={() => {
+            registerNickname(form.nickname).then(() => {
+              setConfirmNickname(true);
+            });
+          }}
         >
           중복확인
         </S.Button>
