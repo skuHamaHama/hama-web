@@ -2,16 +2,20 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PostLoginReq, PostLoginRes } from "../../services";
 import { axiosInstance } from "../../apis";
+
 export interface AuthToken {
   accessToken: string;
   refreshToken: string;
   isAuthenticated: boolean;
+  userEmail: string;
 }
+
 export function usePostLogin() {
   const [authToken, setAuthToken] = useState<AuthToken>({
     accessToken: "",
     refreshToken: "",
-    isAuthenticated: false, //
+    isAuthenticated: false,
+    userEmail: "",
   });
   const navigate = useNavigate();
   const login = async (postReq: PostLoginReq) => {
@@ -26,6 +30,7 @@ export function usePostLogin() {
         accessToken: res.accessToken,
         refreshToken: res.refreshToken,
         isAuthenticated: true,
+        userEmail: postReq.email,
       });
 
       //로컬스토리지 저장

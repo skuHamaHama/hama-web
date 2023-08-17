@@ -2,7 +2,10 @@ import { axiosInstance } from "../../apis";
 import { GetCouponDataRes } from "../../services";
 
 //Temp Auth
-const accessToken = "accessToken";
+const authTokenString = localStorage.getItem("authToken");
+const authToken = authTokenString ? JSON.parse(authTokenString) : null;
+const accessToken = authToken.accessToken;
+
 //쿠폰 상세 페이지 - 단일 쿠폰 조회
 export function useGetCoupon() {
   const getCoupon = async (
@@ -15,7 +18,7 @@ export function useGetCoupon() {
           headers: { authorization: `Bearer ${accessToken}` },
         }
       );
-      alert("DetailPage coupon Data");
+      console.log(res);
       return res;
     } catch (error) {
       console.log(error);

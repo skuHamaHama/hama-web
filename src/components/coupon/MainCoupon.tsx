@@ -37,7 +37,7 @@ export function MainCoupon({ orderBy }: { orderBy: string }) {
           alert("쿠폰 정보가 없습니다.");
         }
       })
-      .finally(() => {
+      .catch(() => {
         const groups = mapDataInGroups(groupSize, couponData_3.flat());
         setGroups(groups);
       });
@@ -60,7 +60,7 @@ export function MainCoupon({ orderBy }: { orderBy: string }) {
                 </S.Text>
               </S.CouponInfo>
               <S.BrandImg
-                src={`${process.env.PUBLIC_URL}${coupon.couponImg}`}
+                src={`${process.env.PUBLIC_URL}${coupon.brandImgUrl}`}
               />
             </S.Coupon>
           ))}

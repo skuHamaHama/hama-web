@@ -1,30 +1,34 @@
-import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import * as S from "./UseCoupon.styled";
+import { useGetCoupon } from "../../hooks";
+import { GetCouponDataRes } from "../../services";
 import { Layout } from "../../components/common/Layout";
 import { Nav } from "../../components/common/Nav";
-// import { Search } from "../../components/common/Search";
 import LeftSide from "../../components/common/Side/LeftSide";
 
 export function UseCoupon() {
+  const { couponId } = useParams();
+  const navigate = useNavigate();
   const [isStarClicked, setIsStarClicked] = useState(false);
-
+  const [coupon, setCoupon] = useState<GetCouponDataRes>();
   const handleStarClick = () => {
     setIsStarClicked(!isStarClicked);
   };
 
-  // 가상의 사용자 정보와 쿠폰 정보
-  const currentUser = {
-    id: "user123",
-    // ... 기타 사용자 정보
-  };
+  const getCoupon = useGetCoupon();
+  useEffect(() => {
+    getCoupon(Number(couponId))
+      .then((res) => {
+        setCoupon(res);
+      })
+      .catch(() => {
+        alert("유효하지 않은 쿠폰입니다.");
+        navigate("../");
+      });
+  }, []);
 
-  const couponOwner = {
-    id: "user123", // 예시로 현재 사용자와 같은 경우
-    // ... 기타 쿠폰 소유자 정보
-  };
-
-  const canEditCoupon = currentUser.id === couponOwner.id;
-
+  useEffect(() => {});
   const handleEdit = () => {
     console.log("수정하기 버튼이 클릭되었습니다.");
     // 여기에 실제 수정하는 로직을 추가할 수 있습니다.
@@ -43,8 +47,13 @@ export function UseCoupon() {
         <S.LContainer>
           <S.CouponWrapper>
             <S.TextWrapper>
-              <S.Name>스타벅스 50% 할인</S.Name>
-              <S.Name>2022.08.14 - 2023.08.14</S.Name>
+              <S.Name>{coupon.couponName}</S.Name>
+              <S.Text>
+                <p style={{ fontSize: "3px", margin: "0 0 -10px 0" }}>
+                  {coupon.startDate}~
+                </p>
+                <p style={{ fontSize: "3px" }}>{coupon.endDate}</p>
+              </S.Text>
             </S.TextWrapper>
             <S.Logo src={`${process.env.PUBLIC_URL}/img/coupon/logo.svg`} />
           </S.CouponWrapper>
@@ -52,17 +61,17 @@ export function UseCoupon() {
             <S.LinkImg src={`${process.env.PUBLIC_URL}/img/coupon/logo.svg`} />
             <S.Link>link</S.Link>
           </S.LinkWrapper>
-          <S.InfoBox>브랜드 설명글</S.InfoBox>
+          <S.InfoBox>{coupon.description}</S.InfoBox>
         </S.LContainer>
         <S.Line />
         <S.RContainer>
           <S.Review role="button">후기작성</S.Review>
           <S.StarContainer>
             <S.TextWrapper2>
-              <S.Text style={{ fontSize: 25 }}>스타벅스</S.Text>
-              <S.Text style={{ fontSize: 15 }}>쿨라임 피지오</S.Text>
+              <S.Text style={{ fontSize: 25 }}>{coupon.brandName}</S.Text>
+              <S.Text style={{ fontSize: 15 }}>{coupon.couponName}</S.Text>
               <S.Text style={{ fontSize: 15 }}>
-                00명이 이 쿠폰을 사용했습니다.
+                {coupon.useCount}명이 이 쿠폰을 사용했습니다.
               </S.Text>
             </S.TextWrapper2>
             <S.Star role="button" onClick={handleStarClick}>

@@ -1,14 +1,18 @@
-//쿠폰 단일 조회
-export interface GetCouponDetailDataRes {
+//쿠폰 조회
+export interface GetCouponDataRes {
   couponId: number;
   couponName: string;
   brandName: string;
-}
-//쿠폰 조회
-export interface GetCouponDataRes {
-  brandName: string;
-  couponName: string;
+  category: string;
+  brandId: number;
   startDate: string;
   endDate: string;
-  couponImg: string;
+  brandImgUrl: string;
+  couponCode: string;
+  couponUrl: string;
+  description: string;
+  popularity: number;
+  useCount: number;
+  likeCount: number;
+  dislikeCount: number;
 }
