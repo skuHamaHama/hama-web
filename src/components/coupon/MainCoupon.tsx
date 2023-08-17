@@ -9,6 +9,7 @@ export function MainCoupon({ orderBy }: { orderBy: string }) {
   const [couponData, setCouponData] = useState<GetCouponDataRes[] | undefined>(
     []
   );
+  const [groups, setGroups] = useState<GetCouponDataRes[][]>([]);
   const orderByCoupon = useGetOrderByCoupon();
 
   const mapDataInGroups = (
@@ -22,18 +23,16 @@ export function MainCoupon({ orderBy }: { orderBy: string }) {
     return groups;
   };
 
-  //데이터 스위치
-  const tempData = mapDataInGroups(groupSize, couponData_3); //현재 사용 데이터
-  //const data = mapDataInGroups(couponData, groupSize);
-
   // getCouponData -> flat: 내부 배열을 풀어줌
   useEffect(() => {
     orderByCoupon(orderBy).then((res) => {
       setCouponData(res);
       if (couponData) {
-        mapDataInGroups(groupSize, couponData.flat());
+        const groups = mapDataInGroups(groupSize, couponData.flat());
+        setGroups(groups);
       } else {
-        mapDataInGroups(groupSize, tempData.flat());
+        const groups = mapDataInGroups(groupSize, couponData_3.flat());
+        setGroups(groups);
         alert("쿠폰 정보가 없습니다.");
       }
     });
@@ -41,7 +40,7 @@ export function MainCoupon({ orderBy }: { orderBy: string }) {
 
   return (
     <S.Container>
-      {tempData.map((group, groupIndex) => (
+      {groups.map((group, groupIndex) => (
         <S.CouponGroup key={groupIndex}>
           {group.map((coupon: GetCouponDataRes, idx: number) => (
             <S.Coupon key={idx}>

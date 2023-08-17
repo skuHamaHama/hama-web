@@ -5,7 +5,7 @@ const accessToken = "accessToken";
 
 //브랜드 상세 조회
 export function useGetCommentList() {
-  const getCommentList = async (brandId: string) => {
+  const getCommentList = async (brandId: number) => {
     try {
       const res: GetBrandDataRes = await axiosInstance.get(
         `/brand?brandId=${brandId}`,

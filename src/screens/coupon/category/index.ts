@@ -1,1 +1,2 @@
-export * from "./Category.screen";
+export * from "./CouponCategory.screen";
+export * from "./Category.styled";

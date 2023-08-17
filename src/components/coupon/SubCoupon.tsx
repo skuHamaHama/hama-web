@@ -1,24 +1,53 @@
-import { useState } from "react";
-import { couponData_4 } from "./"; //임시 데이터
+import { useState, useEffect } from "react";
+import { useGetCouponList } from "../../hooks";
 import { GetCouponDataRes } from "../../services";
+import { couponData_4 } from "./"; //임시 데이터
 import * as S from "./SubCoupon.Styled";
 
-export function SubCoupon({ active }: { active: boolean }) {
+export function SubCoupon({
+  active,
+  brandId,
+}: {
+  active: boolean;
+  brandId: number;
+}) {
   const groupSize = 4; //분할 개수
   const [currentPage, setCurrentPage] = useState(false); //페이지 번호
-  const mapDataInGroups = (data: GetCouponDataRes[], groupSize: number) => {
+  const [couponData, setCouponData] = useState<GetCouponDataRes[] | undefined>(
+    []
+  );
+  const [groups, setGroups] = useState<GetCouponDataRes[][]>([]);
+  const getCouponList = useGetCouponList();
+
+  const mapDataInGroups = (
+    groupSize: number,
+    couponData: GetCouponDataRes[]
+  ) => {
     const groups = [];
-    for (let i = 0; i < data.length; i += groupSize) {
-      groups.push(data.slice(i, i + groupSize));
+    for (let i = 0; i < couponData.length; i += groupSize) {
+      groups.push(couponData.slice(i, i + groupSize));
     }
     return groups;
   };
 
-  const data = mapDataInGroups(couponData_4, groupSize);
+  // getCouponData -> flat: 내부 배열을 풀어줌
+  useEffect(() => {
+    getCouponList(brandId).then((res) => {
+      setCouponData(res);
+      if (couponData) {
+        const groups = mapDataInGroups(groupSize, couponData.flat());
+        setGroups(groups);
+      } else {
+        const groups = mapDataInGroups(groupSize, couponData_4.flat());
+        setGroups(groups);
+        alert("쿠폰 정보가 없습니다.");
+      }
+    });
+  }, []);
 
   return (
     <S.Container>
-      {data.map((group, groupIndex) => (
+      {groups.map((group, groupIndex) => (
         <S.CouponGroup key={groupIndex}>
           {group.map((coupon: GetCouponDataRes, idx: number) => (
             <S.Coupon key={idx}>

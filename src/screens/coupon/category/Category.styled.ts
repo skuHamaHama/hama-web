@@ -5,8 +5,7 @@ export const Container = styled.div`
   justify-content: center;
   height: 100vh;
   width: 100%;
-  background-image: url(${process.env
-    .PUBLIC_URL}/img/category/categoryBackground.svg);
+  background-image: url(${process.env.PUBLIC_URL}/img/category/Bg.svg);
   background-position: 0% 40%;
   background-repeat: no-repeat;
 `;
