@@ -16,7 +16,7 @@ export function useGetMyPageInfo() {
       );
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };
@@ -35,7 +35,7 @@ export function useGetMyPageCoupon() {
       );
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };

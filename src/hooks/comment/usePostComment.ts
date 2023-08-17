@@ -15,7 +15,7 @@ export function usePostCreateComment() {
       alert("댓글 등록이 완료되었습니다.");
       navigate(`/main`);
     } catch (error) {
-      alert(error);
+      console.log(error);
     }
   };
   return postCreateComment;
@@ -34,7 +34,7 @@ export function usePostComment() {
       );
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };
@@ -52,7 +52,7 @@ export function usePostUpdateComment() {
       alert("댓글 수정이 완료되었습니다.");
       navigate(`/main`);
     } catch (error) {
-      alert(error);
+      console.log(error);
     }
   };
   return postUpdateComment;
@@ -69,7 +69,7 @@ export function useDeleteComment() {
       alert("쿠폰이 삭제되었습니다.");
       navigate("/main");
     } catch (error) {
-      alert(error);
+      console.log(error);
     }
   };
   return deleteComment;
