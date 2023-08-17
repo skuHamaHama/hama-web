@@ -1,8 +1,7 @@
-import { SubCoupon, Screen } from "../../../../components";
+import { MyPageCoupon, Screen } from "../../../../components";
 import * as S from "../../me/main";
 
 export function UsedCouponScreen() {
-  const active = false; //버튼 비활성화
   return (
     <Screen header={true} nav={true} side={true} footer={true}>
       <S.MyCoupon>
@@ -12,7 +11,7 @@ export function UsedCouponScreen() {
           <S.ViewText>전체 보기</S.ViewText>
         </S.TextGroup>
         <S.Line />
-        <SubCoupon active={active} />
+        <MyPageCoupon active={false} order={"usedCoupon"} />
       </S.MyCoupon>
     </Screen>
   );

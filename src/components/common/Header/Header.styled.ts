@@ -6,7 +6,6 @@ export const Container = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  // margin-bottom: 30px;
 `;
 
 export const Logo = styled.img`

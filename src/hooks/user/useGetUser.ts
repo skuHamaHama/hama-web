@@ -15,7 +15,7 @@ export function useGetLikeCoupon() {
       );
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };
@@ -34,7 +34,7 @@ export function useGetLikeBrand() {
       );
       return res;
     } catch (error) {
-      alert(error);
+      console.log(error);
       return;
     }
   };

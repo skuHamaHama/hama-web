@@ -56,10 +56,16 @@ export function useGetRegisterNickname() {
       const res = await axiosInstance.post(`/user/register/${nickname}`, {
         headers: { "Content-type": "application/json" },
       });
-      if (res.status) alert("사용 가능한 닉네임입니다.");
-      else alert("이미 사용중인 닉네임입니다.");
+      if (res.status) {
+        alert("사용 가능한 닉네임입니다.");
+        return res;
+      } else {
+        alert("이미 사용중인 닉네임입니다.");
+        return res;
+      }
     } catch (error) {
       alert(error);
+      return;
     }
   };
   return registerNickname;

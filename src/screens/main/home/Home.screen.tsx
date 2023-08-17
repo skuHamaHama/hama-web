@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { useState, useCallback, useEffect } from "react";
 import * as S from "./Home.styled";
 
@@ -36,7 +37,7 @@ export function HomeScreen() {
   }, []);
 
   return (
-    <div>
+    <Container>
       <S.Bg>
         <S.Container>
           <S.SliderImg src={S.Images[pickIndex]} alt="slider image" />
@@ -53,6 +54,13 @@ export function HomeScreen() {
           />
         </S.Promo>
       </S.Bg>
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+`;

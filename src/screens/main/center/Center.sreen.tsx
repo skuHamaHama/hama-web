@@ -31,7 +31,7 @@ export function CenterScreen() {
         <S.Text>신규 쿠폰</S.Text>
         <S.BlueContainer>
           <S.CouponContainer>
-            <MainCoupon orderBy={"createDate"} />
+            <MainCoupon orderBy={"likeCount"} />
           </S.CouponContainer>
         </S.BlueContainer>
       </S.Category>

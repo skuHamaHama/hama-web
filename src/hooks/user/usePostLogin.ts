@@ -33,7 +33,7 @@ export function usePostLogin() {
       console.log(JSON.stringify(authToken)); //테스트
       navigate("/main");
     } catch (error) {
-      alert(error);
+      console.log(error);
     }
   };
   return login;

@@ -5,7 +5,7 @@ import * as S from "./SubCoupon.Styled";
 
 export function Coupon({ active }: { active: boolean }) {
   const groupSize = 4; //분할 개수
-  const list = localStorage.get("coupon"); //세션 리스트
+  const list = localStorage.getItem("coupon"); //세션 리스트
 
   const [currentPage, setCurrentPage] = useState(false); //페이지 번호
   const [couponData, setCouponData] = useState<GetCouponDataRes[]>([]);
@@ -30,7 +30,9 @@ export function Coupon({ active }: { active: boolean }) {
         //객체 amount 속성 활용
         if (typeof item.amount === "number") {
           const coupon = await getCouponList(Number(item.amount));
-          setCouponData([...couponData, coupon]);
+          if (coupon) {
+            setCouponData([...couponData, coupon]);
+          }
         }
       });
     }

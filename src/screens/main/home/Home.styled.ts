@@ -8,15 +8,13 @@ export const Images: string[] = [
 
 export const Bg = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-image: url(${process.env.PUBLIC_URL}/img/home/home.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
+  padding-top: 40px;
+  padding-bottom: 50px;
   height: 100%;
   width: 100%;
 `;
-
 export const Container = styled.div`
   position: relative;
   width: 950px;
@@ -24,7 +22,7 @@ export const Container = styled.div`
   // display: flex;
   // justify-content: center;
   // align-items: center;
-  margin: 50px auto 10px auto;
+  margin: 50px auto 0 auto;
 `;
 
 export const SliderImg = styled.img`

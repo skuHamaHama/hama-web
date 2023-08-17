@@ -11,7 +11,7 @@ interface ScreenProps {
 
 export function Screen({ children, header, nav, side, footer }: ScreenProps) {
   return (
-    <div style={{ height: "100%" }}>
+    <div style={{ height: "100%", width: "100%" }}>
       {header && typeof header === "boolean" ? <Header /> : header}
       {nav && typeof header === "boolean" ? <Nav /> : nav}
       <div
@@ -19,6 +19,7 @@ export function Screen({ children, header, nav, side, footer }: ScreenProps) {
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
+          width: "100%",
         }}
       >
         {side && typeof side === "boolean" ? <LeftSide /> : side}
