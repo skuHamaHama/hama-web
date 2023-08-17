@@ -3,12 +3,11 @@ import styled, { css } from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 233px; /* 최소 너비 */
-  min-height: 618px; /* 최소 높이 */
+  width: 233px;
+  height: 618px;
   background-color: #eff9ff;
-  margin-top: 40px;
+  margin-top: 5%;
   margin-bottom: 200px;
-  // overflow: hidden;
   // font-family: "notosans-light";
 `;
 
@@ -22,6 +21,7 @@ export const Info = styled.div`
 export const CategoryMenuBox = styled.div`
   font-size: 15px;
   display: flex;
+  justify-content: flex-start;
   padding: 0 0 0 20px;
   cursor: pointer;
 `;

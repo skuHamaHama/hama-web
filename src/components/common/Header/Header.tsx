@@ -1,9 +1,16 @@
 import { useState } from "react";
+import { Link } from "react-router-dom"; // 추가
 import * as S from "./Header.styled";
 import Sidebar from "../Side/Sidebar";
 import { Search } from "../Search";
 
-export const Header = () => {
+export const Header = ({
+  isAuthenticated,
+  logout,
+}: {
+  isAuthenticated: boolean;
+  logout: () => void;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBellOpen, setIsBellOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -13,10 +20,9 @@ export const Header = () => {
   };
 
   const toggleBell = () => {
-    setIsBellOpen(!isBellOpen); // 버튼을 클릭할 때마다 상태를 토글
+    setIsBellOpen(!isBellOpen);
 
     if (!isBellOpen) {
-      // isBellOpen이 false일 때만 alert 창 표시
       alert("알림이 도착했습니다.");
     }
   };
@@ -29,9 +35,7 @@ export const Header = () => {
     <S.Container>
       <S.Logo src={`${process.env.PUBLIC_URL}/img/header/logo.svg`} />
       <S.InputWrapper>
-        {/* 검색 입력란 */}
         <S.Input />
-        {/* 검색 아이콘 */}
         <S.SearchBtn
           role="button"
           src={`${process.env.PUBLIC_URL}/img/header/searchIcon.svg`}
@@ -39,10 +43,18 @@ export const Header = () => {
         />
       </S.InputWrapper>
       <S.SubWrapper>
-        <S.Auth>
-          <S.Text>로그인</S.Text>
-          <S.Text>회원가입</S.Text>
-        </S.Auth>
+        {isAuthenticated ? ( // 로그인 상태에 따라 렌더링
+          <S.Auth>
+            <Link to="/login" onClick={logout}>
+              로그아웃
+            </Link>
+          </S.Auth>
+        ) : (
+          <S.Auth>
+            <Link to="/login">로그인</Link>
+            <Link to="/join">회원가입</Link>
+          </S.Auth>
+        )}
         <S.IconSet>
           {isBellOpen ? null : (
             <S.Icon
@@ -67,7 +79,6 @@ export const Header = () => {
           <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
         </S.IconSet>
       </S.SubWrapper>
-      {/* 검색 목록 스크롤 컴포넌트 */}
       {isSearchOpen && (
         <div style={{ marginTop: "0px", marginLeft: "470px" }}>
           <Search />
@@ -76,3 +87,5 @@ export const Header = () => {
     </S.Container>
   );
 };
+
+export default Header;

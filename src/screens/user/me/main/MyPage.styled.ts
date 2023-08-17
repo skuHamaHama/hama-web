@@ -1,7 +1,15 @@
 import { styled } from "styled-components";
 
+export const Layout = styled.div`
+  display: flex;
+  height: 100%;
+  width: 100%;
+`;
+
 export const Container = styled.div`
   display: flex;
+  height: 100%;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   margin-bottom: 50px;
@@ -33,7 +41,7 @@ export const TextGroup = styled.div`
 export const MyCoupon = styled.div``;
 
 export const Line = styled.div`
-  width: 1200px;
+  width: 1095px;
   border: 1px solid #3c87bd;
   margin: 0 0 70px 100px;
 `;
