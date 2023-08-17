@@ -11,6 +11,7 @@ export function MainCoupon({ orderBy }: { orderBy: string }) {
   );
   const orderByCoupon = useGetOrderByCoupon();
 
+  // const getOrderByCouponData = useGetOrderByCouponData();
   const mapDataInGroups = (
     groupSize: number,
     couponData: GetCouponDataRes[]
@@ -28,6 +29,7 @@ export function MainCoupon({ orderBy }: { orderBy: string }) {
 
   // getCouponData -> flat: 내부 배열을 풀어줌
   useEffect(() => {
+    // getOrderByCouponData(orderBy);
     orderByCoupon(orderBy).then((res) => {
       setCouponData(res);
       if (couponData) {
