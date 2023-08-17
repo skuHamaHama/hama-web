@@ -5,6 +5,24 @@ import { Nav } from "../../components/common/Nav";
 import LeftSide from "../../components/common/Side/LeftSide";
 
 export function WriteReview() {
+  // //가상정보
+  const couponData = {
+    couponName: "스타벅스 50% 할인",
+    startDate: "2022.08.14",
+    endDate: "2023.08.14",
+    brandImgUrl: `${process.env.PUBLIC_URL}/img/coupon/logo.svg`,
+    brandName: "스타벅스",
+  };
+
+  //보내는 정보
+  // const postData = {
+  //   userEmail: "happyyj01@naver.com",
+  //   couponId: "2",
+  //   comment: "이런 쿠폰을 모르고 살았다니~",
+  //   satisfied: true,
+  //   unsatisfied: false,
+  // }
+
   const [isSatisfied, setIsSatisfied] = useState<
     "satisfied" | "unsatisfied" | null
   >(null);
@@ -31,16 +49,21 @@ export function WriteReview() {
             <S.LContainer>
               <S.CouponWrapper>
                 <S.TextWrapper>
-                  <S.Name>스타벅스 50% 할인</S.Name>
-                  <S.Name>2022.08.14 - 2023.08.14</S.Name>
+                  <S.Name>{couponData.couponName}</S.Name>
+                  <S.Name>
+                    {" "}
+                    {`${couponData.startDate} - ${couponData.endDate}`}
+                  </S.Name>
                 </S.TextWrapper>
-                <S.Logo src={`${process.env.PUBLIC_URL}/img/coupon/logo.svg`} />
+                <S.Logo src={couponData.brandImgUrl} />
               </S.CouponWrapper>
             </S.LContainer>
             <S.RContainer>
               <S.TextWrapper2>
-                <S.Text style={{ fontSize: 25 }}>스타벅스</S.Text>
-                <S.Text style={{ fontSize: 15 }}>쿨라임 피지오</S.Text>
+                <S.Text style={{ fontSize: 25 }}>{couponData.brandName}</S.Text>
+                <S.Text style={{ fontSize: 15 }}>
+                  {couponData.couponName}
+                </S.Text>
                 <S.Text style={{ fontSize: 15 }}>
                   제품이 마음에 드셨나요?
                 </S.Text>

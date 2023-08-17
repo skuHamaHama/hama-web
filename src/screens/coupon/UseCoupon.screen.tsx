@@ -14,25 +14,40 @@ export function UseCoupon() {
 
   // 가상의 사용자 정보와 쿠폰 정보
   const currentUser = {
-    id: "user123",
+    email: "user123",
     // ... 기타 사용자 정보
   };
 
   const couponOwner = {
-    id: "user123", // 예시로 현재 사용자와 같은 경우
+    email: "user123", // 예시로 현재 사용자와 같은 경우
     // ... 기타 쿠폰 소유자 정보
   };
 
-  const canEditCoupon = currentUser.id === couponOwner.id;
+  //가상정보
+  const couponData = {
+    email: "happyyj01@naver.com",
+    couponName: "스타벅스 50% 할인",
+    startDate: "2022.08.14",
+    endDate: "2023.08.14",
+    brandImgUrl: `${process.env.PUBLIC_URL}/img/coupon/logo.svg`,
+    description: "설명입니다",
+    couponUrl: "쿠폰 링크.com",
+    likeCount: 6,
+    dislikeCount: 7,
+    brandName: "스타벅스",
+    couponCode: "DKJUWIEJIP1849",
+  };
+
+  const canEditCoupon = currentUser.email === couponOwner.email;
 
   const handleEdit = () => {
     console.log("수정하기 버튼이 클릭되었습니다.");
-    // 여기에 실제 수정하는 로직을 추가할 수 있습니다.
+    // 여기에 실제 수정하는 로직 추가
   };
 
   const handleRegister = () => {
     console.log("등록하기 버튼이 클릭되었습니다.");
-    // 여기에 실제 등록하는 로직을 추가할 수 있습니다.
+    // 여기에 실제 등록하는 로직 추가
   };
 
   return (
@@ -43,26 +58,29 @@ export function UseCoupon() {
         <S.LContainer>
           <S.CouponWrapper>
             <S.TextWrapper>
-              <S.Name>스타벅스 50% 할인</S.Name>
-              <S.Name>2022.08.14 - 2023.08.14</S.Name>
+              <S.Name>{couponData.couponName}</S.Name>
+              <S.Name>
+                {`${couponData.startDate} - ${couponData.endDate}`}
+              </S.Name>
             </S.TextWrapper>
-            <S.Logo src={`${process.env.PUBLIC_URL}/img/coupon/logo.svg`} />
+            <S.Logo src={couponData.brandImgUrl} />
           </S.CouponWrapper>
           <S.LinkWrapper>
             <S.LinkImg src={`${process.env.PUBLIC_URL}/img/coupon/logo.svg`} />
-            <S.Link>link</S.Link>
+            <S.Link>{couponData.couponUrl}</S.Link>
           </S.LinkWrapper>
-          <S.InfoBox>브랜드 설명글</S.InfoBox>
+          <S.InfoBox>{couponData.description}</S.InfoBox>
         </S.LContainer>
         <S.Line />
         <S.RContainer>
           <S.Review role="button">후기작성</S.Review>
           <S.StarContainer>
             <S.TextWrapper2>
-              <S.Text style={{ fontSize: 25 }}>스타벅스</S.Text>
-              <S.Text style={{ fontSize: 15 }}>쿨라임 피지오</S.Text>
+              <S.Text style={{ fontSize: 25 }}>{couponData.brandName}</S.Text>
+              <S.Text style={{ fontSize: 15 }}>{couponData.couponName}</S.Text>
               <S.Text style={{ fontSize: 15 }}>
-                00명이 이 쿠폰을 사용했습니다.
+                {couponData.likeCount + couponData.dislikeCount}명이
+                사용하였습니다.
               </S.Text>
             </S.TextWrapper2>
             <S.Star role="button" onClick={handleStarClick}>
@@ -84,13 +102,28 @@ export function UseCoupon() {
             <S.SatisfactionButton
               src={`${process.env.PUBLIC_URL}/icon/auth/good.svg`}
             />
-            <S.SatisfactionText>00% 만족</S.SatisfactionText>
+            <S.SatisfactionText>
+              {(
+                (couponData.likeCount /
+                  (couponData.likeCount + couponData.dislikeCount)) *
+                100
+              ).toFixed(0)}
+              % 만족
+            </S.SatisfactionText>
+
             <S.SatisfactionButton
               src={`${process.env.PUBLIC_URL}/icon/auth/bad.svg`}
             />
-            <S.SatisfactionText>00% 불만족</S.SatisfactionText>
+            <S.SatisfactionText>
+              {(
+                (couponData.dislikeCount /
+                  (couponData.likeCount + couponData.dislikeCount)) *
+                100
+              ).toFixed(0)}
+              % 불만족
+            </S.SatisfactionText>
           </S.Satisfaction>
-          <S.Number>쿠폰 번호</S.Number>
+          <S.Number>{couponData.couponCode} </S.Number>
           <S.ReviewPage>제품 후기</S.ReviewPage>
           {canEditCoupon && (
             <S.User>
