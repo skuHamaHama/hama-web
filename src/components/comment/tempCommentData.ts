@@ -1,6 +1,6 @@
-import { GetCommentData } from "../../services";
+import { GetCommentDataRes } from "../../services";
 
-export const commentData_3: GetCommentData[] = [
+export const commentData_3: GetCommentDataRes[] = [
   {
     brandName: "스타벅스",
     couponName: "아메리카노",
