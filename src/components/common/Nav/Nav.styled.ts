@@ -93,7 +93,9 @@ export const Ul = styled.ul`
   width: 100%;
 `;
 
-export const Li = styled.li``;
+export const Li = styled.li`
+  cursor: pointer;
+`;
 
 export const LinkWrapper = styled.a<{ isSelected: boolean }>`
   font-size: 14px;
