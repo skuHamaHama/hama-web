@@ -3,10 +3,15 @@ import { Header } from "../../../components/common";
 import { Screen } from "../../../components";
 import { HomeScreen, CenterScreen } from "../../main";
 export function MainScreen() {
+  const isAuthenticated = true; // 예시 값
+
+  const logout = () => {
+    // 로그아웃 로직을 구현해야 함
+  };
   return (
     <Screen header={false} nav={false} side={false} footer={true}>
       <Container>
-        <Header />
+        <Header isAuthenticated={isAuthenticated} logout={logout} />
         <HomeScreen />
         <CenterScreen />
       </Container>
