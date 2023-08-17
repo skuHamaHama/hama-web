@@ -4,7 +4,7 @@ import { GetBrandDataRes } from "../../services";
 const accessToken = "accessToken";
 
 //브랜드 상세 조회
-export function useGetCommentList() {
+export function useGetBrand() {
   const getCommentList = async (brandId: number) => {
     try {
       const res: GetBrandDataRes = await axiosInstance.get(
