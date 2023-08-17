@@ -1,12 +1,12 @@
 import { useState } from "react";
 import * as S from "./Header.styled";
 import Sidebar from "../Side/Sidebar";
-// import { Search } from "../Search";
+import { Search } from "../Search";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBellOpen, setIsBellOpen] = useState(false);
-  // const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const toggleSide = () => {
     setIsOpen(true);
@@ -24,9 +24,9 @@ export const Header = () => {
     }
   };
 
-  // const toggleSearch = () => {
-  //   setIsSearchOpen(!isSearchOpen);
-  // };
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
 
   return (
     <header>
@@ -39,7 +39,7 @@ export const Header = () => {
           <S.SearchBtn
             role="button"
             src={`${process.env.PUBLIC_URL}/img/header/searchIcon.svg`}
-            // onClick={toggleSearch}
+            onClick={toggleSearch}
           />
         </S.InputWrapper>
         <S.SubWrapper>
@@ -73,11 +73,11 @@ export const Header = () => {
         </S.SubWrapper>
       </S.Container>
       {/* 검색 목록 스크롤 컴포넌트 */}
-      {/* {isSearchOpen && (
+      {isSearchOpen && (
         <div style={{ marginTop: "0px", marginLeft: "470px" }}>
           <Search />
         </div>
-      )} */}
+      )}
     </header>
   );
 };

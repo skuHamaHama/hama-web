@@ -25,6 +25,7 @@ export function App() {
     { path: "/user/me/used", element: <user.UsedCouponScreen /> },
     { path: "/user/me/favor", element: <user.FavorBrandScreen /> },
 
+    { path: "/coupon/registration", element: <coupon.CouponRegistration /> }, //쿠폰 등록
     { path: "/coupon/category/", element: <coupon.CategoryScreen /> },
     { path: "/brand/search", element: <brand.SearchBrandScreen /> }, //브랜드 찾기
     { path: "/brand/search/keyword", element: <brand.SearchResultScreen /> },
