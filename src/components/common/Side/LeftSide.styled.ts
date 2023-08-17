@@ -3,11 +3,12 @@ import styled, { css } from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 233px;
-  height: 618px;
+  min-width: 233px; /* 최소 너비 */
+  min-height: 618px; /* 최소 높이 */
   background-color: #eff9ff;
   margin-top: 40px;
   margin-bottom: 200px;
+  // overflow: hidden;
   // font-family: "notosans-light";
 `;
 

@@ -49,4 +49,5 @@ export const Button = styled.img<{ active: boolean }>`
   display: ${(props) => (props.active ? "block" : "none")};
   width: 40px;
   height: 40px;
+  cursor: pointer;
 `;
