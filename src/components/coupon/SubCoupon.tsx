@@ -12,7 +12,7 @@ export function SubCoupon({
   brandId: number;
 }) {
   const groupSize = 4; //분할 개수
-  const [currentPage, setCurrentPage] = useState(false); //페이지 번호
+  const [currentPage, setCurrentPage] = useState(true); //페이지 번호
   const [groups, setGroups] = useState<GetCouponDataRes[][]>([]);
   const getCouponList = useGetCouponList();
 
@@ -66,9 +66,10 @@ export function SubCoupon({
       ))}
       <S.Button
         //currentPage는 boolean(고정), true일 경우 이전 버튼으로 바뀌어야 함
-        src={`${process.env.PUBLIC_URL}/img/coupon/next_Button.png`}
+        src={`${process.env.PUBLIC_URL}/img/coupon/next_Button.png`} // currentPage 값에 따라 다른 이미지 선택
         active={active} //버튼 존재 여부(고정)
         onClick={() => {
+          console.log("Button clicked! Current page:", currentPage);
           setCurrentPage(!currentPage);
         }} //버튼 클릭 시 페이지 번호 바뀜
       />
