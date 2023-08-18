@@ -67,7 +67,6 @@ export function SubCoupon({
         }_Button.png`}
         active={active}
         onClick={() => {
-          console.log("Button clicked! Current page:", currentPage);
           setCurrentPage(!currentPage);
         }}
       />
