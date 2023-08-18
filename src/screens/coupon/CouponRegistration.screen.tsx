@@ -50,7 +50,7 @@ export function CouponRegistration() {
           <S.InputWrapper>
             <S.Input
               placeholder="브랜드"
-              name="brand"
+              name="brandName"
               value={inputValues.brandName}
               onChange={handleInputChange}
             />
@@ -62,38 +62,38 @@ export function CouponRegistration() {
           </S.InputWrapper>
           <S.Name
             placeholder="상품 이름"
-            name="name"
+            name="couponName"
             value={inputValues.couponName}
             onChange={handleInputChange}
           />
           <S.Date
-            placeholder="2023.00.00~2024.00.00"
-            name="date"
+            placeholder="시작 날짜를 입력해주세요.(YYYY-MM-DD)"
+            name="startDate"
             value={inputValues.startDate}
             onChange={handleInputChange}
           />
           <S.Date
-            placeholder="2023.00.00~2024.00.00"
-            name="date"
+            placeholder="종료 날짜를 입력해주세요.(YYYY-MM-DD)"
+            name="endDate"
             value={inputValues.endDate}
             onChange={handleInputChange}
           />
           <S.Link
             placeholder="링크"
-            name="link"
+            name="couponUrl"
             value={inputValues.couponUrl}
             onChange={handleInputChange}
           />
           <S.Code
             placeholder="쿠폰번호"
-            name="code"
+            name="couponCode"
             value={inputValues.couponCode}
             onChange={handleInputChange}
           />
           <S.Bottom>
             <S.ReviewBox>
               <S.User
-                name="userText"
+                name="description"
                 value={inputValues.description}
                 onChange={handleInputChange}
                 placeholder="이 쿠폰에 대한 소개글을 작성해주세요 (200자)"
