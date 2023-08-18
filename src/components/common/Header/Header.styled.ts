@@ -4,12 +4,12 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
-  height: 100%;
+  // width: 100%;
+  // height: 100%;
 `;
 
 export const Logo = styled.img`
-  margin: 30px 0px 0px 30px;
+  margin: 30px 30px 0px 30px;
   width: 214px;
   height: 40px;
   display: flex;
@@ -29,14 +29,14 @@ export const Input = styled.input`
 export const SearchBtn = styled.img`
   width: 31px;
   height: 29px;
-  margin: 0 0 0 20px;
+  margin: 0 20px 0 20px;
   cursor: pointer;
 `;
 
 export const Icon = styled.img`
   width: 25px;
   height: 25px;
-  margin-right: 20px;
+  margin-right: 10px;
   cursor: point;
 `;
 
