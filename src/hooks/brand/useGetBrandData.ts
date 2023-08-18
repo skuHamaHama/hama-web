@@ -1,7 +1,6 @@
 import { axiosInstance } from "../../apis";
 import { GetBrandDataRes } from "../../services";
-//Temp Auth
-const accessToken = "accessToken";
+import { tempBrandData } from "../../components";
 
 //브랜드 상세 조회
 export function useGetBrand() {
@@ -10,7 +9,7 @@ export function useGetBrand() {
       const res: GetBrandDataRes = await axiosInstance.get(
         `/brand?brandId=${brandId}`,
         {
-          headers: { authorization: `Bearer ${accessToken}` },
+          headers: { "Content-type": "application/json" },
         }
       );
       return res;
@@ -29,7 +28,7 @@ export function useGetBrandList() {
       const res: GetBrandDataRes[] = await axiosInstance.get(
         "brand/brandList",
         {
-          headers: { GetBrandDataRes: `Bearer ${accessToken}` },
+          headers: { "Content-type": "application/json" },
         }
       );
       return res;
@@ -43,18 +42,18 @@ export function useGetBrandList() {
 
 //카테고리에 대한 브랜드 목록
 export function useGetCategoryBrandList() {
-  const getCategoryBrandList = async (category: string) => {
+  const getCategoryBrandList = async (
+    category: string
+  ): Promise<GetBrandDataRes[]> => {
     try {
-      const res: GetBrandDataRes[] = await axiosInstance.get(
-        `brand/${category}`,
-        {
-          headers: { authorization: `Bearer ${accessToken}` },
-        }
-      );
-      return res;
+      const response = await axiosInstance.get(`brand/${category}`, {
+        headers: { "Content-type": "application/json" },
+      });
+      console.log("브랜드 목록" + response.data);
+      return response.data;
     } catch (error) {
       console.log(error);
-      return;
+      return tempBrandData;
     }
   };
   return getCategoryBrandList;
@@ -67,7 +66,7 @@ export function useGetSearchBrandList() {
       const res: GetBrandDataRes[] = await axiosInstance.get(
         `brand/${searchKeyword}/brand`,
         {
-          headers: { authorization: `Bearer ${accessToken}` },
+          headers: { "Content-type": "application/json" },
         }
       );
       return res;

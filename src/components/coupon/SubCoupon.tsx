@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useGetCouponList } from "../../hooks";
 import { GetCouponDataRes } from "../../services";
 import * as S from "./SubCoupon.Styled";
+import { couponData_4 } from "./tempCouponData";
 
 export function SubCoupon({
   active,
@@ -12,6 +13,7 @@ export function SubCoupon({
 }) {
   const groupSize = 4; //분할 개수
   const [currentPage, setCurrentPage] = useState(false); //페이지 번호
+  const [couponData, setCouponData] = useState<GetCouponDataRes[]>([]);
   const [groups, setGroups] = useState<GetCouponDataRes[][]>([]);
   const getCouponList = useGetCouponList();
 
@@ -30,9 +32,12 @@ export function SubCoupon({
   useEffect(() => {
     getCouponList(brandId).then((res) => {
       if (res) {
-        const groups = mapDataInGroups(groupSize, res.flat());
+        setCouponData(res);
+        const groups = mapDataInGroups(groupSize, couponData.flat());
         setGroups(groups);
       } else {
+        const groups = mapDataInGroups(groupSize, couponData_4.flat());
+        setGroups(groups);
         alert("쿠폰 정보가 없습니다.");
       }
     });

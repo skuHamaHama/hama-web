@@ -1,5 +1,6 @@
 import { axiosInstance } from "../../apis";
 import { GetCouponDataRes } from "../../services";
+import { couponData_3, couponData_4 } from "../../components";
 
 //쿠폰 상세 페이지 - 단일 쿠폰 조회
 export function useGetCoupon() {
@@ -12,7 +13,7 @@ export function useGetCoupon() {
       return response.data;
     } catch (error) {
       console.log("쿠폰조회" + error);
-      return;
+      return error;
     }
   };
   return getCoupon;
@@ -20,16 +21,18 @@ export function useGetCoupon() {
 
 //브랜드 해당 쿠폰 리스트
 export function useGetCouponList() {
-  const getCouponList = async (brandId: number) => {
+  const getCouponList = async (
+    brandId: number
+  ): Promise<GetCouponDataRes[]> => {
     try {
-      const res: GetCouponDataRes[] = await axiosInstance.get(
-        `/coupon/${brandId}/list`
-      );
+      const response = await axiosInstance.get(`/coupon/${brandId}/list`, {
+        headers: { "Content-type": "application/json" },
+      });
       alert("Brand coupon Data");
-      return res;
+      return response.data;
     } catch (error) {
       console.log(error);
-      return;
+      return couponData_4;
     }
   };
   return getCouponList;
@@ -40,7 +43,10 @@ export function useGetSearchCoupon() {
   const getSearchCoupon = async (searchKeyword: string) => {
     try {
       const res: GetCouponDataRes[] = await axiosInstance.get(
-        `/coupon/search/list?searchKeyword=${searchKeyword}`
+        `/coupon/search/list?searchKeyword=${searchKeyword}`,
+        {
+          headers: { "Content-type": "application/json" },
+        }
       );
       alert("Keyword coupon Data");
       return res;
@@ -60,13 +66,16 @@ export function useGetOrderByCoupon() {
   ): Promise<GetCouponDataRes[]> => {
     try {
       const response = await axiosInstance.get<GetCouponDataRes[]>(
-        `/coupon/main?orderby=${orderBy}`
+        `/coupon/main?orderby=${orderBy}`,
+        {
+          headers: { "Content-type": "application/json" },
+        }
       );
       console.log("메인페이지 쿠폰" + response.data);
       return response.data;
     } catch (error) {
       console.log("댓글 요청 오류" + error);
-      return error;
+      return couponData_3;
     }
   };
   return orderByCoupon;

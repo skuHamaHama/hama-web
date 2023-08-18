@@ -5,7 +5,9 @@ import { GetCommentDataRes } from "../../services";
 export function useGetComment() {
   const getComment = async () => {
     try {
-      const res: GetCommentDataRes[] = await axiosInstance.get("comments", {});
+      const res: GetCommentDataRes[] = await axiosInstance.get("comments", {
+        headers: { "Content-type": "application/json" },
+      });
       return res;
     } catch (error) {
       console.log("댓글 요청 오류:" + error);
@@ -19,10 +21,9 @@ export function useGetComment() {
 export function useGetCommentList() {
   const getCommentList = async () => {
     try {
-      const res: GetCommentDataRes[] = await axiosInstance.get(
-        "comment/list",
-        {}
-      );
+      const res: GetCommentDataRes[] = await axiosInstance.get("comment/list", {
+        headers: { "Content-type": "application/json" },
+      });
       return res;
     } catch (error) {
       console.log(error);
@@ -37,7 +38,10 @@ export function useGetSearchCommentList() {
   const getSearchCommentList = async (couponId: string) => {
     try {
       const res: GetCommentDataRes[] = await axiosInstance.get(
-        `comments/${couponId}`
+        `comments/${couponId}`,
+        {
+          headers: { "Content-type": "application/json" },
+        }
       );
       return res;
     } catch (error) {
@@ -53,7 +57,10 @@ export function useGetUserCommentList() {
   const getUserCommentList = async () => {
     try {
       const res: GetCommentDataRes[] = await axiosInstance.get(
-        `comments/couponlist`
+        `comments/couponlist`,
+        {
+          headers: { "Content-type": "application/json" },
+        }
       );
       return res;
     } catch (error) {
