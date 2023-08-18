@@ -73,6 +73,7 @@ export function Coupon({ active }: { active: boolean }) {
         src={`${process.env.PUBLIC_URL}/img/coupon/next_Button.png`}
         active={active} //버튼 존재 여부(고정)
         onClick={() => {
+          setCurrentPage(!currentPage);
           console.log(active);
         }} //버튼 클릭 시 페이지 번호 바뀜
       />
