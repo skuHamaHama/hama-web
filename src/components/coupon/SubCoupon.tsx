@@ -6,10 +6,10 @@ import { couponData_4 } from "./tempCouponData";
 
 export function SubCoupon({
   active,
-  brandId,
+  brandName,
 }: {
   active: boolean;
-  brandId: number;
+  brandName: string;
 }) {
   const groupSize = 4; //분할 개수
   const [currentPage, setCurrentPage] = useState(false); //페이지 번호
@@ -30,7 +30,7 @@ export function SubCoupon({
 
   // getCouponData -> flat: 내부 배열을 풀어줌
   useEffect(() => {
-    getCouponList(brandId).then((res) => {
+    getCouponList(brandName).then((res) => {
       if (res) {
         setCouponData(res);
         const groups = mapDataInGroups(groupSize, couponData.flat());

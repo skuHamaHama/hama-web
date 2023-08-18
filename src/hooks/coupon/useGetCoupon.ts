@@ -9,8 +9,10 @@ export function useGetCoupon() {
       const response = await axiosInstance.get<GetCouponDataRes>(
         `/coupon/${couponId}`
       );
-      console.log("쿠폰정보" + response.data);
-      return response.data;
+      if (response) {
+        console.log(response.data);
+        return response.data;
+      } else console.log("no data");
     } catch (error) {
       console.log("쿠폰조회" + error);
       return error;
@@ -21,17 +23,16 @@ export function useGetCoupon() {
 
 //브랜드 해당 쿠폰 리스트
 export function useGetCouponList() {
-  const getCouponList = async (
-    brandId: number
-  ): Promise<GetCouponDataRes[]> => {
+  const getCouponList = async (brandName: string) => {
     try {
-      const response = await axiosInstance.get(`/coupon/${brandId}/list`, {
+      const response = await axiosInstance.get(`/coupon/${brandName}/list`, {
         headers: { "Content-type": "application/json" },
       });
-      alert("Brand coupon Data");
+      if (response) console.log(response);
+      else console.log("no data");
       return response.data;
     } catch (error) {
-      console.log(error);
+      console.log("요청 실패: " + error);
       return couponData_4;
     }
   };
@@ -42,16 +43,18 @@ export function useGetCouponList() {
 export function useGetSearchCoupon() {
   const getSearchCoupon = async (searchKeyword: string) => {
     try {
-      const res: GetCouponDataRes[] = await axiosInstance.get(
+      const response = await axiosInstance.get<GetCouponDataRes[]>(
         `/coupon/search/list?searchKeyword=${searchKeyword}`,
         {
           headers: { "Content-type": "application/json" },
         }
       );
-      alert("Keyword coupon Data");
-      return res;
+      if (response) {
+        console.log(response);
+        return response.data;
+      } else console.log("no data");
     } catch (error) {
-      console.log(error);
+      console.log("요청 실패: " + error);
       return;
     }
   };
@@ -71,7 +74,8 @@ export function useGetOrderByCoupon() {
           headers: { "Content-type": "application/json" },
         }
       );
-      console.log("메인페이지 쿠폰" + response.data);
+      if (response) console.log("메인페이지 쿠폰" + response.data);
+      else console.log("no data");
       return response.data;
     } catch (error) {
       console.log("댓글 요청 오류" + error);

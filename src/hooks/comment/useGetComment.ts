@@ -5,9 +5,12 @@ import { GetCommentDataRes } from "../../services";
 export function useGetComment() {
   const getComment = async () => {
     try {
-      const res: GetCommentDataRes[] = await axiosInstance.get("comments", {
-        headers: { "Content-type": "application/json" },
-      });
+      const res: GetCommentDataRes[] = await axiosInstance.get(
+        "comments/main",
+        {
+          headers: { "Content-type": "application/json" },
+        }
+      );
       return res;
     } catch (error) {
       console.log("댓글 요청 오류:" + error);
