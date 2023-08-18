@@ -1,26 +1,47 @@
 import { useNavigate, useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import * as S from "./UseCoupon.styled";
-import { useGetCoupon } from "../../hooks";
+import { useGetCoupon, useGetMyPageCoupon } from "../../hooks";
 import { GetCouponDataRes } from "../../services";
 import { Layout } from "../../components/common/Layout";
 import { Nav } from "../../components/common/Nav";
 import LeftSide from "../../components/common/Side/LeftSide";
 
+const initialCouponData: GetCouponDataRes = {
+  couponId: 0,
+  couponName: "",
+  brandName: "",
+  category: "",
+  brandId: 0,
+  startDate: "",
+  endDate: "",
+  brandImgUrl: "",
+  couponCode: "",
+  couponUrl: "",
+  description: "",
+  popularity: 0,
+  useCount: 0,
+  likeCount: 0,
+  dislikeCount: 0,
+};
+
 export function UseCoupon() {
   const { couponId } = useParams();
   const navigate = useNavigate();
   const [isStarClicked, setIsStarClicked] = useState(false);
-  const [coupon, setCoupon] = useState<GetCouponDataRes>();
+  const [coupon, setCoupon] = useState<GetCouponDataRes>(initialCouponData);
+  const canEditCoupon = 1;
   const handleStarClick = () => {
     setIsStarClicked(!isStarClicked);
   };
 
   const getCoupon = useGetCoupon();
+  const getMyPageCoupon = useGetMyPageCoupon();
+
   useEffect(() => {
     getCoupon(Number(couponId))
       .then((res) => {
-        setCoupon(res);
+        if (res) setCoupon(res);
       })
       .catch(() => {
         alert("유효하지 않은 쿠폰입니다.");
@@ -28,7 +49,9 @@ export function UseCoupon() {
       });
   }, []);
 
-  useEffect(() => {});
+  useEffect(() => {
+    getMyPageCoupon("");
+  });
   const handleEdit = () => {
     console.log("수정하기 버튼이 클릭되었습니다.");
     // 여기에 실제 수정하는 로직을 추가할 수 있습니다.

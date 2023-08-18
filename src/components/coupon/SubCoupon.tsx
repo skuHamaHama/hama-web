@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useGetCouponList } from "../../hooks";
 import { GetCouponDataRes } from "../../services";
-import { couponData_4 } from "./"; //임시 데이터
 import * as S from "./SubCoupon.Styled";
 
 export function SubCoupon({
@@ -34,8 +33,6 @@ export function SubCoupon({
         const groups = mapDataInGroups(groupSize, res.flat());
         setGroups(groups);
       } else {
-        const groups = mapDataInGroups(groupSize, couponData_4.flat());
-        setGroups(groups);
         alert("쿠폰 정보가 없습니다.");
       }
     });

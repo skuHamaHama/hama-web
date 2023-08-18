@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useGetOrderByCoupon } from "../../hooks";
 import { GetCouponDataRes } from "../../services";
-import { couponData_3 } from "."; //임시 데이터
 import * as S from "./MainCoupon.Styled";
 
 export function MainCoupon({ orderBy }: { orderBy: string }) {
@@ -27,20 +26,15 @@ export function MainCoupon({ orderBy }: { orderBy: string }) {
   // getCouponData -> flat: 내부 배열을 풀어줌
   useEffect(() => {
     // getOrderByCouponData(orderBy);
-    orderByCoupon(orderBy)
-      .then((res) => {
-        setCouponData(res);
-        if (couponData) {
-          const groups = mapDataInGroups(groupSize, couponData.flat());
-          setGroups(groups);
-        } else {
-          alert("쿠폰 정보가 없습니다.");
-        }
-      })
-      .catch(() => {
-        const groups = mapDataInGroups(groupSize, couponData_3.flat());
+    orderByCoupon(orderBy).then((res) => {
+      setCouponData(res);
+      if (couponData) {
+        const groups = mapDataInGroups(groupSize, couponData.flat());
         setGroups(groups);
-      });
+      } else {
+        alert("쿠폰 정보가 없습니다.");
+      }
+    });
   }, []);
 
   return (

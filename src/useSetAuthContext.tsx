@@ -8,6 +8,7 @@ const AuthProvider = ({ children }: { children: any }) => {
     accessToken: "",
     refreshToken: "",
     isAuthenticated: false,
+    userEmail: "",
   });
 
   function logout() {

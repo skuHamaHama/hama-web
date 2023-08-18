@@ -2,51 +2,41 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-self: flex-start;
-`;
-
-export const CouponGroup = styled.div`
-  display: flex;
   flex-direction: row;
-  margin: 40px 0 40px 0;
 `;
-
-export const Coupon = styled.div`
+export const BlueContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
-  width: 330px;
-  height: 140px;
-  background-image: url("./img/coupon/coupon.svg");
-  background-size: cover;
-  margin: 0 30px 0 30px;
+  height: 110px;
+  width: 274px;
+  border-radius: 10px;
+  background-color: #eff9ff;
+  padding: 20px;
 `;
-
-export const CouponInfo = styled.div`
-  margin: 15px 20px 0 10px;
+export const Img = styled.img`
+  width: 100px;
+  height: 100px;
 `;
-export const Text = styled.div`
-  font-family: nanum-regular;
-  font-size: smaller;
-  margin: 0 0 5px 0;
-`;
-
-export const BrandText = styled.div`
-  font-family: nanum-bold;
-  font-size: large;
-  margin: 0 0 10px 0;
-`;
-
-export const DateText = styled.p`
-  font-size: small;
-  margin: 0 0 -15px 0;
-`;
-export const BrandImg = styled.img`
+export const CommentInfo = styled.div`
   display: flex;
-  justify-self: flex-end;
-  height: 80px;
-  width: 80px;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 5px 0 0 15px;
+`;
+
+export const Brand = styled.div`
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
+
+export const Coupon = styled.div``;
+
+export const Comment = styled.p`
+  font-size: 14px;
+  line-height: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 200px;
 `;

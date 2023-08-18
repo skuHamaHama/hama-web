@@ -74,7 +74,7 @@ export function useGetOrderByCoupon() {
   const orderByCoupon = async (orderBy: string) => {
     try {
       const res: GetCouponDataRes[] = await axiosInstance.get(
-        `/coupon/main?orderby==${orderBy}`,
+        `/coupon/main?orderby=${orderBy}`,
         {
           headers: { authorization: `Bearer ${accessToken}` },
         }

@@ -7,8 +7,8 @@ const accessToken = "accessToken";
 export function useGetComment() {
   const getComment = async () => {
     try {
-      const res: GetCommentDataRes = await axiosInstance.get("comment/main", {
-        headers: { authorization: `Bearer ${accessToken}` },
+      const res: GetCommentDataRes[] = await axiosInstance.get("comment/main", {
+        headers: { "Content-type": "application/json" },
       });
       return res;
     } catch (error) {
@@ -24,7 +24,7 @@ export function useGetCommentList() {
   const getCommentList = async () => {
     try {
       const res: GetCommentDataRes[] = await axiosInstance.get("comment/list", {
-        headers: { authorization: `Bearer ${accessToken}` },
+        headers: { "Content-type": "application/json" },
       });
       return res;
     } catch (error) {

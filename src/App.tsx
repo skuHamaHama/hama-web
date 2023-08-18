@@ -19,18 +19,19 @@ export function App() {
     { path: "/user/help/profile", element: <auth.ProfileScreen /> }, //프로필 수정
 
     { path: "/main", element: <main.MainScreen /> }, //메인 페이지
+    { path: "/coupon/brand:brandId", element: <coupon.CouponBrandScreen /> }, //카테고리 쿠폰 페이지
+
     { path: "/user/me", element: <user.MyPageScreen /> }, //마이 페이지
+    {
+      path: "/coupon/category:categoryId",
+      element: <coupon.CouponCategoryScreen />,
+    }, //카테고리 브랜드 페이지
     { path: "/user/me/recent", element: <user.RecentCouponScreen /> },
     { path: "/user/me/wish", element: <user.WishCouponScreen /> },
     { path: "/user/me/used", element: <user.UsedCouponScreen /> },
     { path: "/user/me/favor", element: <user.FavorBrandScreen /> },
 
     { path: "/coupon/registration", element: <coupon.CouponRegistration /> }, //쿠폰 등록
-    {
-      path: "/coupon/category:categoryId",
-      element: <coupon.CouponCategoryScreen />,
-    }, //카테고리 브랜드 페이지
-    { path: "/coupon/brand:brandId", element: <coupon.CouponBrandScreen /> }, //카테고리 쿠폰 페이지
     // { path: "/coupon/category/", element: <coupon.CategoryScreen /> },
     { path: "/brand/search", element: <brand.SearchBrandScreen /> }, //브랜드 찾기
     { path: "/brand/search/keyword", element: <brand.SearchResultScreen /> },

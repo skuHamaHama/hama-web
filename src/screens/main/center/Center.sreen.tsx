@@ -1,4 +1,3 @@
-import { PlayCircleOutlined } from "@ant-design/icons";
 import { MainCoupon, MainComment } from "../../../components";
 import * as S from "./Center.styled";
 export function CenterScreen() {
@@ -41,7 +40,6 @@ export function CenterScreen() {
           <S.ViewText>전체보기</S.ViewText>
         </S.TextGroup>
         <MainComment />
-        <PlayCircleOutlined />
       </S.Category>
     </S.Container>
   );
