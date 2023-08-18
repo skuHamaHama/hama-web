@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Images: string[] = [
-  `${process.env.PUBLIC_URL}/img/home/page1.svg`,
-  `${process.env.PUBLIC_URL}/img/home/page2.svg`,
-  `${process.env.PUBLIC_URL}/img/home/page3.svg`,
+  `${process.env.PUBLIC_URL}/img/home/page1.png`,
+  `${process.env.PUBLIC_URL}/img/home/page2.png`,
+  `${process.env.PUBLIC_URL}/img/home/page3.png`,
 ];
 
 export const Bg = styled.div`
