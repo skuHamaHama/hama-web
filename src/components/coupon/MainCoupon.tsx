@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { useGetOrderByCoupon } from "../../hooks";
 import { GetCouponDataRes } from "../../services";
+import { couponData_3 } from "./";
 import * as S from "./MainCoupon.Styled";
 
 export function MainCoupon({ orderBy }: { orderBy: string }) {
   const groupSize = 3; //분할 개수
-  const [couponData, setCouponData] = useState<GetCouponDataRes[] | undefined>(
-    []
-  );
+  const [couponData, setCouponData] = useState<GetCouponDataRes[]>([]);
   const [groups, setGroups] = useState<GetCouponDataRes[][]>([]);
   const orderByCoupon = useGetOrderByCoupon();
 
@@ -27,12 +26,15 @@ export function MainCoupon({ orderBy }: { orderBy: string }) {
     // 키워드 검색
     orderByCoupon(orderBy).then((res) => {
       console.log(res);
-      if (true) setCouponData(res);
-      if (couponData) {
-        const groups = mapDataInGroups(groupSize, couponData.flat());
+      if (res) {
+        setCouponData(res);
+        const groups = mapDataInGroups(groupSize, couponData);
         setGroups(groups);
       } else {
+        const groups = mapDataInGroups(groupSize, couponData_3.flat());
+        setGroups(groups);
         alert("쿠폰 정보가 없습니다.");
+        console.log(groups);
       }
     });
   }, []);
@@ -54,7 +56,7 @@ export function MainCoupon({ orderBy }: { orderBy: string }) {
                 </S.Text>
               </S.CouponInfo>
               <S.BrandImg
-                src={`${process.env.PUBLIC_URL}${coupon.brandImgUrl}`}
+                src={`${process.env.PUBLIC_URL}${coupon.couponUrl}`}
               />
             </S.Coupon>
           ))}
