@@ -4,6 +4,7 @@ import * as main from "./screens/main";
 import * as user from "./screens/user";
 import * as coupon from "./screens/coupon";
 import * as brand from "./screens/brand";
+import * as admin from "./screens/admin";
 import { WriteReview } from "./screens/review";
 
 export function App() {
@@ -41,6 +42,9 @@ export function App() {
 
     { path: "/usecoupon", element: <coupon.UseCoupon /> }, //쿠폰 사용하려고 할때 나오는 화면
     { path: "/writereview", element: <WriteReview /> }, //후기 작성
+
+    { path: "/admin", element: <admin.Admin /> }, //관리자 페이지
+    { path: "/admin/coupon", element: <admin.AdminCoupon /> }, //쿠폰관리자 페이지
   ]);
 
   return <RouterProvider router={router} />;
