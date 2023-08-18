@@ -11,7 +11,6 @@ export function MainCoupon({ orderBy }: { orderBy: string }) {
   const [groups, setGroups] = useState<GetCouponDataRes[][]>([]);
   const orderByCoupon = useGetOrderByCoupon();
 
-  // const getOrderByCouponData = useGetOrderByCouponData();
   const mapDataInGroups = (
     groupSize: number,
     couponData: GetCouponDataRes[]
@@ -25,9 +24,10 @@ export function MainCoupon({ orderBy }: { orderBy: string }) {
 
   // getCouponData -> flat: 내부 배열을 풀어줌
   useEffect(() => {
-    // getOrderByCouponData(orderBy);
+    // 키워드 검색
     orderByCoupon(orderBy).then((res) => {
-      setCouponData(res);
+      console.log(res);
+      if (true) setCouponData(res);
       if (couponData) {
         const groups = mapDataInGroups(groupSize, couponData.flat());
         setGroups(groups);

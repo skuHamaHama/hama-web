@@ -1,18 +1,14 @@
 import { axiosInstance } from "../../apis";
 import { GetCommentDataRes } from "../../services";
 
-//Temp Auth
-const accessToken = "accessToken";
 //메인 페이지 댓글 목록
 export function useGetComment() {
   const getComment = async () => {
     try {
-      const res: GetCommentDataRes[] = await axiosInstance.get("comment/main", {
-        headers: { "Content-type": "application/json" },
-      });
+      const res: GetCommentDataRes[] = await axiosInstance.get("comments", {});
       return res;
     } catch (error) {
-      console.log(error);
+      console.log("댓글 요청 오류:" + error);
       return;
     }
   };
@@ -23,9 +19,10 @@ export function useGetComment() {
 export function useGetCommentList() {
   const getCommentList = async () => {
     try {
-      const res: GetCommentDataRes[] = await axiosInstance.get("comment/list", {
-        headers: { "Content-type": "application/json" },
-      });
+      const res: GetCommentDataRes[] = await axiosInstance.get(
+        "comment/list",
+        {}
+      );
       return res;
     } catch (error) {
       console.log(error);
@@ -40,10 +37,7 @@ export function useGetSearchCommentList() {
   const getSearchCommentList = async (couponId: string) => {
     try {
       const res: GetCommentDataRes[] = await axiosInstance.get(
-        `comments/${couponId}`,
-        {
-          headers: { authorization: `Bearer ${accessToken}` },
-        }
+        `comments/${couponId}`
       );
       return res;
     } catch (error) {
@@ -59,10 +53,7 @@ export function useGetUserCommentList() {
   const getUserCommentList = async () => {
     try {
       const res: GetCommentDataRes[] = await axiosInstance.get(
-        `comments/couponlist`,
-        {
-          headers: { authorization: `Bearer ${accessToken}` },
-        }
+        `comments/couponlist`
       );
       return res;
     } catch (error) {

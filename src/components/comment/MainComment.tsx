@@ -31,7 +31,7 @@ export function MainComment() {
       } else {
         const groups = mapDataInGroups(groupSize, commentData_3.flat());
         setGroups(groups);
-        alert("쿠폰 정보가 없습니다.");
+        alert("댓글 정보가 없습니다.");
       }
     });
   }, []);

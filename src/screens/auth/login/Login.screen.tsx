@@ -10,14 +10,15 @@ export function LoginScreen() {
   const [form, setForm] = useState<PostLoginReq>({
     email: "",
     password: "",
+    loginKeep: false,
   });
-  const [state, setState] = useState(false);
   const login = usePostLogin();
   const navigate = useNavigate();
 
   const postReq: PostLoginReq = {
     email: form.email,
     password: form.password,
+    loginKeep: form.loginKeep,
   };
 
   return (
@@ -54,9 +55,12 @@ export function LoginScreen() {
           </S.InputForm>
           <S.StateForm>
             <DownCircleOutlined
-              style={{ opacity: state ? "100%" : "55%", marginRight: "10px" }}
+              style={{
+                opacity: form.loginKeep ? "100%" : "55%",
+                marginRight: "10px",
+              }}
               onClick={() => {
-                setState(!state);
+                setForm({ ...form, loginKeep: !form.loginKeep });
               }}
             />
             <S.State>로그인 상태 유지</S.State>

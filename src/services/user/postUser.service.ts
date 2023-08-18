@@ -9,6 +9,7 @@ export interface PostJoinReq {
 export interface PostLoginReq {
   email: string;
   password: string;
+  loginKeep: boolean;
 }
 
 export interface PostLoginRes {

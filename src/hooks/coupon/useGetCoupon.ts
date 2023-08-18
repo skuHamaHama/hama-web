@@ -1,27 +1,18 @@
 import { axiosInstance } from "../../apis";
 import { GetCouponDataRes } from "../../services";
 
-//Temp Auth
-const authTokenString = localStorage.getItem("authToken");
-const authToken = authTokenString ? JSON.parse(authTokenString) : null;
-const accessToken = authToken.accessToken;
-
 //쿠폰 상세 페이지 - 단일 쿠폰 조회
 export function useGetCoupon() {
-  const getCoupon = async (
-    couponId: number
-  ): Promise<GetCouponDataRes | undefined> => {
+  const getCoupon = async (couponId: number) => {
     try {
-      const res: GetCouponDataRes = await axiosInstance.get(
-        `/coupon/${couponId}`,
-        {
-          headers: { authorization: `Bearer ${accessToken}` },
-        }
-      );
-      console.log(res);
-      return res;
+      await axiosInstance
+        .get<GetCouponDataRes>(`/coupon/${couponId}`)
+        .then((res) => {
+          console.log("쿠폰정보" + res);
+          return res;
+        });
     } catch (error) {
-      console.log(error);
+      console.log("쿠폰조회" + error);
       return;
     }
   };
@@ -33,10 +24,7 @@ export function useGetCouponList() {
   const getCouponList = async (brandId: number) => {
     try {
       const res: GetCouponDataRes[] = await axiosInstance.get(
-        `/coupon/${brandId}/list`,
-        {
-          headers: { authorization: `Bearer ${accessToken}` },
-        }
+        `/coupon/${brandId}/list`
       );
       alert("Brand coupon Data");
       return res;
@@ -53,10 +41,7 @@ export function useGetSearchCoupon() {
   const getSearchCoupon = async (searchKeyword: string) => {
     try {
       const res: GetCouponDataRes[] = await axiosInstance.get(
-        `/coupon/search/list?searchKeyword=${searchKeyword}`,
-        {
-          headers: { authorization: `Bearer ${accessToken}` },
-        }
+        `/coupon/search/list?searchKeyword=${searchKeyword}`
       );
       alert("Keyword coupon Data");
       return res;
@@ -71,19 +56,18 @@ export function useGetSearchCoupon() {
 //메인 페이지 속 쿠폰 정렬
 //인기순 -> likeCount, 최신순 -> createDate
 export function useGetOrderByCoupon() {
-  const orderByCoupon = async (orderBy: string) => {
+  const orderByCoupon = async (
+    orderBy: string
+  ): Promise<GetCouponDataRes[]> => {
     try {
-      const res: GetCouponDataRes[] = await axiosInstance.get(
-        `/coupon/main?orderby=${orderBy}`,
-        {
-          headers: { authorization: `Bearer ${accessToken}` },
-        }
+      const response = await axiosInstance.get<GetCouponDataRes[]>(
+        `/coupon/main?orderby=${orderBy}`
       );
-      alert("MainPage coupon Data");
-      return res;
+      console.log("메인페이지 쿠폰" + response.data);
+      return response.data;
     } catch (error) {
-      console.log(error);
-      return;
+      console.log("댓글 요청 오류" + error);
+      return error;
     }
   };
   return orderByCoupon;

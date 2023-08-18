@@ -1,0 +1,178 @@
+import { GetCouponDataRes } from "../../services";
+
+export const couponData_3: GetCouponDataRes[] = [
+  {
+    couponId: 1,
+    category: "카페",
+    brandId: 11,
+    couponCode: "URL링크에서발급",
+    couponUrl:
+      "https://travel.rakuten.com/kor/ko-kr/myaccount/coupon_detail/16123456973964",
+    description: "라쿠텐트래블",
+    popularity: 50,
+    useCount: 42,
+    likeCount: 30,
+    dislikeCount: 12,
+    brandName: "스타벅스",
+    couponName: "자바칩 프라푸치노",
+    startDate: "2023.08.02",
+    endDate: "2023.09.02",
+    brandImgUrl:
+      "https://t1.daumcdn.net/thumb/R720x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/5ns/image/N7ezeQHfjA5Ekdl3TIQjwWYEs2c.png",
+  },
+  {
+    couponId: 1,
+    couponName: "라쿠텐트래블",
+    brandName: "일본 후쿠오카 스페셜 위크",
+    category: "문화생활",
+    brandId: 11,
+    startDate: "2023.08.02",
+    endDate: "2023.09.02",
+    brandImgUrl:
+      "https://t1.daumcdn.net/thumb/R720x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/5ns/image/N7ezeQHfjA5Ekdl3TIQjwWYEs2c.png",
+    couponCode: "URL링크에서발급",
+    couponUrl:
+      "https://travel.rakuten.com/kor/ko-kr/myaccount/coupon_detail/16123456973964",
+    description: "라쿠텐트래블",
+    popularity: 50,
+    useCount: 42,
+    likeCount: 30,
+    dislikeCount: 12,
+  },
+  {
+    couponId: 1,
+    couponName: "라쿠텐트래블",
+    brandName: "일본 후쿠오카 스페셜 위크",
+    category: "문화생활",
+    brandId: 11,
+    startDate: "2023.08.02",
+    endDate: "2023.09.02",
+    brandImgUrl:
+      "https://t1.daumcdn.net/thumb/R720x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/5ns/image/N7ezeQHfjA5Ekdl3TIQjwWYEs2c.png",
+    couponCode: "URL링크에서발급",
+    couponUrl:
+      "https://travel.rakuten.com/kor/ko-kr/myaccount/coupon_detail/16123456973964",
+    description: "라쿠텐트래블",
+    popularity: 50,
+    useCount: 42,
+    likeCount: 30,
+    dislikeCount: 12,
+  },
+  {
+    couponId: 1,
+    couponName: "라쿠텐트래블",
+    brandName: "일본 후쿠오카 스페셜 위크",
+    category: "문화생활",
+    brandId: 11,
+    startDate: "2023.08.02",
+    endDate: "2023.09.02",
+    brandImgUrl:
+      "https://t1.daumcdn.net/thumb/R720x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/5ns/image/N7ezeQHfjA5Ekdl3TIQjwWYEs2c.png",
+    couponCode: "URL링크에서발급",
+    couponUrl:
+      "https://travel.rakuten.com/kor/ko-kr/myaccount/coupon_detail/16123456973964",
+    description: "라쿠텐트래블",
+    popularity: 50,
+    useCount: 42,
+    likeCount: 30,
+    dislikeCount: 12,
+  },
+  {
+    couponId: 1,
+    couponName: "라쿠텐트래블",
+    brandName: "일본 후쿠오카 스페셜 위크",
+    category: "문화생활",
+    brandId: 11,
+    startDate: "2023.08.02",
+    endDate: "2023.09.02",
+    brandImgUrl:
+      "https://t1.daumcdn.net/thumb/R720x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/5ns/image/N7ezeQHfjA5Ekdl3TIQjwWYEs2c.png",
+    couponCode: "URL링크에서발급",
+    couponUrl:
+      "https://travel.rakuten.com/kor/ko-kr/myaccount/coupon_detail/16123456973964",
+    description: "라쿠텐트래블",
+    popularity: 50,
+    useCount: 42,
+    likeCount: 30,
+    dislikeCount: 12,
+  },
+];
+
+export const couponData_4: GetCouponDataRes[] = [
+  {
+    couponId: 1,
+    couponName: "라쿠텐트래블",
+    brandName: "일본 후쿠오카 스페셜 위크",
+    category: "문화생활",
+    brandId: 11,
+    startDate: "2023.08.02",
+    endDate: "2023.09.02",
+    brandImgUrl:
+      "https://t1.daumcdn.net/thumb/R720x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/5ns/image/N7ezeQHfjA5Ekdl3TIQjwWYEs2c.png",
+    couponCode: "URL링크에서발급",
+    couponUrl:
+      "https://travel.rakuten.com/kor/ko-kr/myaccount/coupon_detail/16123456973964",
+    description: "라쿠텐트래블",
+    popularity: 50,
+    useCount: 42,
+    likeCount: 30,
+    dislikeCount: 12,
+  },
+  {
+    couponId: 1,
+    couponName: "라쿠텐트래블",
+    brandName: "일본 후쿠오카 스페셜 위크",
+    category: "문화생활",
+    brandId: 11,
+    startDate: "2023.08.02",
+    endDate: "2023.09.02",
+    brandImgUrl:
+      "https://t1.daumcdn.net/thumb/R720x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/5ns/image/N7ezeQHfjA5Ekdl3TIQjwWYEs2c.png",
+    couponCode: "URL링크에서발급",
+    couponUrl:
+      "https://travel.rakuten.com/kor/ko-kr/myaccount/coupon_detail/16123456973964",
+    description: "라쿠텐트래블",
+    popularity: 50,
+    useCount: 42,
+    likeCount: 30,
+    dislikeCount: 12,
+  },
+  {
+    couponId: 1,
+    couponName: "라쿠텐트래블",
+    brandName: "일본 후쿠오카 스페셜 위크",
+    category: "문화생활",
+    brandId: 11,
+    startDate: "2023.08.02",
+    endDate: "2023.09.02",
+    brandImgUrl:
+      "https://t1.daumcdn.net/thumb/R720x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/5ns/image/N7ezeQHfjA5Ekdl3TIQjwWYEs2c.png",
+    couponCode: "URL링크에서발급",
+    couponUrl:
+      "https://travel.rakuten.com/kor/ko-kr/myaccount/coupon_detail/16123456973964",
+    description: "라쿠텐트래블",
+    popularity: 50,
+    useCount: 42,
+    likeCount: 30,
+    dislikeCount: 12,
+  },
+  {
+    couponId: 1,
+    couponName: "라쿠텐트래블",
+    brandName: "일본 후쿠오카 스페셜 위크",
+    category: "문화생활",
+    brandId: 11,
+    startDate: "2023.08.02",
+    endDate: "2023.09.02",
+    brandImgUrl:
+      "https://t1.daumcdn.net/thumb/R720x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/5ns/image/N7ezeQHfjA5Ekdl3TIQjwWYEs2c.png",
+    couponCode: "URL링크에서발급",
+    couponUrl:
+      "https://travel.rakuten.com/kor/ko-kr/myaccount/coupon_detail/16123456973964",
+    description: "라쿠텐트래블",
+    popularity: 50,
+    useCount: 42,
+    likeCount: 30,
+    dislikeCount: 12,
+  },
+];
