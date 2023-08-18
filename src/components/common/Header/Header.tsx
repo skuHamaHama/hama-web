@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"; // 추가
 import * as S from "./Header.styled";
 import Sidebar from "../Side/Sidebar";
 import { Search } from "../Search";
+import { useNavigate } from "react-router-dom";
 
 export const Header = ({
   isAuthenticated,
@@ -11,6 +11,7 @@ export const Header = ({
   isAuthenticated: boolean;
   logout: () => void;
 }) => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isBellOpen, setIsBellOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -43,16 +44,34 @@ export const Header = ({
         />
       </S.InputWrapper>
       <S.SubWrapper>
-        {isAuthenticated ? ( // 로그인 상태에 따라 렌더링
+        {isAuthenticated ? (
           <S.Auth>
-            <Link to="/login" onClick={logout}>
-              로그아웃
-            </Link>
+            <S.Text
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              로그인
+            </S.Text>
+            <S.Text
+              onClick={() => {
+                navigate("/join");
+              }}
+            >
+              회원가입
+            </S.Text>
           </S.Auth>
         ) : (
+          // 로그인 상태에 따라 렌더링
           <S.Auth>
-            <Link to="/login">로그인</Link>
-            <Link to="/join">회원가입</Link>
+            <S.Text
+              onClick={() => {
+                logout();
+                navigate("/login");
+              }}
+            >
+              로그아웃
+            </S.Text>
           </S.Auth>
         )}
         <S.IconSet>
