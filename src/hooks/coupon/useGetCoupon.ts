@@ -23,7 +23,10 @@ export function useGetCouponList() {
   const getCouponList = async (brandId: number) => {
     try {
       const res: GetCouponDataRes[] = await axiosInstance.get(
-        `/coupon/${brandId}/list`
+        `/coupon/${brandId}/list`,
+        {
+          headers: { "Content-type": "application/json" },
+        }
       );
       alert("Brand coupon Data");
       return res;
@@ -40,7 +43,10 @@ export function useGetSearchCoupon() {
   const getSearchCoupon = async (searchKeyword: string) => {
     try {
       const res: GetCouponDataRes[] = await axiosInstance.get(
-        `/coupon/search/list?searchKeyword=${searchKeyword}`
+        `/coupon/search/list?searchKeyword=${searchKeyword}`,
+        {
+          headers: { "Content-type": "application/json" },
+        }
       );
       alert("Keyword coupon Data");
       return res;
@@ -60,7 +66,10 @@ export function useGetOrderByCoupon() {
   ): Promise<GetCouponDataRes[]> => {
     try {
       const response = await axiosInstance.get<GetCouponDataRes[]>(
-        `/coupon/main?orderby=${orderBy}`
+        `/coupon/main?orderby=${orderBy}`,
+        {
+          headers: { "Content-type": "application/json" },
+        }
       );
       console.log("메인페이지 쿠폰" + response.data);
       return response.data;

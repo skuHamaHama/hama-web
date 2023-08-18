@@ -1,7 +1,5 @@
 import { axiosInstance } from "../../apis";
 import { GetBrandDataRes } from "../../services";
-//Temp Auth
-const accessToken = "accessToken";
 
 //브랜드 상세 조회
 export function useGetBrand() {
@@ -10,7 +8,7 @@ export function useGetBrand() {
       const res: GetBrandDataRes = await axiosInstance.get(
         `/brand?brandId=${brandId}`,
         {
-          headers: { authorization: `Bearer ${accessToken}` },
+          headers: { "Content-type": "application/json" },
         }
       );
       return res;
@@ -29,7 +27,7 @@ export function useGetBrandList() {
       const res: GetBrandDataRes[] = await axiosInstance.get(
         "brand/brandList",
         {
-          headers: { GetBrandDataRes: `Bearer ${accessToken}` },
+          headers: { "Content-type": "application/json" },
         }
       );
       return res;
@@ -48,7 +46,7 @@ export function useGetCategoryBrandList() {
       const res: GetBrandDataRes[] = await axiosInstance.get(
         `brand/${category}`,
         {
-          headers: { authorization: `Bearer ${accessToken}` },
+          headers: { "Content-type": "application/json" },
         }
       );
       return res;
@@ -67,7 +65,7 @@ export function useGetSearchBrandList() {
       const res: GetBrandDataRes[] = await axiosInstance.get(
         `brand/${searchKeyword}/brand`,
         {
-          headers: { authorization: `Bearer ${accessToken}` },
+          headers: { "Content-type": "application/json" },
         }
       );
       return res;

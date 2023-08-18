@@ -1,10 +1,6 @@
 import { axiosInstance } from "../../apis";
 import { GetCommentDataRes, GetCouponDataRes } from "../../services";
 
-//Temp Auth
-const authTokenString = localStorage.getItem("authToken");
-const authToken = authTokenString ? JSON.parse(authTokenString) : null;
-const accessToken = authToken.accessToken;
 //마이페이지 댓글
 export function useGetMyPageInfo() {
   const getMyPageComment = async (order: string) => {
@@ -12,7 +8,7 @@ export function useGetMyPageInfo() {
       const res: GetCommentDataRes = await axiosInstance.get(
         `mypage/${order}`,
         {
-          headers: { authorization: `Bearer ${accessToken}` },
+          headers: { "Content-type": "application/json" },
         }
       );
       return res;
@@ -31,7 +27,7 @@ export function useGetMyPageCoupon() {
       const res: GetCouponDataRes[] = await axiosInstance.get(
         `mypage/${order}`,
         {
-          headers: { authorization: `Bearer ${accessToken}` },
+          headers: { "Content-type": "application/json" },
         }
       );
       return res;
