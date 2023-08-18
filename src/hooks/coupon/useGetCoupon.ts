@@ -5,12 +5,11 @@ import { GetCouponDataRes } from "../../services";
 export function useGetCoupon() {
   const getCoupon = async (couponId: number) => {
     try {
-      await axiosInstance
-        .get<GetCouponDataRes>(`/coupon/${couponId}`)
-        .then((res) => {
-          console.log("쿠폰정보" + res);
-          return res;
-        });
+      const response = await axiosInstance.get<GetCouponDataRes>(
+        `/coupon/${couponId}`
+      );
+      console.log("쿠폰정보" + response.data);
+      return response.data;
     } catch (error) {
       console.log("쿠폰조회" + error);
       return;

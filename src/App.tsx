@@ -19,7 +19,10 @@ export function App() {
     { path: "/user/help/profile", element: <auth.ProfileScreen /> }, //프로필 수정
 
     { path: "/main", element: <main.MainScreen /> }, //메인 페이지
-    { path: "/coupon/brand:brandId", element: <coupon.CouponBrandScreen /> }, //카테고리 쿠폰 페이지
+    {
+      path: "/coupon/brand/:categoryId",
+      element: <coupon.CouponBrandScreen />,
+    }, //카테고리 쿠폰 페이지
 
     { path: "/user/me", element: <user.MyPageScreen /> }, //마이 페이지
     {

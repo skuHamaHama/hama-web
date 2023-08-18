@@ -5,7 +5,7 @@ import * as S from "./SubCoupon.Styled";
 
 export function Coupon({ active }: { active: boolean }) {
   const groupSize = 4; //분할 개수
-  const list = JSON.parse(localStorage.getItem("coupon")) || [];
+  const list = JSON.stringify(localStorage.getItem("coupon"));
 
   const [currentPage, setCurrentPage] = useState(false); //페이지 번호
   const [couponData, setCouponData] = useState<GetCouponDataRes[]>([]);

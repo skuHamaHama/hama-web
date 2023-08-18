@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import type { MenuProps } from "antd";
 import { Menu } from "antd";
 import * as S from "./Sidebar.styled";
@@ -97,14 +98,16 @@ function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
     return undefined;
   };
 
-  const handleMenuItemClick = (key: React.Key) => {
+  const menuItem = (key: React.Key) => {
     const categoryNumber = parseInt(key as string, 10); // 키 값을 정수로 변환
     const categoryName = getCategoryNameByNumber(categoryNumber);
     if (categoryName) {
+      alert(categoryName);
+      <Link to={`/coupon/category/${key}`} />;
       console.log("Clicked item category:", categoryName);
       // 다른 원하는 작업 수행
     } else {
-      console.log("일치하는 카테고리명을 찾을 수 없습니다.");
+      console.log("카테고리명을 찾을 수 없습니다.");
     }
   };
 
@@ -115,7 +118,7 @@ function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
         openKeys={openKeys}
         onOpenChange={onOpenChange}
         style={{ width: 256 }}
-        onClick={({ key }) => handleMenuItemClick(key)}
+        onClick={({ key }) => menuItem(key)}
         items={items}
       />
     </S.SideBarWrap>
