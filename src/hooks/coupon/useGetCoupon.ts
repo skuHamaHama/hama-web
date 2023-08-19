@@ -52,9 +52,14 @@ export function useGetSearchCoupon() {
       if (response) {
         console.log(response);
         return response.data;
-      } else console.log("no data");
+      } else {
+        console.log("no data");
+        alert("해당하는 쿠폰이 없습니다.");
+        return;
+      }
     } catch (error) {
       console.log("요청 실패: " + error);
+      alert("해당하는 쿠폰이 없습니다.");
       return;
     }
   };

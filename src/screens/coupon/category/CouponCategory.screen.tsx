@@ -9,7 +9,7 @@ export function CouponCategoryScreen() {
 
   if (category === undefined) {
     alert("유효하지 않은 데이터입니다.");
-    return navigate("/home");
+    navigate("/home");
     return null;
   }
   return (

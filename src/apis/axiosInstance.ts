@@ -10,6 +10,7 @@ import { BASE_URL } from "./axios.constant";
 // const userEmail = authToken.userEmail;
 export const axiosInstance = Axios.create({
   baseURL: BASE_URL,
+  timeout: 1000,
 });
 
 // const reissueAccessToken = async (refreshToken: string) => {

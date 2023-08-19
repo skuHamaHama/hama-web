@@ -56,7 +56,7 @@ export const TextGroup = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  margin: 0 0 -5px 0;
+  margin: 10px 0 10px 0;
 `;
 
 export const Text = styled.div`

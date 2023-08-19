@@ -1,20 +1,24 @@
 import { axiosInstance } from "../../apis";
 import { GetCommentDataRes } from "../../services";
+import { commentData_3 } from "../../components";
 
 //메인 페이지 댓글 목록
 export function useGetComment() {
   const getComment = async () => {
     try {
-      const res: GetCommentDataRes[] = await axiosInstance.get(
-        "comments/main",
-        {
-          headers: { "Content-type": "application/json" },
-        }
-      );
-      return res;
+      const response = await axiosInstance.get("comments/main", {
+        headers: { "Content-type": "application/json" },
+      });
+      if (response) {
+        console.log(response.data);
+        return response.data;
+      } else {
+        alert("댓글 데이터가 없습니다.");
+        return;
+      }
     } catch (error) {
       console.log("댓글 요청 오류:" + error);
-      return;
+      return commentData_3;
     }
   };
   return getComment;

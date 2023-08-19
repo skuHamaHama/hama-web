@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { GetCommentDataRes } from "../../services";
 import { useGetComment } from "../../hooks";
-import { commentData_3 } from "./";
+import { commentData_3 } from "./tempCommentData";
 
 import * as S from "./MainComment.styled";
 
@@ -24,14 +24,14 @@ export function MainComment() {
 
   useEffect(() => {
     getComment().then((res) => {
-      if (res) setCommentData(res);
-      if (commentData) {
+      if (res) {
+        setCommentData(res);
         const groups = mapDataInGroups(groupSize, commentData.flat());
         setGroups(groups);
       } else {
-        const groups = mapDataInGroups(groupSize, commentData_3.flat());
+        setCommentData(commentData_3);
+        const groups = mapDataInGroups(groupSize, commentData.flat());
         setGroups(groups);
-        alert("댓글 정보가 없습니다.");
       }
     });
   }, []);
@@ -39,9 +39,9 @@ export function MainComment() {
   return (
     <S.Container>
       {groups.map((group, groupIndex) => (
-        <S.BlueContainer key={groupIndex}>
+        <S.CommentGroup key={groupIndex}>
           {group.map((comment: GetCommentDataRes, idx: number) => (
-            <div key={idx}>
+            <S.BlueContainer key={idx}>
               <S.Img
                 src={`${process.env.PUBLIC_URL}/icon/auth/profile_Icon.svg`}
               />
@@ -50,9 +50,9 @@ export function MainComment() {
                 <S.Coupon>{comment.couponName}</S.Coupon>
                 <S.Comment>{comment.comment}</S.Comment>
               </S.CommentInfo>
-            </div>
+            </S.BlueContainer>
           ))}
-        </S.BlueContainer>
+        </S.CommentGroup>
       ))}
     </S.Container>
   );
