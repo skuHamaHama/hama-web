@@ -93,11 +93,15 @@ export const Ul = styled.ul`
   width: 100%;
 `;
 
-export const Li = styled.li`
+export const Li = styled.li<{ isSelected: boolean }>`
+  font-size: 14px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: ${({ isSelected }) => (isSelected ? "#3C87BD" : "black")};
   cursor: pointer;
 `;
 
-export const LinkWrapper = styled.a<{ isSelected: boolean }>`
+export const LinkWrapper = styled.link<{ isSelected: boolean }>`
   font-size: 14px;
   white-space: nowrap;
   text-decoration: none;

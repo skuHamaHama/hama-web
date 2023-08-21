@@ -4,10 +4,10 @@ import { Screen, Brand } from "../../../components";
 import * as S from "./Category.styled";
 
 export function CouponCategoryScreen() {
-  const { category } = useParams();
+  const { categoryName } = useParams();
   const navigate = useNavigate();
 
-  if (category === undefined) {
+  if (categoryName === undefined) {
     alert("유효하지 않은 데이터입니다.");
     navigate("/home");
     return null;
@@ -16,9 +16,9 @@ export function CouponCategoryScreen() {
     <Screen header={true} nav={true} side={false} footer={true}>
       <S.Container>
         <S.MyCoupon>
-          <S.Text>{category}</S.Text>
+          <S.Text>{categoryName}</S.Text>
           <S.Line />
-          <Brand category={category} />
+          <Brand category={categoryName} />
         </S.MyCoupon>
       </S.Container>
     </Screen>

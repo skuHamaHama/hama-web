@@ -5,6 +5,7 @@ const useDetectClose = (
 ): [boolean, RefObject<HTMLDivElement>, () => void] => {
   const [isOpen, setIsOpen] = useState<boolean>(initialState);
   const ref = useRef<HTMLDivElement | null>(null);
+  //DOM 요소 참조
 
   const removeHandler = () => {
     setIsOpen(!isOpen);
