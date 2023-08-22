@@ -8,6 +8,7 @@ import { WriteReview } from "./screens/review";
 
 export function App() {
   const router = createBrowserRouter([
+    { path: "*", element: <div>No Content</div> },
     { path: "/", element: <main.Intro /> },
 
     { path: "/login", element: <auth.LoginScreen /> },
@@ -35,7 +36,6 @@ export function App() {
     { path: "/user/me/favor", element: <user.FavorBrandScreen /> },
 
     { path: "/coupon/registration", element: <coupon.CouponRegistration /> }, //쿠폰 등록
-    // { path: "/coupon/category/", element: <coupon.CategoryScreen /> },
     { path: "/brand/search", element: <brand.SearchBrandScreen /> }, //브랜드 찾기
     { path: "/brand/search/keyword", element: <brand.SearchResultScreen /> },
 
