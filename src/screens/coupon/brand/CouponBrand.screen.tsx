@@ -6,8 +6,8 @@ export function CouponBrandScreen() {
   const { brandName } = useParams();
   const navigate = useNavigate();
 
-  if (brandName === undefined) {
-    alert("유효하지 않은 데이터입니다.");
+  if (!brandName) {
+    alert("잘못된 경로입니다.");
     navigate("/home");
     return;
   }

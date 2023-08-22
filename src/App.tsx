@@ -22,13 +22,13 @@ export function App() {
     { path: "/main", element: <main.MainScreen /> }, //메인 페이지
     {
       path: "/coupon/brand/:brandName",
-      element: <coupon.CouponBrandScreen />,
+      element: <coupon.CouponBrandScreen /> || <div>No Content</div>,
     }, //카테고리 쿠폰 페이지
 
     { path: "/user/me", element: <user.MyPageScreen /> }, //마이 페이지
     {
       path: "/coupon/category:categoryName",
-      element: <coupon.CouponCategoryScreen />,
+      element: <coupon.CouponCategoryScreen /> || <div>No Content</div>,
     }, //카테고리 브랜드 페이지
     { path: "/user/me/recent", element: <user.RecentCouponScreen /> },
     { path: "/user/me/wish", element: <user.WishCouponScreen /> },
