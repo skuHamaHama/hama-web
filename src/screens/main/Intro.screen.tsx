@@ -48,9 +48,8 @@ const IntroVideo = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0%;
+  left: 5%;
 `;
 
 //Intro 직접 만든 버전

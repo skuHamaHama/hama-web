@@ -2,13 +2,20 @@ import { useState, useEffect } from "react";
 import { useGetCategoryBrandList } from "../../hooks";
 import { GetBrandDataRes } from "../../services";
 import * as S from "./Brand.styled";
+import { useNavigate } from "react-router-dom";
 
-export function Brand({ category }: { category: string }) {
+export function Brand({ category }: { category: string | null }) {
   const groupSize = 5; //분할 개수
   const [brandData, setBrandData] = useState<GetBrandDataRes[]>([]);
   const [groups, setGroups] = useState<GetBrandDataRes[][]>([]);
 
+  const navigate = useNavigate();
   const getCategoryBrandList = useGetCategoryBrandList();
+
+  if (!category) {
+    alert("잘못된 경로입니다.");
+    navigate("/home");
+  }
 
   const mapDataInGroups = (groupSize: number, brandData: GetBrandDataRes[]) => {
     const groups = [];
@@ -19,11 +26,13 @@ export function Brand({ category }: { category: string }) {
   };
 
   useEffect(() => {
-    getCategoryBrandList(category).then((res) => {
-      setBrandData(res);
-      const groups = mapDataInGroups(groupSize, brandData);
-      setGroups(groups);
-    });
+    if (category) {
+      getCategoryBrandList(category).then((res) => {
+        setBrandData(res);
+        const groups = mapDataInGroups(groupSize, brandData);
+        setGroups(groups);
+      });
+    }
   }, []);
 
   return (

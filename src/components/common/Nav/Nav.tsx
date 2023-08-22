@@ -47,14 +47,9 @@ export const Nav: React.FC = () => {
           </S.DropdownButton>
           <S.Menu isDropped={FoodIsOpen}>
             <S.Ul>
-              <S.Li isSelected={selectedItem === "식당"}>
-                <Link
-                  to={"/coupon/category/식당"}
-                  onClick={() => handleMenuItemClick("식당")}
-                >
-                  식당
-                </Link>
-              </S.Li>
+              <S.LinkWrapper isSelected={selectedItem === "식당"}>
+                <Link to={"/coupon/category/식당"}>식당</Link>
+              </S.LinkWrapper>
               <S.Li isSelected={selectedItem === "카페"}>
                 <Link
                   to={"/coupon/category/카페"}

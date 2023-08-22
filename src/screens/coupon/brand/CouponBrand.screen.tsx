@@ -18,7 +18,7 @@ export function CouponBrandScreen() {
         <S.MyCoupon>
           <S.Text>{brandName}</S.Text>
           <S.Line />
-          <SubCoupon active={false} brandName={brandName} />
+          <SubCoupon active={false} brandName={brandName || ""} />
         </S.MyCoupon>
       </S.Container>
     </Screen>

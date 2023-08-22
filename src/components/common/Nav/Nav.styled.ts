@@ -101,7 +101,7 @@ export const Li = styled.li<{ isSelected: boolean }>`
   cursor: pointer;
 `;
 
-export const LinkWrapper = styled.link<{ isSelected: boolean }>`
+export const LinkWrapper = styled.div<{ isSelected: boolean }>`
   font-size: 14px;
   white-space: nowrap;
   text-decoration: none;

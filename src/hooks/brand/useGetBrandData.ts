@@ -49,8 +49,10 @@ export function useGetCategoryBrandList() {
       const response = await axiosInstance.get(`brand/${category}`, {
         headers: { "Content-type": "application/json" },
       });
-      console.log("브랜드 목록" + response.data);
-      return response.data;
+      if (response.data) {
+        console.log("브랜드 목록" + response.data);
+        return response.data;
+      } else return tempBrandData;
     } catch (error) {
       console.log(error);
       return tempBrandData;

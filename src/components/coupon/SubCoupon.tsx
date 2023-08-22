@@ -30,17 +30,19 @@ export function SubCoupon({
 
   // getCouponData -> flat: 내부 배열을 풀어줌
   useEffect(() => {
-    getCouponList(brandName).then((res) => {
-      if (res) {
-        setCouponData(res);
-        const groups = mapDataInGroups(groupSize, couponData.flat());
-        setGroups(groups);
-      } else {
-        const groups = mapDataInGroups(groupSize, couponData_4.flat());
-        setGroups(groups);
-        alert("쿠폰 정보가 없습니다.");
-      }
-    });
+    if (brandName) {
+      getCouponList(brandName).then((res) => {
+        if (res) {
+          setCouponData(res);
+          const groups = mapDataInGroups(groupSize, couponData.flat());
+          setGroups(groups);
+        } else {
+          const groups = mapDataInGroups(groupSize, couponData_4.flat());
+          setGroups(groups);
+          alert("쿠폰 정보가 없습니다.");
+        }
+      });
+    }
   }, []);
 
   return (
