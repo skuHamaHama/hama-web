@@ -10,6 +10,7 @@ export function CouponCategoryScreen() {
   if (!categoryName) {
     alert("잘못된 경로입니다.");
     navigate("/home");
+    return null;
   }
 
   return (

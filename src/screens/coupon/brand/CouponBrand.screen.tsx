@@ -9,7 +9,7 @@ export function CouponBrandScreen() {
   if (!brandName) {
     alert("잘못된 경로입니다.");
     navigate("/home");
-    return;
+    return null;
   }
 
   return (
