@@ -1,49 +1,39 @@
 import { useState, useEffect } from "react";
-import { useGetCoupon } from "../../hooks";
 import { GetCouponDataRes } from "../../services";
 import * as S from "./SubCoupon.Styled";
 
 export function Coupon({ active }: { active: boolean }) {
   const groupSize = 4; //분할 개수
-  const list = JSON.stringify(localStorage.getItem("coupon"));
 
   const [currentPage, setCurrentPage] = useState(false); //페이지 번호
   const [couponData, setCouponData] = useState<GetCouponDataRes[]>([]);
   const [groups, setGroups] = useState<GetCouponDataRes[][]>([]);
-  const getCouponList = useGetCoupon();
 
-  const mapDataInGroups = (
-    groupSize: number,
-    couponData: GetCouponDataRes[]
-  ) => {
+  const list = localStorage.getItem("recentCoupon");
+  if (list) setCouponData(JSON.parse(list));
+  const couponList = couponData.map((coupon) => {
+    return [
+      coupon.brandName,
+      coupon.couponName,
+      coupon.startDate,
+      coupon.endDate,
+      coupon.couponUrl,
+    ];
+  });
+
+  const mapDataInGroups = (couponData: GetCouponDataRes[][]) => {
     const groups = [];
-    for (let i = 0; i < couponData.length; i += groupSize) {
-      groups.push(couponData.slice(i, i + groupSize));
+    for (let i = 0; i < couponList.length; i += groupSize) {
+      groups.push(couponList.slice(i, i + groupSize));
     }
     return groups;
   };
 
   useEffect(() => {
-    //리스트가 존재하는지, 배열 형식인지 확인
-    if (list && Array.isArray(list)) {
-      list.forEach(async (item) => {
-        //객체 amount 속성 활용
-        if (typeof item.amount === "number") {
-          const coupon = await getCouponList(Number(item.amount));
-          if (coupon) {
-            setCouponData([...couponData, coupon]);
-          }
-        }
-      });
-    }
+    const list = localStorage.getItem("recentCoupon");
+    if (list) setCouponData(JSON.parse(list));
+    mapDataInGroups(couponList);
   }, []);
-
-  useEffect(() => {
-    if (couponData.length > 0) {
-      const groups = mapDataInGroups(groupSize, couponData.flat());
-      setGroups(groups);
-    }
-  }, [couponData]);
 
   return (
     <S.Container>

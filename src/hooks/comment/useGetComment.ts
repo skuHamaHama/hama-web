@@ -1,6 +1,5 @@
 import { axiosInstance } from "../../apis";
 import { GetCommentDataRes } from "../../services";
-import { commentData_3 } from "../../components";
 
 //메인 페이지 댓글 목록
 export function useGetComment() {
@@ -12,13 +11,10 @@ export function useGetComment() {
       if (response) {
         console.log(response.data);
         return response.data;
-      } else {
-        alert("댓글 데이터가 없습니다.");
-        return;
       }
     } catch (error) {
       console.log("댓글 요청 오류:" + error);
-      return commentData_3;
+      return null;
     }
   };
   return getComment;
@@ -34,7 +30,7 @@ export function useGetCommentList() {
       return res;
     } catch (error) {
       console.log(error);
-      return;
+      return null;
     }
   };
   return getCommentList;
@@ -53,7 +49,7 @@ export function useGetSearchCommentList() {
       return res;
     } catch (error) {
       console.log(error);
-      return;
+      return null;
     }
   };
   return getSearchCommentList;

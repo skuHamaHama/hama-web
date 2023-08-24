@@ -13,6 +13,11 @@ export const axiosInstance = Axios.create({
   timeout: 1000,
 });
 
+export const logOnDev = (message: string) => {
+  if (import.meta.env.MODE === "development") {
+    console.log(message);
+  }
+};
 // const reissueAccessToken = async (refreshToken: string) => {
 //   try {
 //     const newAccessTokenRes = await axiosInstance.post(

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import type { MenuProps } from "antd";
 import { Menu } from "antd";
 import * as S from "./Sidebar.styled";
@@ -57,9 +57,10 @@ const items: MenuItem[] = [
 const rootSubmenuKeys = ["sub1", "sub2"];
 
 function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
-  const outside = useRef<any>();
+  const navigate = useNavigate();
 
-  const [openKeys, setOpenKeys] = useState(["sub1"]);
+  const outside = useRef<any>();
+  const [openKeys, setOpenKeys] = useState([""]);
 
   const onOpenChange: MenuProps["onOpenChange"] = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
@@ -102,8 +103,7 @@ function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: any }) {
     const categoryNumber = parseInt(key as string, 10); // 키 값을 정수로 변환
     const categoryName = getCategoryNameByNumber(categoryNumber);
     if (categoryName) {
-      alert(categoryName);
-      <Link to={`/coupon/category/${key}`} />;
+      navigate(`/coupon/category/${categoryName}`);
       console.log("Clicked item category:", categoryName);
       // 다른 원하는 작업 수행
     } else {

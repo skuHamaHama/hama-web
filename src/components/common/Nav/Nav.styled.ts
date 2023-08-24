@@ -16,19 +16,6 @@ export const Container = styled.div`
   }
 `;
 
-export const Wrapper = styled.div`
-  margin: 100px auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  color: white;
-  font-size: 19px;
-  background: gray;
-  width: 400px;
-  height: 50px;
-  font-weight: bold;
-`;
-
 export const DropdownContainer = styled.div`
   position: relative;
   text-align: center;

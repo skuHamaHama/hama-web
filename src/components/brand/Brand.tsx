@@ -26,7 +26,8 @@ export function Brand({ category }: { category: string | null }) {
   };
 
   useEffect(() => {
-    if (category) {
+    if (category === "카페") {
+    } else if (category) {
       getCategoryBrandList(category).then((res) => {
         setBrandData(res);
         const groups = mapDataInGroups(groupSize, brandData);
