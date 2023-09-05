@@ -2,29 +2,12 @@ import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../apis";
 import {
   //Request
-  PostJoinReq,
   PostEmailVerifyReq,
   PostResetPasswordReq,
   PostSavePasswordReq,
   //Response
   PostEmailVerifyRes,
 } from "../../services";
-
-//회원가입
-export function usePostJoin() {
-  const navigate = useNavigate();
-  const join = async (data: PostJoinReq) => {
-    try {
-      await axiosInstance.post("/register", data, {
-        headers: { "Content-type": "application/json" },
-      });
-      navigate("/login");
-    } catch (error) {
-      alert(error);
-    }
-  };
-  return join;
-}
 
 //이메일 인증코드
 export function usePostEmailConfirm() {

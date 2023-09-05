@@ -5,7 +5,7 @@ import { GetCommentDataRes } from "../../services";
 export function useGetComment() {
   const getComment = async () => {
     try {
-      const response = await axiosInstance.get("comments/main", {
+      const response = await axiosInstance.get("/comments/main", {
         headers: { "Content-type": "application/json" },
       });
       if (response) {
@@ -24,9 +24,12 @@ export function useGetComment() {
 export function useGetCommentList() {
   const getCommentList = async () => {
     try {
-      const res: GetCommentDataRes[] = await axiosInstance.get("comment/list", {
-        headers: { "Content-type": "application/json" },
-      });
+      const res: GetCommentDataRes[] = await axiosInstance.get(
+        "/comment/list",
+        {
+          headers: { "Content-type": "application/json" },
+        }
+      );
       return res;
     } catch (error) {
       console.log(error);
@@ -60,7 +63,7 @@ export function useGetUserCommentList() {
   const getUserCommentList = async () => {
     try {
       const res: GetCommentDataRes[] = await axiosInstance.get(
-        `comments/couponlist`,
+        `/comments/couponlist`,
         {
           headers: { "Content-type": "application/json" },
         }

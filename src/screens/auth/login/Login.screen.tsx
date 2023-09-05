@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { usePostLogin } from "../../../hooks";
+import { usePostLogin, useUser } from "../../../hooks";
 import { PostLoginReq } from "../../../services";
 
 import { DownCircleOutlined } from "@ant-design/icons";
@@ -12,14 +12,26 @@ export function LoginScreen() {
     password: "",
     loginKeep: false,
   });
+  const user = useUser();
   const login = usePostLogin();
   const navigate = useNavigate();
 
-  const postReq: PostLoginReq = {
-    email: form.email,
-    password: form.password,
-    loginKeep: form.loginKeep,
-  };
+  const submit = () =>
+    login.mutate(form, {
+      onError: () => {
+        alert("로그인에 실패하였습니다.");
+      },
+      onSuccess: (res) => {
+        const userToken = {
+          accessToken: res.data.accessToken,
+          refreshToken: res.data.refreshToken,
+          userEmail: form.email,
+        };
+        user.updateUser(userToken);
+        alert("환영합니다!");
+        navigate("/home");
+      },
+    });
 
   return (
     <S.Container>
@@ -65,14 +77,7 @@ export function LoginScreen() {
             />
             <S.State>로그인 상태 유지</S.State>
           </S.StateForm>
-          <S.Button
-            onClick={() => {
-              console.log(postReq);
-              login(postReq);
-            }}
-          >
-            로그인
-          </S.Button>
+          <S.Button onClick={submit}>로그인</S.Button>
         </S.LoginForm>
       </S.Ticket>
 

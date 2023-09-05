@@ -1,5 +1,5 @@
 import { axiosInstance } from "../../apis";
-import { GetCouponDataRes } from "../../services";
+import { GetCouponDataRes, getCoupon } from "../../services";
 import { couponData_3, couponData_4 } from "../../components";
 
 //쿠폰 상세 페이지 - 단일 쿠폰 조회

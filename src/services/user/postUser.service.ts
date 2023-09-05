@@ -1,23 +1,3 @@
-//회원가입
-export interface PostJoinReq {
-  email: string;
-  password: string;
-  nickname: string;
-}
-
-//로그인
-export interface PostLoginReq {
-  email: string;
-  password: string;
-  loginKeep: boolean;
-}
-
-export interface PostLoginRes {
-  accessToken: string;
-  refreshToken: string;
-  fcmStatus: boolean;
-}
-
 //인증 요청
 export interface PostEmailVerifyReq {
   email: string;

@@ -22,7 +22,7 @@ export const Brand = styled.div<{ brandImgUrl: string }>`
   cursor: pointer;
   background-image: ${({ brandImgUrl }) =>
     `url(${process.env.PUBLIC_URL}${brandImgUrl})`};
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 `;

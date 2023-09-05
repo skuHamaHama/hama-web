@@ -34,7 +34,7 @@ export function MainComment() {
         setGroups(groups);
       }
     });
-  }, []);
+  }, [[commentData.length]]);
 
   return (
     <S.Container>

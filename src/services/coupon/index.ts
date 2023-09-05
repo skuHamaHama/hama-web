@@ -1,2 +1,2 @@
 export * from "./getCoupon.service";
-export * from "./postCouonData.service";
+export * from "./postCouon.service";

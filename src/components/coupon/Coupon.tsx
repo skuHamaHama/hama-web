@@ -9,31 +9,44 @@ export function Coupon({ active }: { active: boolean }) {
   const [couponData, setCouponData] = useState<GetCouponDataRes[]>([]);
   const [groups, setGroups] = useState<GetCouponDataRes[][]>([]);
 
-  const list = localStorage.getItem("recentCoupon");
-  if (list) setCouponData(JSON.parse(list));
-  const couponList = couponData.map((coupon) => {
-    return [
-      coupon.brandName,
-      coupon.couponName,
-      coupon.startDate,
-      coupon.endDate,
-      coupon.couponUrl,
-    ];
-  });
-
-  const mapDataInGroups = (couponData: GetCouponDataRes[][]) => {
-    const groups = [];
-    for (let i = 0; i < couponList.length; i += groupSize) {
-      groups.push(couponList.slice(i, i + groupSize));
+  const mapDataInGroups = (dataList: GetCouponDataRes[], size: number) => {
+    const mappedGroups: GetCouponDataRes[][] = [];
+    for (let i = 0; i < dataList.length; i += size) {
+      mappedGroups.push(dataList.slice(i, i + size));
     }
-    return groups;
+    return mappedGroups;
   };
 
   useEffect(() => {
     const list = localStorage.getItem("recentCoupon");
-    if (list) setCouponData(JSON.parse(list));
-    mapDataInGroups(couponList);
+    if (list) {
+      const parsedList: GetCouponDataRes[] = JSON.parse(list);
+      setCouponData(parsedList);
+    }
   }, []);
+
+  useEffect(() => {
+    const dataList = couponData.map((coupon) => ({
+      couponId: coupon.couponId,
+      couponName: coupon.couponName,
+      brandName: coupon.brandName,
+      category: coupon.category,
+      brandId: coupon.brandId,
+      startDate: coupon.startDate,
+      endDate: coupon.endDate,
+      brandImgUrl: coupon.brandImgUrl,
+      couponCode: coupon.couponCode,
+      couponUrl: coupon.couponUrl,
+      description: coupon.description,
+      popularity: coupon.popularity,
+      useCount: coupon.useCount,
+      likeCount: coupon.likeCount,
+      dislikeCount: coupon.dislikeCount,
+    }));
+
+    const mappedGroups = mapDataInGroups(dataList, groupSize);
+    setGroups(mappedGroups);
+  }, [couponData]);
 
   return (
     <S.Container>
