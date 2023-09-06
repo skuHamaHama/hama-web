@@ -1,2 +1,2 @@
-export * from "./getCommentData.service";
-export * from "./postCommentData.service";
+export * from "./getComment.service";
+export * from "./postComment.service";

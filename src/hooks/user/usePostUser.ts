@@ -1,87 +1,28 @@
-import { useNavigate } from "react-router-dom";
-import { axiosInstance } from "../../apis";
 import {
-  //Request
-  PostEmailVerifyReq,
-  PostResetPasswordReq,
-  PostSavePasswordReq,
-  //Response
-  PostEmailVerifyRes,
-} from "../../services";
+  PostSaveTokenReq,
+  postEmailConfirm,
+  postRessetPassword,
+  postSaveFcmToken,
+  postSavePassword,
+} from "@services/user";
+import { useMutation } from "@tanstack/react-query";
 
 //이메일 인증코드
-export function usePostEmailConfirm() {
-  const emailConfirm = async (email: PostEmailVerifyReq) => {
-    try {
-      //res => 인증코드, 가입가능여부(true)
-      const res: PostEmailVerifyRes = await axiosInstance.post(
-        "/user/register/mailConfirm",
-        email,
-        {
-          headers: { "Content-type": "application/json" },
-        }
-      );
-
-      if (res.status) alert("인증 요청이 완료되었습니다.");
-      else alert("이미 존재하는 이메일입니다.");
-    } catch (error) {
-      alert(error);
-    }
-  };
-  return emailConfirm;
-}
-
-//닉네임 중복 확인
-export function useGetRegisterNickname() {
-  const registerNickname = async (nickname: string) => {
-    try {
-      //res => 중복여부(true)
-      const res = await axiosInstance.post(`/user/register/${nickname}`, {
-        headers: { "Content-type": "application/json" },
-      });
-      if (res.status) {
-        alert("사용 가능한 닉네임입니다.");
-        return res;
-      } else {
-        alert("이미 사용중인 닉네임입니다.");
-        return res;
-      }
-    } catch (error) {
-      alert(error);
-      return;
-    }
-  };
-  return registerNickname;
+export function usePostEmailConfirm(email: string) {
+  return useMutation(["postEmailConfirm"], () => postEmailConfirm(email));
 }
 
 //비밀번호 변경 URL
-export function usePostRessetPassword() {
-  const ressetPassword = async (data: PostResetPasswordReq) => {
-    try {
-      await axiosInstance.post("/user/resetPassword", data, {
-        headers: { "Content-type": "application/json" },
-      });
-      alert("이메일을 확인해주세요.");
-    } catch (error) {
-      alert(error);
-    }
-  };
-  return ressetPassword;
+export function usePostRessetPassword(email: string) {
+  return useMutation(["postRessetPassword"], () => postRessetPassword(email));
 }
 
 //새 비밀번호 전송
-export function usePostSavePassword() {
-  const navigate = useNavigate();
-  const savePassword = async (data: PostSavePasswordReq) => {
-    try {
-      await axiosInstance.post("/user/savePassword", data, {
-        headers: { "Content-type": "application/json" },
-      });
-      alert("비밀번호가 변경되었습니다.");
-      navigate("/login");
-    } catch (error) {
-      alert(error);
-    }
-  };
-  return savePassword;
+export function usePostSavePassword(password: string) {
+  return useMutation(["postSavePassword"], () => postSavePassword(password));
+}
+
+//사용자 기기 fcm 토큰 저장
+export function usePostSaveFcmToken(data: PostSaveTokenReq) {
+  return useMutation(["postSaveFcmToken"], () => postSaveFcmToken(data));
 }

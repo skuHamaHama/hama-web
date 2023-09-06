@@ -1,1 +1,1 @@
-export * from "./getBrandData.service";
+export * from "./getBrand.service";

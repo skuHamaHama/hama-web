@@ -1,1 +1,1 @@
-export * from "./useGetBrandData";
+export * from "./useGetBrand";
