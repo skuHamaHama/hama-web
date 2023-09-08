@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useGetMyPageCoupon } from "../../hooks";
-import { GetCouponDataRes } from "../../services";
+import { GetCouponRes } from "../../services";
 import * as S from "./SubCoupon.Styled";
 
 export function MyPageCoupon({
@@ -12,13 +12,12 @@ export function MyPageCoupon({
 }) {
   const groupSize = 4; //분할 개수
   const [currentPage, setCurrentPage] = useState(false); //페이지 번호
-  const [groups, setGroups] = useState<GetCouponDataRes[][]>([]);
-  const getCouponList = useGetMyPageCoupon();
+  const [couponData, setCouponData] = useState<GetCouponRes[]>([]);
+  const [groups, setGroups] = useState<GetCouponRes[][]>([]);
 
-  const mapDataInGroups = (
-    groupSize: number,
-    couponData: GetCouponDataRes[]
-  ) => {
+  const getMyPageCoupon = useGetMyPageCoupon(order);
+
+  const mapDataInGroups = (groupSize: number, couponData: GetCouponRes[]) => {
     const groups = [];
     for (let i = 0; i < couponData.length; i += groupSize) {
       groups.push(couponData.slice(i, i + groupSize));
@@ -28,21 +27,18 @@ export function MyPageCoupon({
 
   // getCouponData -> flat: 내부 배열을 풀어줌
   useEffect(() => {
-    getCouponList(order).then((res) => {
-      if (res) {
-        const groups = mapDataInGroups(groupSize, res.flat());
-        setGroups(groups);
-      } else {
-        alert("쿠폰 정보가 없습니다.");
-      }
-    });
-  }, []);
+    if (getMyPageCoupon.isSuccess) {
+      setCouponData(getMyPageCoupon.data.data);
+      const groups = mapDataInGroups(groupSize, couponData);
+      setGroups(groups);
+    }
+  }, [getMyPageCoupon, couponData]);
 
   return (
     <S.Container>
       {groups.map((group, groupIndex) => (
         <S.CouponGroup key={groupIndex}>
-          {group.map((coupon: GetCouponDataRes, idx: number) => (
+          {group.map((coupon: GetCouponRes, idx: number) => (
             <S.Coupon key={idx}>
               <S.CouponInfo>
                 <S.Text style={{ fontFamily: "bold", fontSize: "13px" }}>

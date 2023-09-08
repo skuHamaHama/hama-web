@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { usePostSavePassword } from "../../../hooks";
-import { PostSavePasswordReq } from "../../../services";
-
 import * as S from "./PwIncuiry.styled";
+import { useNavigate } from "react-router-dom";
+
 export function PsIncuryScreen() {
   const [newPW, setNewPW] = useState("");
   const [confPW, setConfPW] = useState("");
   const [isPasswordValid, setIsPasswordValid] = useState(true);
   const savePassword = usePostSavePassword();
 
+  const navigate = useNavigate();
   const onNewPW = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewPW(event.target.value);
     validatePassword(event.target.value, confPW);
@@ -26,10 +27,6 @@ export function PsIncuryScreen() {
     const isValid =
       passwordRegex.test(newPassword) && newPassword === confirmPassword;
     setIsPasswordValid(isValid);
-  };
-
-  const postReq: PostSavePasswordReq = {
-    password: confPW,
   };
 
   return (
@@ -66,7 +63,14 @@ export function PsIncuryScreen() {
       </S.Ticket>
       <S.Button
         onClick={() => {
-          savePassword(postReq);
+          savePassword.mutate(newPW, {
+            onError: (error) => {
+              console.log(error);
+            },
+            onSuccess: () => {
+              navigate("login");
+            },
+          });
         }}
       >
         다음

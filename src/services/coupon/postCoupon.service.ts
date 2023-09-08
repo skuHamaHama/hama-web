@@ -1,6 +1,6 @@
 import { axiosInstance } from "../../apis";
 
-export interface PostCouponDataReq {
+export interface PostCouponReq {
   brandName: string;
   couponName: string;
   couponCode: string;
@@ -11,7 +11,7 @@ export interface PostCouponDataReq {
 }
 
 //쿠폰 등록
-export function postCoupon(data: PostCouponDataReq) {
+export function postCoupon(data: PostCouponReq) {
   const res = axiosInstance.post("/coupon/create", data);
   return res;
 }
@@ -23,7 +23,7 @@ export function postLikeCoupon(couponId: number) {
 }
 
 //쿠폰 수정
-export function putUpdateCoupon(couponId: number, data: PostCouponDataReq) {
+export function putUpdateCoupon(couponId: number, data: PostCouponReq) {
   const res = axiosInstance.put(`/coupon/${couponId}/update`, data);
   return res;
 }

@@ -18,7 +18,7 @@ export function useGetCommentList() {
 
 //쿠폰에 대한 댓글 목록
 export function useGetSearchCommentList(couponId: number) {
-  return useQuery(["getSearchCommentList"], () =>
+  return useQuery(["getSearchCommentList", couponId], () =>
     getSearchCommentList(couponId)
   );
 }

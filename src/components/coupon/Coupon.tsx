@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
-import { GetCouponDataRes } from "../../services";
+import { GetCouponRes } from "../../services";
 import * as S from "./SubCoupon.Styled";
 
 export function Coupon({ active }: { active: boolean }) {
   const groupSize = 4; //분할 개수
 
   const [currentPage, setCurrentPage] = useState(false); //페이지 번호
-  const [couponData, setCouponData] = useState<GetCouponDataRes[]>([]);
-  const [groups, setGroups] = useState<GetCouponDataRes[][]>([]);
+  const [couponData, setCouponData] = useState<GetCouponRes[]>([]);
+  const [groups, setGroups] = useState<GetCouponRes[][]>([]);
 
-  const mapDataInGroups = (dataList: GetCouponDataRes[], size: number) => {
-    const mappedGroups: GetCouponDataRes[][] = [];
+  const mapDataInGroups = (dataList: GetCouponRes[], size: number) => {
+    const mappedGroups: GetCouponRes[][] = [];
     for (let i = 0; i < dataList.length; i += size) {
       mappedGroups.push(dataList.slice(i, i + size));
     }
@@ -20,7 +20,7 @@ export function Coupon({ active }: { active: boolean }) {
   useEffect(() => {
     const list = localStorage.getItem("recentCoupon");
     if (list) {
-      const parsedList: GetCouponDataRes[] = JSON.parse(list);
+      const parsedList: GetCouponRes[] = JSON.parse(list);
       setCouponData(parsedList);
     }
   }, []);
@@ -52,7 +52,7 @@ export function Coupon({ active }: { active: boolean }) {
     <S.Container>
       {groups.map((group, groupIndex) => (
         <S.CouponGroup key={groupIndex}>
-          {group.map((coupon: GetCouponDataRes, idx: number) => (
+          {group.map((coupon: GetCouponRes, idx: number) => (
             <S.Coupon key={idx}>
               <S.CouponInfo>
                 <S.Text style={{ fontFamily: "bold", fontSize: "13px" }}>

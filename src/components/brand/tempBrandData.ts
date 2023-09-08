@@ -1,6 +1,6 @@
-import { GetBrandDataRes } from "../../services";
+import { GetBrandRes } from "../../services";
 
-export const tempBrandData: GetBrandDataRes[] = [
+export const tempBrandData: GetBrandRes[] = [
   {
     brandId: 1,
     brandName: "스타벅스",

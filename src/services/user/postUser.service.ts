@@ -1,4 +1,4 @@
-import { axiosInstance } from "@apis/axiosInstance";
+import { axiosInstance } from "../../apis/axiosInstance";
 
 //인증 요청
 export interface PostEmailVerifyRes {

@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
-import { useGetOrderByCoupon } from "../../hooks";
-import { GetCouponDataRes } from "../../services";
+import { useGetMainCoupon } from "../../hooks";
+import { GetCouponRes } from "../../services";
 import { couponData_3 } from "./";
 import * as S from "./MainCoupon.Styled";
 
 export function MainCoupon({ orderBy }: { orderBy: string }) {
   const groupSize = 3; //분할 개수
-  const [couponData, setCouponData] = useState<GetCouponDataRes[]>([]);
-  const [groups, setGroups] = useState<GetCouponDataRes[][]>([]);
-  const orderByCoupon = useGetOrderByCoupon();
+  const [couponData, setCouponData] = useState<GetCouponRes[]>([]);
+  const [groups, setGroups] = useState<GetCouponRes[][]>([]);
 
-  const mapDataInGroups = (
-    groupSize: number,
-    couponData: GetCouponDataRes[]
-  ) => {
+  const getCoupon = useGetMainCoupon(orderBy);
+
+  const mapDataInGroups = (groupSize: number, couponData: GetCouponRes[]) => {
     const groups = [];
     for (let i = 0; i < couponData.length; i += groupSize) {
       groups.push(couponData.slice(i, i + groupSize));
@@ -23,27 +21,21 @@ export function MainCoupon({ orderBy }: { orderBy: string }) {
 
   // getCouponData -> flat: 내부 배열을 풀어줌
   useEffect(() => {
-    // 키워드 검색
-    orderByCoupon(orderBy).then((res) => {
-      console.log(res);
-      if (res) {
-        setCouponData(res);
-        const groups = mapDataInGroups(groupSize, couponData);
-        setGroups(groups);
-      } else {
-        const groups = mapDataInGroups(groupSize, couponData_3.flat());
-        setGroups(groups);
-        alert("쿠폰 정보가 없습니다.");
-        console.log(groups);
-      }
-    });
-  }, []);
+    if (getCoupon.isSuccess) {
+      setCouponData(getCoupon.data.data);
+      const groups = mapDataInGroups(groupSize, couponData);
+      setGroups(groups);
+    } else if (getCoupon.isError) {
+      const groups = mapDataInGroups(groupSize, couponData_3);
+      setGroups(groups);
+    }
+  }, [getCoupon, couponData]);
 
   return (
     <S.Container>
       {groups.map((group, groupIndex) => (
         <S.CouponGroup key={groupIndex}>
-          {group.map((coupon: GetCouponDataRes, idx: number) => (
+          {group.map((coupon: GetCouponRes, idx: number) => (
             <S.Coupon key={idx}>
               <S.CouponInfo>
                 <S.BrandText>{coupon.brandName}</S.BrandText>

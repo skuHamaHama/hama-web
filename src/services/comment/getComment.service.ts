@@ -1,4 +1,4 @@
-import { axiosInstance, getHeader } from "@apis/axiosInstance";
+import { axiosInstance, getHeader } from "../../apis";
 
 export interface GetCommentRes {
   brandName: string;

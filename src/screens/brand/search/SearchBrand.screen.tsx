@@ -22,7 +22,7 @@ export function SearchBrandScreen() {
             </C.SearchContainer>
           </S.TextGroup>
           <S.Line />
-          <MyPageBrand order={"random"} />
+          <MyPageBrand />
         </S.MyCoupon>
       </S.Layout>
     </Screen>

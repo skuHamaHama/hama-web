@@ -1,6 +1,6 @@
-import { GetCouponDataRes } from "../../services";
+import { GetCouponRes } from "../../services";
 
-export const couponData_3: GetCouponDataRes[] = [
+export const couponData_3: GetCouponRes[] = [
   {
     couponId: 1,
     category: "카페",
@@ -104,7 +104,7 @@ export const couponData_3: GetCouponDataRes[] = [
     brandImgUrl: "",
   },
 ];
-export const couponData_4: GetCouponDataRes[] = [
+export const couponData_4: GetCouponRes[] = [
   {
     couponId: 1,
     category: "카페",

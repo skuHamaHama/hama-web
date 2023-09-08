@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
-import { useGetCategoryBrandList } from "../../hooks";
-import { GetBrandDataRes } from "../../services";
+import { useGetMyPageBrand, useUser } from "../../hooks";
+import { GetBrandRes } from "../../services";
 import { tempBrandData } from "./";
 import * as S from "./Brand.styled";
 
-export function MyPageBrand({ order }: { order: string }) {
+export function MyPageBrand() {
   const groupSize = 5; //분할 개수
-  const [brandData, setBrandData] = useState<GetBrandDataRes[] | undefined>([]);
-  const [groups, setGroups] = useState<GetBrandDataRes[][]>([]);
+  const [brandData, setBrandData] = useState<GetBrandRes[]>([]);
+  const [groups, setGroups] = useState<GetBrandRes[][]>([]);
 
-  const getCategoryBrandList = useGetCategoryBrandList();
+  const user = useUser();
+  const getMyPageBrand = useGetMyPageBrand(user.token?.userEmail || "");
 
-  const mapDataInGroups = (groupSize: number, brandData: GetBrandDataRes[]) => {
+  const mapDataInGroups = (groupSize: number, brandData: GetBrandRes[]) => {
     const groups = [];
     for (let i = 0; i < brandData.length; i += groupSize) {
       groups.push(brandData.slice(i, i + groupSize));
@@ -20,21 +21,13 @@ export function MyPageBrand({ order }: { order: string }) {
   };
 
   useEffect(() => {
-    if (order === "random") {
-      const groups = mapDataInGroups(groupSize, tempBrandData.flat());
+    if (getMyPageBrand.isSuccess) {
+      setBrandData(getMyPageBrand.data.data);
+      const groups = mapDataInGroups(groupSize, brandData);
       setGroups(groups);
-    } else {
-      getCategoryBrandList(order).then((res) => {
-        setBrandData(res);
-        if (brandData) {
-          const groups = mapDataInGroups(groupSize, brandData.flat());
-          setGroups(groups);
-        } else {
-          const groups = mapDataInGroups(groupSize, tempBrandData.flat());
-          setGroups(groups);
-          alert("쿠폰 정보가 없습니다.");
-        }
-      });
+    } else if (getMyPageBrand.isError) {
+      const groups = mapDataInGroups(groupSize, tempBrandData);
+      setGroups(groups);
     }
   }, []);
 
@@ -42,7 +35,7 @@ export function MyPageBrand({ order }: { order: string }) {
     <S.Container>
       {groups.map((group, groupIndex) => (
         <S.BrandGroup key={groupIndex}>
-          {group.map((brand: GetBrandDataRes, idx: number) => (
+          {group.map((brand: GetBrandRes, idx: number) => (
             <S.Brand key={idx} brandImgUrl={brand.brandImgUrl}></S.Brand>
           ))}
         </S.BrandGroup>

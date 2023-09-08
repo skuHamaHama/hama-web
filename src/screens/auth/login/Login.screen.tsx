@@ -18,7 +18,8 @@ export function LoginScreen() {
 
   const submit = () =>
     login.mutate(form, {
-      onError: () => {
+      onError: (error) => {
+        console.log(error);
         alert("로그인에 실패하였습니다.");
       },
       onSuccess: (res) => {
@@ -28,7 +29,6 @@ export function LoginScreen() {
           userEmail: form.email,
         };
         user.updateUser(userToken);
-        alert("환영합니다!");
         navigate("/home");
       },
     });

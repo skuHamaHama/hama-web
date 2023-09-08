@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { usePostCreateCoupon } from "../../hooks";
-import { PostCouponDataReq } from "../../services";
+import { usePostCoupon } from "../../hooks";
+import { PostCouponReq } from "../../services";
 import { Layout } from "../../components/common/Layout";
 import { Nav } from "../../components/common/Nav";
 import * as S from "./CouponRegistration.styled";
 import LeftSide from "../../components/common/Side/LeftSide";
+import { useNavigate } from "react-router-dom";
 
 export function CouponRegistration() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [inputValues, setInputValues] = useState<PostCouponDataReq>({
+  const [inputValues, setInputValues] = useState<PostCouponReq>({
     brandName: "",
     couponName: "",
     couponCode: "",
@@ -18,7 +19,8 @@ export function CouponRegistration() {
     description: "",
   });
 
-  const createCoupon = usePostCreateCoupon();
+  const navigate = useNavigate();
+  const createCoupon = usePostCoupon();
 
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
@@ -37,7 +39,15 @@ export function CouponRegistration() {
   const handlePutButtonClick = () => {
     // 사용자가 입력한 값 출력 테스트
     console.log("Input values:", inputValues);
-    createCoupon(inputValues);
+    createCoupon.mutate(inputValues, {
+      onError: (error) => {
+        console.log(error);
+        alert("로그인에 실패하였습니다.");
+      },
+      onSuccess: () => {
+        navigate("home");
+      },
+    });
   };
 
   return (

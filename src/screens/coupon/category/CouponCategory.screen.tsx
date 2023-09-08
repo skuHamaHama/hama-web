@@ -19,7 +19,7 @@ export function CouponCategoryScreen() {
         <S.MyCoupon>
           <S.Text>{categoryName}</S.Text>
           <S.Line />
-          <Brand category={categoryName || null} />
+          <Brand category={categoryName} />
         </S.MyCoupon>
       </S.Container>
     </Screen>

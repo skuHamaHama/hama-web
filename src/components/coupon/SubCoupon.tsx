@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useGetCouponList } from "../../hooks";
-import { GetCouponDataRes } from "../../services";
-import * as S from "./SubCoupon.Styled";
+import { GetCouponRes } from "../../services";
 import { couponData_4 } from "./tempCouponData";
+import * as S from "./SubCoupon.Styled";
 
 export function SubCoupon({
   active,
@@ -13,14 +13,12 @@ export function SubCoupon({
 }) {
   const groupSize = 4; //분할 개수
   const [currentPage, setCurrentPage] = useState(false); //페이지 번호
-  const [couponData, setCouponData] = useState<GetCouponDataRes[]>([]);
-  const [groups, setGroups] = useState<GetCouponDataRes[][]>([]);
-  const getCouponList = useGetCouponList();
+  const [couponData, setCouponData] = useState<GetCouponRes[]>([]);
+  const [groups, setGroups] = useState<GetCouponRes[][]>([]);
 
-  const mapDataInGroups = (
-    groupSize: number,
-    couponData: GetCouponDataRes[]
-  ) => {
+  const getCouponList = useGetCouponList(brandName);
+
+  const mapDataInGroups = (groupSize: number, couponData: GetCouponRes[]) => {
     const groups = [];
     for (let i = 0; i < couponData.length; i += groupSize) {
       groups.push(couponData.slice(i, i + groupSize));
@@ -30,26 +28,21 @@ export function SubCoupon({
 
   // getCouponData -> flat: 내부 배열을 풀어줌
   useEffect(() => {
-    if (brandName) {
-      getCouponList(brandName).then((res) => {
-        if (res) {
-          setCouponData(res);
-          const groups = mapDataInGroups(groupSize, couponData.flat());
-          setGroups(groups);
-        } else {
-          const groups = mapDataInGroups(groupSize, couponData_4.flat());
-          setGroups(groups);
-          alert("쿠폰 정보가 없습니다.");
-        }
-      });
+    if (getCouponList.isSuccess) {
+      setCouponData(getCouponList.data.data);
+      const groups = mapDataInGroups(groupSize, couponData);
+      setGroups(groups);
+    } else if (getCouponList.isError) {
+      const groups = mapDataInGroups(groupSize, couponData_4);
+      setGroups(groups);
     }
-  }, []);
+  }, [getCouponList, couponData]);
 
   return (
     <S.Container>
       {groups.map((group, groupIndex) => (
         <S.CouponGroup key={groupIndex}>
-          {group.map((coupon: GetCouponDataRes, idx: number) => (
+          {group.map((coupon: GetCouponRes, idx: number) => (
             <S.Coupon key={idx}>
               <S.CouponInfo>
                 <S.Text style={{ fontFamily: "bold", fontSize: "13px" }}>

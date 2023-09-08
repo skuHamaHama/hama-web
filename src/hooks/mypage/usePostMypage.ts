@@ -1,4 +1,4 @@
-import { postMypageBrand } from "@services/mypage";
+import { postMypageBrand } from "../../services";
 import { useMutation } from "react-query";
 
 export function usePostMypageBrand(email: string, brandId: number) {

@@ -13,7 +13,7 @@ export function FavorBrandScreen() {
             <S.ViewText>전체 보기</S.ViewText>
           </S.TextGroup>
           <S.Line />
-          <MyPageBrand order={"likeBrand"} />
+          <MyPageBrand />
         </S.MyCoupon>
       </S.Layout>
     </Screen>

@@ -31,7 +31,7 @@ export function getMainCoupon(orderBy: string) {
 
 //쿠폰 상세 페이지 - 단일 쿠폰 조회
 export function getCoupon(couponId: number) {
-  const res = axiosInstance.get<GetCouponRes[]>(`/coupon/${couponId}`);
+  const res = axiosInstance.get<GetCouponRes>(`/coupon/${couponId}`);
   return res;
 }
 

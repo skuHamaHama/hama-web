@@ -1,6 +1,8 @@
-import { getRegisterNickname } from "@services/user";
+import { getRegisterNickname } from "../../services/user";
 import { useQuery } from "@tanstack/react-query";
 
 export function useGetRegisterNickname(nickname: string) {
-  return useQuery(["getRegisterNickname"], () => getRegisterNickname(nickname));
+  return useQuery(["getRegisterNickname", nickname], () =>
+    getRegisterNickname(nickname)
+  );
 }

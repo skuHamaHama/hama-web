@@ -1,7 +1,6 @@
 import { useState } from "react";
 import * as S from "./IdIncuiry.styled";
 import { usePostRessetPassword } from "../../../hooks";
-import { PostResetPasswordReq } from "../../../services";
 
 export function IdIncuryScreen() {
   const [email, setEmail] = useState("");
@@ -14,11 +13,6 @@ export function IdIncuryScreen() {
   const isEmailValid = (email: string) => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return emailRegex.test(email);
-  };
-
-  //Request Data
-  const postReq: PostResetPasswordReq = {
-    email: email,
   };
 
   return (
@@ -43,7 +37,14 @@ export function IdIncuryScreen() {
       {!isEmailValid(email) && <p>이메일 형식으로 입력해주세요.</p>}
       <S.Button
         onClick={() => {
-          ressetPassword(postReq);
+          ressetPassword.mutate(email, {
+            onError: (error) => {
+              console.log(error);
+            },
+            onSuccess: () => {
+              alert("메일이 발송되었습니다.");
+            },
+          });
         }}
         disabled={!isEmailValid(email)}
       >
