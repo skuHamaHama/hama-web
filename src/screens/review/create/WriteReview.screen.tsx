@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import * as S from "./WriteReview.styled";
-import { Layout } from "../../components/common/Layout";
-import { Nav } from "../../components/common/Nav";
-import LeftSide from "../../components/common/Side/LeftSide";
+import { Layout } from "../../../components/common/Layout";
+import { Nav } from "../../../components/common/Nav";
+import LeftSide from "../../../components/common/Side/LeftSide";
 
-export function WriteReview() {
+export function WriteReviewScreen() {
   // //가상정보
   const couponData = {
     couponName: "스타벅스 50% 할인",

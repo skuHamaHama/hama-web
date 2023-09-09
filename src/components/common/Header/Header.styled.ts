@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: start;
   justify-content: space-between;
   width: 100%;
   //height: 100%;
@@ -17,15 +18,19 @@ export const Logo = styled.img`
 
 export const Input = styled.input`
   display: flex;
-  text-align: center;
   border: 1px solid #3c87bd;
   border-radius: 25px;
   outline: none;
   width: 520px;
   height: 41px;
   margin: 0px;
+  padding-left: 20px;
 `;
 
+export const Button = styled.button`
+  border: none;
+  background: none;
+`;
 export const SearchBtn = styled.img`
   width: 31px;
   height: 29px;
@@ -50,15 +55,25 @@ export const MenuBtn = styled.div`
 export const InputWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
   margin-top: 30px;
   margin-left: 0px;
 `;
 
-export const SubWrapper = styled.div`
+export const SearchBox = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+`;
+
+export const SearchList = styled.div`
+  position: absolute;
+  top: 5em;
+  margin-left: 1em;
+  z-index: 2;
+`;
+export const SubWrapper = styled.div`
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Auth = styled.div`

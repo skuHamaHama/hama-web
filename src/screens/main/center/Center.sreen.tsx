@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import { MainCoupon, MainComment } from "../../../components";
 import * as S from "./Center.styled";
 export function CenterScreen() {
+  const navigate = useNavigate();
   return (
     <S.Container>
       <S.Category>
@@ -37,7 +39,13 @@ export function CenterScreen() {
       <S.Category>
         <S.TextGroup>
           <S.Text>최신 댓글</S.Text>
-          <S.ViewText>전체보기</S.ViewText>
+          <S.ViewText
+            onClick={() => {
+              navigate("./comments");
+            }}
+          >
+            전체보기
+          </S.ViewText>
         </S.TextGroup>
         <MainComment />
       </S.Category>

@@ -1,17 +1,22 @@
+import { GetCommentRes } from "../../services";
+import { commentData_3 } from "../../components";
+
 import * as S from "./Comment.styled";
 
-export function Comment() {
+export function Comment({ commentData }: { commentData: GetCommentRes[] }) {
+  if (!commentData) commentData = commentData_3;
   return (
-    <S.BlueContainer>
-      <S.Img src={`${process.env.PUBLIC_URL}/icon/auth/profile_Icon.svg`} />
-      <S.CommentInfo>
-        <S.Brand>나이키</S.Brand>
-        <S.Coupon>나이키 포워드 재켓</S.Coupon>
-        <S.Comment>
-          "학생이라 조금 부담됐었는데, 덕분에 싸게 살 수 있었어요 다음에도 또
-          이용할게요!"
-        </S.Comment>
-      </S.CommentInfo>
-    </S.BlueContainer>
+    <S.Container>
+      {commentData.map((comment: GetCommentRes, idx: number) => (
+        <S.BlueContainer key={idx}>
+          <S.Img src={`${process.env.PUBLIC_URL}/icon/auth/profile_Icon.svg`} />
+          <S.CommentInfo>
+            <S.Brand>{comment.brandName}</S.Brand>
+            <S.Coupon>{comment.couponName}</S.Coupon>
+          </S.CommentInfo>
+          <S.Comment>{comment.comment}</S.Comment>
+        </S.BlueContainer>
+      ))}
+    </S.Container>
   );
 }

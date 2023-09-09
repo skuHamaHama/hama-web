@@ -4,7 +4,7 @@ import * as main from "./screens/main";
 import * as user from "./screens/user";
 import * as coupon from "./screens/coupon";
 import * as brand from "./screens/brand";
-import { WriteReview } from "./screens/review";
+import * as review from "./screens/review";
 
 export function App() {
   const router = createBrowserRouter([
@@ -19,6 +19,7 @@ export function App() {
     { path: "/user/help/profile", element: <auth.ProfileScreen /> }, //프로필 수정
 
     { path: "/main", element: <main.MainScreen /> }, //메인 페이지
+    { path: "/main/comments", element: <review.ReviewScreen /> }, //전체 댓글 페이지
     {
       path: "/coupon/category:categoryName",
       element: <coupon.CouponCategoryScreen />,
@@ -39,7 +40,7 @@ export function App() {
     { path: "/brand/search/keyword", element: <brand.SearchResultScreen /> },
 
     { path: "/usecoupon", element: <coupon.UseCoupon /> }, //쿠폰 사용하려고 할때 나오는 화면
-    { path: "/writereview", element: <WriteReview /> }, //후기 작성
+    { path: "/writereview", element: <review.WriteReviewScreen /> }, //후기 작성
   ]);
 
   return <RouterProvider router={router} />;
