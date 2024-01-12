@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "SUIT-Bold";
+    font-style: normal;
+    font-weight: normal;
+    src: url("./SUIT-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "SUIT-Light";
+    font-style: normal;
+    font-weight: normal;
+    src: url("./SUIT-Light.otf") format("opentype");
+}
