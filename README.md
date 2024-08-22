@@ -33,7 +33,7 @@
 
 **로그인**
 
-JWT 방식으로 진행했으며, 로그인 이후 발급받은 AccessToken`과 `RefreshToken`을 `context API`를 사용하여 전역 state 변수로 지정해주었습니다. 
+JWT 방식으로 진행했으며, 로그인 이후 발급받은 `AccessToken`과 `RefreshToken`을 `context API`를 사용하여 전역 state 변수로 지정해주었습니다. 
 
 API 통신의 Header에는 Bearer 값에 AccessToken이 있어야지 통신이 가능하도록 구현했습니다. 
 
